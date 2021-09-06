@@ -31,3 +31,16 @@ body {
   color: #1fb4ff;
   border: 1px solid #1fb4ff;
 }
+
+/* Testemonials */
+.testimonial {
+  margin-left: 20%;
+  margin-right: 20%;
+  background-color: #555;
+  color: #fff;
+  opacity: 0.6;
+}
+
+.testimonials-row {
+  margin-bottom: 50px;
+}
