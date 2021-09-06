@@ -35,9 +35,19 @@
 </head>
 
 <body>
+  <!-- Free deliver banner -->
+  <div class="row text-center free_delivery_row">
+    <div class="col">
+      <h4 class="free_delivery_text my-2"><i class="fas fa-truck fs-4 mx-2"></i>Free delivery on
+        all orders over €{{ free_shipping_threshold }}
+      </h4>
+    </div>
+  </div>
 
-  <header class="container-fluid fixed-top">
+  <!-- <header class="container-fluid fixed-top"> -->
+  <header class="container-fluid">
     <div id="topnav" class="row bg-white d-none d-lg-flex">
+      
       <!-- Logo/Brand Name -->
       <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
         <a href="{% url 'home' %}" class="nav-link main-logo-link">
@@ -67,6 +77,7 @@
           </div>
         </form>
       </div>
+
       <!-- Account & shopping bag -->
       <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
         <ul class="list-inline list-unstyled text-center text-lg-right my-0">

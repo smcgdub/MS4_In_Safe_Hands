@@ -9,6 +9,12 @@ body {
   font-family: 'Josefin Sans', sans-serif;
 }
 
+/* Free delivery row */
+.free_delivery_row{
+  background-color: #1fb4ff;
+  color: #fff;
+}
+
 /* Top Header */
 .search-bar {
   border: 1px solid #1fb4ff !important;
