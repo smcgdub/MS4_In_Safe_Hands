@@ -44,3 +44,8 @@ body {
 .testimonials-row {
   margin-bottom: 50px;
 }
+
+.testimonial-image {
+  border-radius: 50%;
+  max-width: 40px;
+}

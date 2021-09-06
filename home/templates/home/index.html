@@ -10,6 +10,72 @@
 {% endblock %}
 
 {% block content %}
+<div class="container-fluid fixed-bottom">
+  <div class="row testimonials-row">
+    <div class="col px-0">
+      <!-- Reviews -->
+      <div id="carouselExampleFade" class="carousel slide carousel-fade d-none d-md-block d-lg-block d-xl-block"
+        data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+          <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <!-- Review 1 -->
+          <div class="carousel-item active" data-interval="4000">
+            <p class="text-center text-white testimonial font-italic px-3">
+              <img src="/media/testimonials/testimonial-face-1.jpg" alt="" class="testimonial-image text-center py-1 mt-1">
+              <br>
+              <span>Ivan</span>
+              <br>
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam provident adipisci voluptatibus aliquid
+              corporis placeat voluptatum suscipit ipsam, molestiae magnam."
+            </p>
+            <br>
+          </div>
+          <!-- Review 2 -->
+          <div class="carousel-item" data-interval="4000">
+            <p class="text-center text-white testimonial font-italic px-3">
+              <img src="/media/testimonials/testimonial-face-2.jpg" alt="" class="testimonial-image text-center py-1 mt-1">
+              <br>
+              <span>Maria</span>
+              <br>
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam provident adipisci voluptatibus aliquid
+              corporis placeat voluptatum suscipit ipsam, molestiae magnam"
+            </p>
+            <br>
+          </div>
+          <!-- Review 3 -->
+          <div class="carousel-item" data-interval="4000">
+            <p class="text-center text-white testimonial font-italic px-3">
+              <img src="/media/testimonials/testimonial-face-3.jpg" alt="" class="testimonial-image text-center py-1 mt-1">
+              <br>
+              <span>Chris</span>
+              <br>
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam provident adipisci voluptatibus aliquid
+              corporis placeat voluptatum suscipit ipsam, molestiae magnam."
+            </p>
+            <br>
+          </div>
+        </div>
+        <!-- Controls -->
+        <!-- Previous -->
+        <a class="carousel-control-prev d-none" href="#carouselExampleFade" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <!-- Next -->
+        <a class="carousel-control-next d-none" href="#carouselExampleFade" role="button" data-slide="next"
+          style="display: none;">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- <div class="container h-100">
   <div class="row h-100">
