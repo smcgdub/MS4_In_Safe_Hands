@@ -8,3 +8,20 @@ body {
   height: calc(100vh - 164px);
   font-family: 'Josefin Sans', sans-serif;
 }
+
+/* Top Header */
+.search-bar {
+  border: 1px solid #1fb4ff !important;
+}
+
+.search-icon {
+  background-color: #1fb4ff;
+  border: 1px solid #1fb4ff !important;
+  color: #fff;
+}
+
+.search-icon:hover {
+  background-color: #fff;
+  color: #1fb4ff;
+  border: 1px solid #1fb4ff;
+}
