@@ -23,4 +23,5 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('', include('home.urls')),
     path('about_us/', include('about_us.urls')),
+    path('covid_numbers/', include('covid_numbers.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

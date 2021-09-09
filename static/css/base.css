@@ -50,6 +50,7 @@ body {
   max-width: 40px;
 }
 
+/* Global */
 .overlay {
   height: 100%;
   width: 100%;
@@ -58,4 +59,9 @@ body {
   position: fixed;
   background: #fff;
   z-index: -1;
+}
+
+.page_top_banner {
+  background-color: #1fb4ff !important;
+  color: #fff !important;
 }

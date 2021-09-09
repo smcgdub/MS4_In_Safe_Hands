@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'home',
     'about_us',
+    'covid_numbers',
 ]
 
 MIDDLEWARE = [
