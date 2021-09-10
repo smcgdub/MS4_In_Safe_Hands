@@ -168,6 +168,62 @@ Details
 
 #### **6.1 Media** ####
 
+* The products PNG images i have sourced from various free PNG sites. The individual list of the images can be found below
+
+**PRODUCTS**
+
+* **N95 Mask**<br>
+Link to the original image: [Here]()
+
+
+* **KN95 Mask**<br>
+Link to the original image: [Here](https://www.pngwing.com/en/free-png-vcpqz)
+All credits belongs to the owner of the image (DMCA) and the image is provided under non-commercial use
+
+* **Surgical Mask**<br>
+Link to the original image: [Here](https://www.pngwing.com/en/free-png-vwteu)
+All credits belongs to the owner of the image (DMCA) and the image is provided under non-commercial use
+
+* **Face Shield**<br>
+Link to the original image: [Here](https://pngtree.com/freepng/medical-face-mask-or-shield-realistic-plastic-face-shield-side-view-transparent-plastic-helmet-covid-19-quarantine-concept_5390600.html)
+<br>
+All credits belongs to the owner of the image (Me&Art) whose profile can be found [Here](https://pngtree.com/me%26art_6843833?type=1)
+
+* **Rapid Antigen Test**<br>
+Link to the original image: [Here](https://pngtree.com/freepng/coronavirus-test-used-to-detect-the-corona-virus-in-humans_5870822.html)
+<br>
+All credits belongs to the owner of the image (Iwan100) whose profile can be found [Here](https://pngtree.com/iwan100_28265876?type=1)
+
+* **Rapid PCR Test**<br>
+Link to the original image: [Here](https://pngtree.com/freepng/rapid-test_6581523.html)
+<br>
+All credits belongs to the owner of the image (Best Pixel) whose profile can be found [Here](https://pngtree.com/best-pixel_32692878?type=1)
+
+* **Infrared Thermometer**<br>
+Link to the original image: [Here](https://pngtree.com/freepng/infrared-thermometer-design-vector-cartoon_5510126.html)
+<br>
+All credits belongs to the owner of the image (p4pranstudio) whose profile can be found [Here](https://pngtree.com/p4pranstudio_18640515?type=1)
+
+* **Disposable Gloves**<br>
+Link to the original image: [Here](https://www.pngwing.com/en/free-png-viuej)
+<br>
+All credits belongs to the owner of the image (DMCA) and the image is provided under non-commercial use
+
+* **Disposable Gown**<br>
+Link to the original image: [Here](https://www.pngwing.com/en/free-png-xfpch)
+<br>
+All credits belongs to the owner of the image (DMCA) and the image is provided under non-commercial use
+
+* **Hand Sanitizer**<br>
+Link to the original image: [Here](https://www.pngwing.com/en/free-png-texpw)
+All credits belongs to the owner of the image (DMCA) and the image is provided under non-commercial use
+
+* **75% Alcohol wipes**<br>
+Link to original image: [Here](https://pngtree.com/freepng/yellow-and-blue-contrast-disinfection-wipes-3d-element_5487423.html)
+<br>
+All credit belongs to the owner of the image (Air), whose profile can be found [Here](https://pngtree.com/air_14779142?type=1)
+
+
 #### **6.2 Code** ####
 
 * All of the data on the covid numbers page is provided by Our World In Data. All credit for the charts, map, table and daily statistics goes to Our World Data who allow for the reproduction of this data free of charge once it is credited and the source is listed. The original link to the source of the data can be found by clicking here: https://ourworldindata.org/grapher/daily-covid-cases-deaths?tab=map&country=~OWID_WRL 
