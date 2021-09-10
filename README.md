@@ -165,15 +165,17 @@ Details
 <hr>
 
 ### **6. Credits** ###
+<br>
 
 #### **6.1 Media** ####
 
-* The products PNG images i have sourced from various free PNG sites. The individual list of the images can be found below
+The products PNG images i have sourced from various free PNG sites. The individual list of the images can be found below
 
 **PRODUCTS**
 
 * **N95 Mask**<br>
-Link to the original image: [Here]()
+Link to the original image: [Here](https://www.pngwing.com/en/free-png-itipy)
+All credits belongs to the owner of the image (DMCA) and the image is provided under non-commercial use
 
 * **KN95 Mask**<br>
 Link to the original image: [Here](https://www.pngwing.com/en/free-png-vcpqz)
