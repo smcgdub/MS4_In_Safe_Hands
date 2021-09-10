@@ -9,7 +9,7 @@
       "category": 1,
       "rating": 4.9,
       "image_url": "https://ibb.co/dfhFVrF",
-      "image": "placeholder.jpg"
+      "image": "n95_green.png"
     }
   },
   {
@@ -23,7 +23,7 @@
       "category": 1,
       "rating": 4.9,
       "image_url": "https://ibb.co/dfhFVrF",
-      "image": "placeholder.jpg"
+      "image": "n95_green.png"
     }
   },
   {
@@ -37,7 +37,7 @@
       "category": 1,
       "rating": 4.5,
       "image_url": "https://ibb.co/Tg53tXV",
-      "image": "placeholder.jpg"
+      "image": "kn95.png"
     }
   },
   {
@@ -51,7 +51,7 @@
       "category": 1,
       "rating": 4.5,
       "image_url": "https://ibb.co/Tg53tXV",
-      "image": "placeholder.jpg"
+      "image": "kn95.png"
     }
   },
   {
@@ -65,7 +65,7 @@
       "category": 1,
       "rating": 4.0,
       "image_url": "https://ibb.co/ZWcSLHC",
-      "image": "placeholder.jpg"
+      "image": "surgical_mask.png"
     }
   },
   {
@@ -79,7 +79,7 @@
       "category": 1,
       "rating": 3.5,
       "image_url": "https://ibb.co/C52VqLH",
-      "image": "placeholder.jpg"
+      "image": "face_shield.png"
     }
   },
   {
@@ -93,7 +93,7 @@
       "category": 2,
       "rating": 4.4,
       "image_url": "https://ibb.co/WKnWVHm",
-      "image": "placeholder.jpg"
+      "image": "antigen_test.png"
     }
   },
   {
@@ -107,7 +107,7 @@
       "category": 2,
       "rating": 4.9,
       "image_url": "https://ibb.co/C77SHZM",
-      "image": "placeholder.jpg"
+      "image": "rapid_pcr.png"
     }
   },
   {
@@ -121,7 +121,7 @@
       "category": 2,
       "rating": 4.9,
       "image_url": "https://ibb.co/jLrZFjd",
-      "image": "placeholder.jpg"
+      "image": "infrared_thermometer.png"
     }
   },
   {
@@ -129,13 +129,13 @@
     "model": "products.product",
     "fields": {
       "p_id": "ppe000010",
-      "name": "Biodegradable examination gloves - 100 gloves",
+      "name": "Examination gloves - 50 pairs",
       "description": "Our powder free nitrile examination gloves strike the perfect balance between great protection, comfort and tactile sensitivity. Fingertip textured to provide enhanced grip while you work and tested to offer strong pressure and tear resistance.",
       "price": 10.95,
       "category": 3,
       "rating": 4.9,
       "image_url": "https://ibb.co/Wkg0CRT",
-      "image": "placeholder.jpg"
+      "image": "rubber_gloves.png"
     }
   },
   {
@@ -149,7 +149,7 @@
       "category": 3,
       "rating": 4.00,
       "image_url": "https://ibb.co/C7z00Qk",
-      "image": "placeholder.jpg"
+      "image": "disposable_gown.png"
     }
   },
   {
@@ -163,7 +163,7 @@
       "category": 4,
       "rating": 4.5,
       "image_url": "https://ibb.co/G2DMyhz",
-      "image": "placeholder.jpg"
+      "image": "sanitizer.png"
     }
   },
   {
@@ -171,13 +171,13 @@
     "model": "products.product",
     "fields": {
       "p_id": "ppe000013",
-      "name": "Hand and surface sachet wipes (70% alcohol) - Pack of 1000",
-      "description": "These individually wrapped 70% alcohol wipes are ideal for disinfecting both hands and surfaces. The quick drying formulation means they are also great for wiping down phones, hand held devices, PCs and desks. Ideal for people to carry on the move.",
+      "name": "Hand and surface wipes - Pack of 1000",
+      "description": "These individually wrapped 75% alcohol wipes are ideal for disinfecting both hands and surfaces. The quick drying formulation means they are also great for wiping down phones, hand held devices, PCs and desks. Ideal for people to carry on the move.",
       "price": 54.99,
       "category": 4,
       "rating": 4.3,
       "image_url": "https://ibb.co/dMxJrhK",
-      "image": "placeholder.jpg"
+      "image": "alcohol_wipes.png"
     }
   }
 ]
