@@ -170,7 +170,7 @@ Details
 
 #### **6.2 Code** ####
 
-* The HTML and CSS code i used came primarily from Bootstrap. The official Bootstrap documentation is the best place to reference for everything you need. [Bootstrap Documentation Here](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
+* All of the data on the covid numbers page is provided by Our World In Data. All credit for the charts, map, table and daily statistics goes to Our World Data who allow for the reproduction of this data free of charge once it is credited and the source is listed. The original link to the source of the data can be found by clicking here: https://ourworldindata.org/grapher/daily-covid-cases-deaths?tab=map&country=~OWID_WRL 
 
 #### **6.3 Acknowledgements** ####
 
