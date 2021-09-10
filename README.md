@@ -56,9 +56,13 @@ In Safe Hands was created and built by Stephen Mc Govern as my 4th and final mil
 ### **9. Disclaimer** ###
 * 9.0 Disclaimer on project
 
+<br>
 <hr>
 
-### **1. User Experience (UX)** ###
+<details>
+<summary><strong>
+1. User Experience (UX)
+</strong></summary>
 <br>
 
 #### **1.1 - Target Audience** ####
@@ -104,13 +108,20 @@ INSERT COLOUR PALLETTE HERE
 
 #### **1.5 - Wire Frames** ####
 
+</details>
 <hr>
 
-### **2. Features** ### 
-
+<details>
+<summary><strong>
+2. Features
+</strong></summary>
+</details>
 <hr>
 
-### **3. Technologies/Languages Used** ###
+<details>
+<summary><strong>
+3. Technologies/Languages Used
+</strong></summary>
 <br>
 
 * 3.1 - [Gitpod](https://www.gitpod.io/) - Is the IDE recommended for Code Institute students and the one i chose to develop this project in.
@@ -126,20 +137,25 @@ INSERT COLOUR PALLETTE HERE
 * 3.11 - [W3schools](https://www.w3schools.com/) - One of the first ports of call for any developer. It has a vast amount of content and code tutorials that will help explain how code works. A great free resource for every developer. 
 * 3.12 - [Balsamiq](https://balsamiq.com/) - Balsamiq Wireframes is a small graphical tool to sketch out user interfaces for websites and web / desktop / mobile applications. I used Balsamiq to formulate my initial ideas for the site so i could visualize how the site would look and also be able to gage the scope of the project. 
 * 3.13 - [Favicon](https://favicon.io/favicon-generator/) - A free and simple website that allows you to create, build and customize your Favicons for your own site.
-
+</details>
 <hr>
 
-### **4. Testing** ###
+<details>
+<summary><strong>
+4. Testing
+</strong></summary>
+
 <br>
 
 #### **4.1 The testing.md file** ####
 
 * Testing information can be found in the [testing.md](testing.md) file.
 
-<br>
+
 
 #### **4.2 Development Issues** ####
 <br>
+
 
 **1. SECRET_KEY Issue**
 
@@ -158,13 +174,21 @@ Details
 
 * I then created a brand new secret key and have stored this in my Gitpod variables. I stopped and restarted the workspace and ran the project using `python3 manage.py runserver` Everything is now running as normal and the new SECRET_KEY is secured and no longer exposed and the old one has been discarded. 
 
-<hr>
-
-### **5. Deployment** ###
+</details>
 
 <hr>
 
-### **6. Credits** ###
+<details>
+<summary><strong>
+5. Deployment
+</strong></summary>
+</details>
+<hr>
+
+<details>
+<summary><strong>
+6. Credits
+</strong></summary>
 <br>
 
 #### **6.1 Media** ####
@@ -224,7 +248,6 @@ Link to original image: [Here](https://pngtree.com/freepng/yellow-and-blue-contr
 <br>
 All credit belongs to the owner of the image (Air), whose profile can be found [Here](https://pngtree.com/air_14779142?type=1)
 
-
 #### **6.2 Code** ####
 
 * All of the data on the covid numbers page is provided by Our World In Data. All credit for the charts, map, table and daily statistics goes to Our World Data who allow for the reproduction of this data free of charge once it is credited and the source is listed. The original link to the source of the data can be found by clicking here: https://ourworldindata.org/grapher/daily-covid-cases-deaths?tab=map&country=~OWID_WRL 
@@ -235,22 +258,37 @@ All credit belongs to the owner of the image (Air), whose profile can be found [
 * A big thank you to my mentor Dick Vlaanderen who always gives me great feedback on my ideas and is able to point me in the right direction.
 * A final big thank you to all of the other students, CI alumni and CI staff who were always willing to help out and advise on the official CI Slack channels.
 
+</details>
 <hr>
 
-### **7. Contact Me** ###
-
+<details>
+<summary><strong>
+7. Contact Me
+</strong></summary>
+<br>
 If you need to reach me i can be contacted via the three methods below:
 
-* 7.1 - [LinkedIn](https://www.linkedin.com/in/stephenmcgovern01/)<br>
+* 7.1 - [LinkedIn](https://www.linkedin.com/in/stephenmcgovern01/)
 * 7.2 - [Email](mailto:stephen_xyz1@hotmail.com)<br>
 * 7.3 - [Skype](https://join.skype.com/invite/ndruMu7qVuKZ)
 
+</details>
 <hr>
 
-### **8. Future Items To Develop** ###
+<details>
+<summary><strong>
+8. Future Items To Develop
+</strong></summary>
 
+</details>
 <hr>
 
-### **9. Disclaimer** ###
+<details>
+<summary><strong>
+9. Disclaimer
+</strong></summary>
+<br>
 
 * This website and all of its content was completed for my final assessment project with Code Institute. The site is strictly for educational purposes only.
+
+</details>
