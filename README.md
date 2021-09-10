@@ -175,7 +175,6 @@ Details
 * **N95 Mask**<br>
 Link to the original image: [Here]()
 
-
 * **KN95 Mask**<br>
 Link to the original image: [Here](https://www.pngwing.com/en/free-png-vcpqz)
 All credits belongs to the owner of the image (DMCA) and the image is provided under non-commercial use
