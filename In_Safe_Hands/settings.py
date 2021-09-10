@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'home',
     'about_us',
     'covid_numbers',
+    'products',
 ]
 
 MIDDLEWARE = [
