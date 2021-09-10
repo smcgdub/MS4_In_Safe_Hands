@@ -11,7 +11,8 @@ class ProductAdmin(admin.ModelAdmin):
       'image',
     )
 
-    ordering = ('category',)
+    # Items are ordered by category 1st then alphabetically by name
+    ordering = ('category', 'name')
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = (
