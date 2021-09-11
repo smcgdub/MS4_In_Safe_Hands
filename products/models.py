@@ -1,8 +1,10 @@
 from django.db import models
 
 
+# The Category model and the individual details each category will have 
 class Category(models.Model):
 
+    # This will correct the spelling in Django admin to the correct plural spelling
     class Meta:
         verbose_name_plural = 'Categories'
         
@@ -10,13 +12,15 @@ class Category(models.Model):
     friendly_name = models.CharField(max_length=200, null=True,
             blank=True)
 
+    # To return the name of the category in the Django admin
     def __str__(self):
         return self.name
 
+    # To return the friendly name of the category in the Django admin
     def get_friendly_name(self):
         return self.friendly_name
 
-
+# The Product model and the individual details each product will have 
 class Product(models.Model):
 
     category = models.ForeignKey('Category', null=True, blank=True,
@@ -33,5 +37,6 @@ class Product(models.Model):
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
 
+    # To return the name of the Product in the Django admin
     def __str__(self):
         return self.name
