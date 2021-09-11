@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- White background overlay -->
+<div class="overlay"></div>
+
+<!-- Main page container -->
+<div class="container-fluid">
+
+  <!-- Product details Banner -->
+  <div class="row">
+    <div class="col text-center my-auto px-0">
+      <h4 class="page_top_banner text-uppercase text-dark pt-2 mb-2">Product Details
+      </h4>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <!-- Product Image -->
+    <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+      <div class="image-container">
+        {% if product.image.url %}
+        <a href="{{ product.image.url }}" target="_blank">
+          <img src="{{ product.image.url}}" class="card-img-top img-fluid" alt="{{ product.name }}"
+            style="height: 280px;">
+        </a>
+        {% else %}
+        <a href="{% url 'product_detail' product.id %}">
+          <img src="/media/no_photo/no_photo.png" class="card-img-top img-fluid" alt="{{ product.name }}"
+            style="height: 280px;">
+        </a>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Product Details -->
+    <div class="col-12 col-md-6 col-lg-4 offset-lg-2 ml-0">
+      <div>
+        <p>{{ product.name }}</p>
+        <p>{{ product.price }}</p>
+        <!-- Product Rating -->
+        {% if product.rating %}
+        <li class="list-group-item px-0 py-0 text-center font-weight-bold text-dark"><span class="horiz-bar">|</span>
+          Rating: &nbsp<i class="fas fa-star-half-alt text-dark"></i>&nbsp{{ product.rating }} / 5 <span
+            class="horiz-bar">|</span></li>
+        {% else %}
+        <li class="list-group-item px-0 py-0 text-center font-weight-bold text-dark">Not rated yet</li>
+        {% endif %}
+        <!-- Product description -->
+        <p>{{ product.description }}</p>
+      </div>
+    </div>
+
+  </div>
+  {% endblock %}
