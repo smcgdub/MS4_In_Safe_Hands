@@ -5,14 +5,87 @@
 <!-- White background overlay -->
 <div class="overlay"></div>
 
-<!-- PPE products banner -->
+<!-- Main page container -->
 <div class="container-fluid">
+
+  <!-- PPE Products Banner -->
   <div class="row">
     <div class="col text-center my-auto px-0">
       <h4 class="page_top_banner text-uppercase text-dark pt-2 mb-2">PPE Products
       </h4>
     </div>
   </div>
-</div>
 
+  <!-- All Products Cards -->
+  <div class="col-10 offset-1">
+    <hr>
+  
+    <!-- <div class="row mt-1 mb-2"></div> -->
+
+    <div class="row">
+      <!-- Products for loop -->
+      {% for product in products %}
+      <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+        <div class="card">
+
+          <!-- Card Images -->
+          {% if product.image %}
+          <a href="">
+            <img src="{{ product.image.url}}" class="card-img-top img-fluid" alt="{{ product.name }}" style="height: 280px;">
+          </a>
+          {% else %}
+          <a href="">
+            <img src="/media/no_photo/no_photo.png" class="card-img-top img-fluid" alt="{{ product.name }}" style="height: 280px;">
+          </a>
+          {% endif %}
+
+          <!-- Product Name (Header)-->
+          <div class="card-body px-0 py-0">
+            <h6 class="card-title mb-0 mt-3 text-center font-weight-bold text-dark"><span class="horiz-bar">|</span>
+              {{ product.name }} <span class="horiz-bar">|</span></h6>
+          </div>
+
+          <!-- Product Details -->
+          <ul class="list-group list-group-flush">
+            <!-- Product Price -->
+            <li class="list-group-item px-0 py-0 text-center font-weight-bold text-dark"><span
+                class="horiz-bar">|</span> Price:
+              €{{ product.price }} <span class="horiz-bar">|</span></li>
+            <!-- Product Rating -->
+            {% if product.rating %}
+            <li class="list-group-item px-0 py-0 text-center font-weight-bold text-dark"><span
+                class="horiz-bar">|</span> Rating: &nbsp<i
+                class="fas fa-star-half-alt text-dark"></i>&nbsp{{ product.rating }} / 5 <span
+                class="horiz-bar">|</span></li>
+            {% else %}
+            <li class="list-group-item px-0 py-0 text-center font-weight-bold text-dark">Not rated yet</li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+      <!-- Dynamic horizontal line that adjusts to all screen sizes-->
+      {% if forloop.counter|divisibleby:1 %}
+      <div class="col-12 d-sm-none mb-3 mt-3">
+        <hr>
+      </div>
+      {% endif %}
+      {% if forloop.counter|divisibleby:2 %}
+      <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-3 mt-3">
+        <hr>
+      </div>
+      {% endif %}
+      {% if forloop.counter|divisibleby:3 %}
+      <div class="col-12 d-none d-lg-block d-xl-none mb-3 mt-3">
+        <hr>
+      </div>
+      {% endif %}
+      {% if forloop.counter|divisibleby:4 %}
+      <div class="col-12 d-none d-xl-block mb-3 mt-3">
+        <hr>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
 {% endblock %}

@@ -13,20 +13,6 @@
     }
   },
   {
-    "pk": 2,
-    "model": "products.product",
-    "fields": {
-      "p_id": "ppe00002",
-      "name": "N95 Mask (Single)",
-      "description": "This N95 mask is a respirator mask (FFP2 form) which helps prevent viruses from entering through the mucous membranes of the mouth and nostrils. These unique face masks have been specifically designed for the public to use in a flu outbreak such as the current COVID-19 pandemic.",
-      "price": 4.50,
-      "category": 1,
-      "rating": 4.9,
-      "image_url": "https://ibb.co/dfhFVrF",
-      "image": "n95_green.png"
-    }
-  },
-  {
     "pk": 3,
     "model": "products.product",
     "fields": {
@@ -34,20 +20,6 @@
       "name": "KN95 Mask (Pack of 10)",
       "description": "KN95 is the regulatory standard for filtering face piece respirators that are certified in China. KN95 masks provide 95% protection against all particles that are greater than 0.3 µm in diameter (bacteria, viruses, pollution particles, fine particles, dust, smog, pollen, etc.) Currently approved by the WHO as a safety measure from COVID-19; used by health care providers, patients, and citizens.",
       "price": 40.00,
-      "category": 1,
-      "rating": 4.5,
-      "image_url": "https://ibb.co/Tg53tXV",
-      "image": "kn95.png"
-    }
-  },
-  {
-    "pk": 4,
-    "model": "products.product",
-    "fields": {
-      "p_id": "ppe00004",
-      "name": "KN95 Mask (Single)",
-      "description": "KN95 is the regulatory standard for filtering face piece respirators that are certified in China. KN95 masks provide 95% protection against all particles that are greater than 0.3 µm in diameter (bacteria, viruses, pollution particles, fine particles, dust, smog, pollen, etc.) Currently approved by the WHO as a safety measure from COVID-19; used by health care providers, patients, and citizens.",
-      "price": 4.00,
       "category": 1,
       "rating": 4.5,
       "image_url": "https://ibb.co/Tg53tXV",
@@ -143,7 +115,7 @@
     "model": "products.product",
     "fields": {
       "p_id": "ppe000011",
-      "name": "Long sleeve disposable isolation gown - 100 pack",
+      "name": "Disposable isolation gown - 100 pack",
       "description": "These single use gowns are ideal to offer a full length protective barrier to the users cloths in close contact situations",
       "price": 139.99,
       "category": 3,
