@@ -8,12 +8,13 @@
         aria-haspopup="true" aria-expanded="false">
         Shop PPE<i class="fas fa-caret-down my-auto pl-2"></i>
       </a>
+      <!-- Dropdown of categories of products -->
       <div class="dropdown-menu border-0" aria-labelledby="shop-link">
         <a href="{% url 'products' %}" class="dropdown-item">All PPE Products</a>
-        <a href="" class="dropdown-item">Masks</a>
-        <a href="" class="dropdown-item ">Covid Testing</a>
-        <a href="" class="dropdown-item ">Hygiene</a>
-        <a href="" class="dropdown-item">Wearable PPE</a>
+        <a href="{% url 'products' %}?category=masks" class="dropdown-item">Masks</a>
+        <a href="{% url 'products' %}?category=covid_testing" class="dropdown-item ">Covid Testing</a>
+        <a href="{% url 'products' %}?category=hygiene" class="dropdown-item ">Hygiene</a>
+        <a href="{% url 'products' %}?category=wearable_ppe" class="dropdown-item">Wearable PPE</a>
       </div>
     </li>
 
