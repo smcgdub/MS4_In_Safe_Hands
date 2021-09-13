@@ -16,22 +16,37 @@
     </div>
   </div>
 
-  <!-- Sort By Button -->
-  <div class="row text-center">
-    <div class="col">
+
+  <div class="row">
+    <!-- <div class="col-12 col-md-6 order-md-first"> -->
+    <div class="col-10 offset-1">
+      <p class="text-muted mt-3 ml-3 text-center text-md-left">
+        {% if search_term or current_categories or current_sorting != 'None_None' %}
+        <span class=""><a href="{% url 'products' %}">Products Home</a> | </span>
+        {% endif %}
+        {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+      </p>
+    </div>
+  </div>
+
+    <!-- Sort By Button -->
+    <!-- <div class="col-10 offset-1">
       <div class="dropdown">
-        <button class="btn border-0 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+        <button class="btn border-0 dropdown-toggle mt-2" type="button" id="dropdownMenuButton" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           Sort By
         </button>
         <div class="dropdown-menu border-0" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="{% url 'products' %}?sort=category&direction=asc">Category</a>
-          <a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">Price</a>
-          <a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=desc">Rating</a>
-        </div>
+          <a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">Price</a> -->
+          <!-- <a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=desc">Rating</a> -->
+        <!-- </div>
       </div>
-    </div>
-  </div>
+    </div> -->
+
+
+
+
 
   <!-- All Products Cards -->
   <div class="col-10 offset-1">
@@ -60,8 +75,8 @@
 
           <!-- Product Name (Header)-->
           <div class="card-body px-0 py-0">
-            <h6 class="card-title mb-0 mt-3 text-center font-weight-bold text-dark"><span class="horiz-bar">|</span>
-              {{ product.category.friendly_name }} <span class="horiz-bar">|</span></h6>
+            <!-- <h6 class="card-title mb-0 mt-3 text-center font-weight-bold text-dark"><span class="horiz-bar">|</span>
+              Category: {{ product.category.friendly_name }} <span class="horiz-bar">|</span></h6> -->
             <h6 class="card-title mb-0 mt-1 text-center font-weight-bold text-dark"><span class="horiz-bar">|</span>
               {{ product.name }} <span class="horiz-bar">|</span></h6>
           </div>
@@ -80,6 +95,16 @@
                 class="horiz-bar">|</span></li>
             {% else %}
             <li class="list-group-item px-0 py-0 text-center font-weight-bold text-dark">Not rated yet</li>
+            {% endif %}
+            <!-- Product Category If Loop-->
+            {% if product.category %}
+            <p class="mb-0 text-center font-weight-bold text-dark"><span class="horiz-bar">|</span><span
+                class="font-weight-bold text-dark"> Category:</span>
+              <a class="text-muted text-dark" href="{% url 'products' %}?category={{ product.category.name }}">
+                <!-- <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }} -->
+                <i class="fas fa-qrcode"></i> {{ product.category.friendly_name }}
+              </a>
+              <span class="horiz-bar">|</span></p>
             {% endif %}
           </ul>
         </div>

@@ -52,7 +52,6 @@ def all_products(request):
         'search_term': query,
         'current_categories': categories,
         'current_sorting': current_sorting,
-        # 'categories': categories
         }
 
     return render(request, 'products/products.html', context)
@@ -64,6 +63,5 @@ def product_details(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     context = {
         'product': product,
-        # 'categories': categories
         }
     return render(request, 'products/product_details.html', context)
