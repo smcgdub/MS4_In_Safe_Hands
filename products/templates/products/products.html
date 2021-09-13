@@ -16,10 +16,27 @@
     </div>
   </div>
 
+  <!-- Sort By Button -->
+  <div class="row text-center">
+    <div class="col">
+      <div class="dropdown">
+        <button class="btn border-0 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Sort By
+        </button>
+        <div class="dropdown-menu border-0" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="{% url 'products' %}?sort=category&direction=asc">Category</a>
+          <a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">Price</a>
+          <a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=desc">Rating</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- All Products Cards -->
   <div class="col-10 offset-1">
-    <hr>
-  
+    <hr class="mt-1">
+
     <!-- <div class="row mt-1 mb-2"></div> -->
 
     <div class="row">
@@ -31,17 +48,21 @@
           <!-- Card Images -->
           {% if product.image %}
           <a href="{% url 'product_details' product.id %}">
-            <img src="{{ product.image.url}}" class="card-img-top img-fluid" alt="{{ product.name }}" style="height: 280px;">
+            <img src="{{ product.image.url}}" class="card-img-top img-fluid" alt="{{ product.name }}"
+              style="height: 280px;">
           </a>
           {% else %}
           <a href="{% url 'product_details' product.id %}">
-            <img src="/media/no_photo/no_photo.png" class="card-img-top img-fluid" alt="{{ product.name }}" style="height: 280px;">
+            <img src="/media/no_photo/no_photo.png" class="card-img-top img-fluid" alt="{{ product.name }}"
+              style="height: 280px;">
           </a>
           {% endif %}
 
           <!-- Product Name (Header)-->
           <div class="card-body px-0 py-0">
             <h6 class="card-title mb-0 mt-3 text-center font-weight-bold text-dark"><span class="horiz-bar">|</span>
+              {{ product.category.friendly_name }} <span class="horiz-bar">|</span></h6>
+            <h6 class="card-title mb-0 mt-1 text-center font-weight-bold text-dark"><span class="horiz-bar">|</span>
               {{ product.name }} <span class="horiz-bar">|</span></h6>
           </div>
 
@@ -50,7 +71,7 @@
             <!-- Product Price -->
             <li class="list-group-item px-0 py-0 text-center font-weight-bold text-dark"><span
                 class="horiz-bar">|</span> Price:
-              €{{ product.price }} <span class="horiz-bar">|</span></li>
+              €{{ product.price }}<span class="horiz-bar">|</span></li>
             <!-- Product Rating -->
             {% if product.rating %}
             <li class="list-group-item px-0 py-0 text-center font-weight-bold text-dark"><span
