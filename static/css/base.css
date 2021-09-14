@@ -87,3 +87,16 @@ body {
 .fa-qrcode:before {
   color: #1fb4ff !important;
 }
+
+/* Shopping Cart Page */
+
+.cart-shopping-button {
+  background-color: #1fb4ff !important;
+  color: #fff !important;
+}
+
+.cart-shopping-button:hover {
+  background-color: #fff !important;
+  color: #1fb4ff !important;
+  border: 1px solid #1fb4ff;
+}

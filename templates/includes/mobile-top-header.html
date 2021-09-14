@@ -49,7 +49,7 @@
   <!-- Shopping Cart -->
   <li class="list-inline-item">
     <a class="px-1 pt-1 pb-0 {% if grand_total %}text-danger font-weight-bold{% else %}text-dark{% endif %} nav-link d-block d-lg-none"
-      href="">
+      href="{% url 'view_cart' %}">
       <div class="text-center">
         <div><i class="fas fa-shopping-cart fa-lg"></i></div>
         <p class="my-0">

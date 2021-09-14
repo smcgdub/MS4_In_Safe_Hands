@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'about_us',
     'covid_numbers',
     'products',
+    'cart',
 ]
 
 MIDDLEWARE = [

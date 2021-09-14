@@ -107,7 +107,7 @@
           </li>
           <!-- Shopping Cart -->
           <li class="list-inline-item">
-            <a class="{% if grand_total %}text-danger font-weight-bold{% else %}text-dark{% endif %} nav-link" href="">
+            <a class="{% if grand_total %}text-danger font-weight-bold{% else %}text-dark{% endif %} nav-link" href="{% url 'view_cart' %}">
               <div class="text-center">
                 <div><i class="fas fa-shopping-cart fa-lg"></i></div>
                 <p class="my-0">

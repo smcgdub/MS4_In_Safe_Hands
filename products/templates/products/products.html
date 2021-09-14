@@ -18,9 +18,11 @@
 
 
   <div class="row">
+    <!-- Number of products available on products page or number of products available after a search -->
     <!-- <div class="col-12 col-md-6 order-md-first"> -->
     <div class="col-10 offset-1">
-      <p class="text-muted mt-3 ml-3 text-center text-md-left">
+      <p class="text-muted my-2 ml-2 text-center text-md-left">
+        <!-- If user searches using a search term or via a category the loop below will run -->
         {% if search_term or current_categories or current_sorting != 'None_None' %}
         <span class=""><a href="{% url 'products' %}">All Products</a> | </span>
         {% endif %}

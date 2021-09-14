@@ -13,8 +13,9 @@ def all_products(request):
     sort = None
     direction = None
 
-    # For when users click on a specific category of items in the drop down menu 
+    # 
     if request.GET:
+        # If user is looking to sort the results 
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey
@@ -28,15 +29,16 @@ def all_products(request):
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey) 
 
+        # If user is searching via category
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
 
-    # Search function if the user has submitted a search term/word 
+        # Search function if the user has submitted a search term/word 
         if 'q' in request.GET:
             query = request.GET['q']
-            # If the user doesn't enter anything in the search box and presses search the site will load all the products
+            # If the user doesn't enter anything in the search box and presses search the site will load the all products page
             if not query:
                 messages.error(request, "You haven't entered anything to search for!")
                 return redirect(reverse('products'))
@@ -45,6 +47,7 @@ def all_products(request):
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
 
+    # Return sorting to the template 
     current_sorting = f'{sort}_{direction}'
 
     context = {
