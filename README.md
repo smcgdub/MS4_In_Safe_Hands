@@ -137,7 +137,7 @@ INSERT COLOUR PALLETTE HERE
 
 ![Image of user icon](media/readme_images/user_account.png)
 
-#### **2.1 - The Navbar** ####
+#### **2.2 - The Navbar** ####
 
 * The navbar is a bootstrap navbar that contains 4 separate dropdown menus to allow users to easily navigate the site. The first dropdown is the one that will allow users to shop for different type of PPE products that the site offers.   
 

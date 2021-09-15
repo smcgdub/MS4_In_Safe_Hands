@@ -75,16 +75,19 @@
               <p class="mb-1 font-weight-bold text-dark">Quantity:</p>
               <div class="form-group w-50">
                 <div class="input-group">
+
                   <!-- Minus button -->
                   <div class="input-group-append">
                     <button id="decrease-qty_{{ product.id }}" class="btn rounded-0 cart-shopping-button pb-1 decrease-qty" data-item_id="{{ product.id }}">
                       <i class="fas fa-minus"></i>
                     </button>
                   </div>
+                  
                   <!-- Quantity input -->
-                  <input class="form-control text-center" type="number" name="quantity" value="1" min="1" max="99"
+                  <input class="form-control qty_input text-center" type="number" name="quantity" value="1" min="1" max="10"
                     data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
-                  <!-- Add button -->
+                  
+                    <!-- Add button -->
                   <div class="input-group-prepend">
                     <button id="increase-qty_{{ product.id }}" class="btn rounded-0 cart-shopping-button pb-1 increase-qty" data-item_id="{{ product.id }}">
                       <i class="fas fa-plus px-auto py-auto"></i>
@@ -117,4 +120,9 @@
     </div>
   </div>
 </div>
+{% endblock %}
+
+{% block postload_js %}
+{{ block.super }}
+{% include 'products/includes/quantity_input_script.html' %}
 {% endblock %}
