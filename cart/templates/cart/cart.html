@@ -28,7 +28,7 @@
       <!-- If customer has items in cart the below table will be created -->
       {% if cart_items %}
       <div class="table-responsive-sm">
-        <table class="table table-sm table-bordered table-striped">
+        <table class="table table-sm table-bordered table-striped table-hover">
           <thead class="text-white thead">
             <tr>
               <th scope="col" class="text-uppercase text-center">Product ID:</th>
@@ -99,7 +99,7 @@
 
           <!-- Cart Summary -->
           <tr>
-            <td colspan="5" class="pt-4 text-right">
+            <td colspan="5" class="pt-4 text-right bg-white">
               <!-- Shopping Cart Total -->
               <h6 class="mr-3"><strong>Cart Total: €{{ total|floatformat:2 }}</strong></h6>
               <!-- Delivery Charge -->
@@ -117,7 +117,7 @@
 
           <!-- Keep shopping & secure checkout button -->
           <tr>
-            <td colspan="5" class="text-right">
+            <td colspan="5" class="text-right bg-light">
               <!-- Keep shopping button -->
               <a href="{% url 'products' %}" class="btn cart-shopping-button rounded-0 btn-lg">
                 <span class="icon">
