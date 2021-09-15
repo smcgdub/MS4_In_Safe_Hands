@@ -18,6 +18,8 @@ In Safe Hands was created and built by Stephen Mc Govern as my 4th and final mil
 * 1.5 Wire frames
 
 ### **2. Features** ###
+* 2.1 Top header
+* 2.1 Navbar
 
 ### **3. Technologies/Languages Used** ###
 * 3.1 Gitpod
@@ -115,6 +117,48 @@ INSERT COLOUR PALLETTE HERE
 <summary><strong>
 2. Features
 </strong></summary>
+<br>
+
+#### **2.1 - Top header** ####
+
+* The top header on the page consists of 3 separate items. The company brand/logo occupies the top left 3rd of the screen. If the user clicks on the company brand/name the user will be be brought back to the homepage.
+
+![Image of brand/logo](media/readme_images/brand:logo.png)
+
+* The center of the screen is occupied by the search bar. Here users can search for items in the store by typing in a key/search word. If that word is in the name or description of the product then the page will return a list of those products for the user to view. If there are no items that match the search/keyword then no products will be displayed on the products page and the user will see the message 0 Products found for "(search/keyword)". If the user doesn't enter a search/keyword and just presses the search button then they will be brought to the all products page where all of the products available are listed. 
+
+![Image of search bar](media/readme_images/search_bar.png)
+
+* The right hand side of the header is where the user login and shopping cart are located. Here users can see at a glance if anything is in their cart and if so the value of those items.
+
+![Image of shopping cart](media/readme_images/shopping_cart.png)
+
+* If they click on the user icon they will, depending on if they are logged in or not, see different account management options. 
+
+![Image of user icon](media/readme_images/user_account.png)
+
+#### **2.1 - The Navbar** ####
+
+* The navbar is a bootstrap navbar that contains 4 separate dropdown menus to allow users to easily navigate the site. The first dropdown is the one that will allow users to shop for different type of PPE products that the site offers.   
+
+![Image of Shop PPE dropdown](media/readme_images/shop_dropdown.png)
+
+* The second dropdown item will bring users to the about us page where user can read a bit more information about the company.
+
+![Image of about us dropdown](media/readme_images/about_us.png)
+
+* The third dropdown is the one for up to date information on Covid-19.
+
+![Image of covid numbers dropdown](media/readme_images/covid_numbers.png)
+
+* The final dropdown will bring the users to the contact us page. 
+
+![Image of contact us dropdown](media/readme_images/contact_us.png)
+
+* On mobile devices the navbar will shrink and can be opened by the user if they click on the hamburger icon on the top left of the page. After clicking all of the items will again be visible for the user to navigate the site. 
+
+![Image of Navbar on mobile](media/readme_images/navbar_opened.png)
+
 </details>
 <hr>
 
