@@ -89,7 +89,8 @@
               aria-expanded="false">
               <div class="text-center">
                 <div><i class="fas fa-user-md fa-lg font-weight-bold text-dark"></i></div>
-                <p class="my-0 font-weight-bold text-dark">My Account<i class="fas fa-caret-down my-auto pl-2 font-weight-bold text-dark"></i></p>
+                <p class="my-0 font-weight-bold text-dark">My Account<i
+                    class="fas fa-caret-down my-auto pl-2 font-weight-bold text-dark"></i></p>
               </div>
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="user-options">
@@ -107,7 +108,8 @@
           </li>
           <!-- Shopping Cart -->
           <li class="list-inline-item">
-            <a class="{% if grand_total %}text-danger font-weight-bold{% else %}text-dark{% endif %} nav-link" href="{% url 'view_cart' %}">
+            <a class="{% if grand_total %}text-danger font-weight-bold{% else %}text-dark{% endif %} nav-link"
+              href="{% url 'view_cart' %}">
               <div class="text-center">
                 <div><i class="fas fa-shopping-cart fa-lg font-weight-bold text-dark"></i></div>
                 <p class="my-0">
@@ -154,6 +156,7 @@
 
 
   {% block corejs %}
+
   <!-- Optional JavaScript; choose one of the two! -->
   <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -163,13 +166,30 @@
     integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
   </script>
   <!-- Minified JQuery link -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
   <!-- Option 2: Separate Popper and Bootstrap JS -->
-  <!--
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  -->
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+    integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous">
+  </script> -->
+
+  <!-- JQuery -->
+  <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
+  <!-- Bootstrap JS -->
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+  </script> -->
   {% endblock %}
 
   {% block extra_js %}
@@ -178,8 +198,10 @@
   {% block postload_js %}
   <!-- Toast JS code below taken from Bootstrap documents - https://getbootstrap.com/docs/4.3/components/toasts/ -->
   <script type="text/javascript">
-    $('.toast').toast('show'):
-  </script>  
+    $(document).ready(function () {
+      $('.toast').toast('show');
+    });
+  </script>
   {% endblock %}
 
 </body>

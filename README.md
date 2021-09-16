@@ -195,13 +195,12 @@ INSERT COLOUR PALLETTE HERE
 
 * Testing information can be found in the [testing.md](testing.md) file.
 
-
-
 #### **4.2 Development Issues** ####
 <br>
 
-
 **1. SECRET_KEY Issue**
+
+**PROBLEM**
 
 * When I began building the project I started to make commits to Github. After making some commits I received an email from Django saying I had inadvertently exposed my secret key. The email I received is below. 
 
@@ -217,6 +216,36 @@ Details
 * To rectify this I discarded the secret key that was initially created during the project set up. I then replaced the secret key with the code on line 25 of the settings.py file which is: `SECRET_KEY = os.environ.get('SECRET_KEY')`
 
 * I then created a brand new secret key and have stored this in my Gitpod variables. I stopped and restarted the workspace and ran the project using `python3 manage.py runserver` Everything is now running as normal and the new SECRET_KEY is secured and no longer exposed and the old one has been discarded. 
+
+**2. Toasts Issue**
+
+**PROBLEM**
+
+* During development i decided i was going to use the Bootstrap toasts to provide feedback to a user when they completed various actions on the site. The Boutique Ado project provided some tutorials on how to install these. However when i followed the Boutique Ado tutorial i found that my toasts were not being displayed when i added an item to the shopping cart.
+
+**SOLUTIONS TRIED**
+
+* The first thing i did was to inspect the page after adding an item to the checkout to see if the element was being generated. The 2 screenshots below confirmed that the elements were in fact being generated. 
+
+![Image of toast element 1](media/readme_images/toast_inspect_1.png)
+
+![Image of toast element 2](media/readme_images/toast_inspect_2.png)
+
+* The screenshot below also shows that the item was added to the cart and the information was being generated, but just wasn't displaying. 
+
+![Image of toast element 3](media/readme_images/toast_inspect_3.png)
+
+* Once i knew the element was being generated i looked on Google and Bootstrap as to why this might not have been generated. I also checked on slack. One of the solutions i came across was to try and use different `<script>` elements than the ones i had in my project. The links that were suggested can be found below:
+
+<!-- JQuery -->
+`<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>`
+  <!-- Bootstrap JS -->
+`<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>`
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+</script>
+
 
 </details>
 
