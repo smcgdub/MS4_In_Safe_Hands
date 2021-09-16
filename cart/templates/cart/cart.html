@@ -56,8 +56,9 @@
             </td>
             <!-- Quantity of product -->
             <td class="py-2">
-              <form class="form update-form" action="" method="POST">
+              <form class="form update-form" action="{% url 'update_cart' item.item_id %}" method="POST">
                 {% csrf_token %}
+
                 <div class="form-group">
                   <div class="input-group">
 
@@ -66,7 +67,10 @@
                       <button id="decrease-qty_{{ item.item_id }}"
                         class="btn rounded-0 cart-shopping-button pb-1 decrease-qty btn-sm"
                         data-item_id="{{ item.item_id }}">
-                        <i class="fas fa-minus"></i>
+                        <!-- Font Awesome minus Icon -->
+                        <span>
+                          <i class="fas fa-minus"></i>
+                        </span> 
                       </button>
                     </div>
 
@@ -80,14 +84,20 @@
                       <button id="increase-qty_{{ item.item_id }}"
                         class="btn rounded-0 cart-shopping-button pb-1 increase-qty btn-sm"
                         data-item_id="{{ item.item_id }}">
-                        <i class="fas fa-plus px-auto py-auto"></i>
+                        <!-- Font awesome plus button -->
+                        <span>
+                          <i class="fas fa-plus px-auto py-auto"></i>
+                        </span>
                       </button>
+                      
                     </div>
                   </div>
                 </div>
               </form>
+              <!-- Update Qty in cart -->
               <a class="text-left update-cart" href=""><small>Update</small></a>
-              <a class="text-danger float-right remove-from-cart" href=""><small>Remove</small></a>
+              <!-- Remove item from cart -->
+              <a class="text-danger float-right remove-from-cart" id="remove_{{ item.item_id }}" href=""><small>Remove</small></a>
             </td>
             <!-- Subtotal -->
             <td class="py-2">
@@ -159,7 +169,8 @@
 {% block postload_js %}
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
-<script>
+<script type="text/javascript">
+
   // Update quantity on click
   $('.update-cart').click(function (e) {
     var form = $(this).prev('.update-form');
@@ -170,7 +181,7 @@
   $('.remove-from-cart').click(function (e) {
     var csrfToken = "{{ csrf_token }}";
     var itemId = $(this).attr('id').split('remove_')[1];
-    var url = `/cart/remove/${itemId}`;
+    var url = `/cart/remove/${itemId}/`;
     var data = {
       'csrfmiddlewaretoken': csrfToken,
     };

@@ -38,12 +38,15 @@
     <!-- Product Details -->
     <div class="col-12 col-md-6 col-lg-4 offset-lg-2 ml-0 pl-sm-3 pl-md-3 pr-sm-3 px-lg-0">
       <div class="mt-md-5">
+        
         <!-- Product Name -->
         <p class="font-weight-bold text-dark mb-1 text-center text-md-left"><span class="horiz-bar">|</span>
           {{ product.name }} <span class="horiz-bar">|</span></p>
-        <!-- Product Price -->
+        
+          <!-- Product Price -->
         <p class="font-weight-bold text-dark mb-1 text-center text-md-left"><span class="horiz-bar">|</span> Price:
           €{{ product.price }} <span class="horiz-bar">|</span></p>
+        
         <!-- Product Rating -->
         {% if product.rating %}
         <p class="px-0 py-0 mb-1 font-weight-bold text-dark text-center text-md-left"><span class="horiz-bar">|</span>
@@ -52,6 +55,7 @@
         {% else %}
         <p class="list-group-item px-0 py-0 font-weight-bold text-dark text-center text-md-left">Not rated yet</p>
         {% endif %}
+        
         <!-- Product Category If Loop-->
         {% if product.category %}
         <p class="mb-0 text-center text-md-left font-weight-bold text-dark"><span class="horiz-bar">|</span><span
@@ -62,11 +66,14 @@
           </a>
           <span class="horiz-bar">|</span></p>
         {% endif %}
+
         <!-- Horizontal Line -->
         <hr>
+        
         <!-- Product description -->
         <p class="font-weight-bold text-dark"><span class="horiz-bar">|
           </span>{{ product.description }}<span class="horiz-bar"> |</span></p>
+        
         <!-- Quantity to be added to the bag-->
         <form action="{% url 'add_to_cart' product.id %}" class="form" method="POST">
           {% csrf_token %}
@@ -105,9 +112,11 @@
                 </span>
                 <span class="">Back to shopping</span>
               </a>
+
               <!-- Add item to shopping cart button -->
               <input type="submit" class="btn rounded-0 cart-shopping-button" value="Add to cart">
             </div>
+            
             <!-- Redirects user back to the same page once the product has been added to the bag -->
             <input type="hidden" name="redirect_url" value="{{ request.path }}">
           </div>
