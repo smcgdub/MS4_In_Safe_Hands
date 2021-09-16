@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load cart_tools %}
 
 {% block page_header %}
 <div class="container header-container">
@@ -44,15 +45,15 @@
           <tr>
             <!-- Product ID -->
             <td class="py-2">
-              <p class="my-0 small text-dark text-center">ID: {{ item.product.p_id|upper }}</p>
+              <p class="my-0 small text-dark text-center pt-4">ID: {{ item.product.p_id|upper }}</p>
             </td>
             <!-- Product name -->
             <td class="py-2">
-              <p class="my-0 text-dark text-center"><strong>{{ item.product.name }}</strong></p>
+              <p class="my-0 text-dark text-center pt-4"><strong>{{ item.product.name }}</strong></p>
             </td>
             <!-- Product price -->
             <td class="py-2">
-              <p class="my-0 text-dark text-center">€{{ item.product.price }}</p>
+              <p class="my-0 text-dark text-center pt-4">€{{ item.product.price }}</p>
             </td>
             <!-- Quantity of product -->
             <td class="py-2">
@@ -89,7 +90,7 @@
                           <i class="fas fa-plus px-auto py-auto"></i>
                         </span>
                       </button>
-                      
+
                     </div>
                   </div>
                 </div>
@@ -101,7 +102,7 @@
             </td>
             <!-- Subtotal -->
             <td class="py-2">
-              <p class="my-0 text-dark text-center">€{{ item.product.price }}</p>
+              <p class="my-0 text-dark text-center pt-4">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
               <!-- <p class="my-0 text-dark text-center">€{% widthratio item.product.price 1 item.quantity %}</p> -->
             </td>
           </tr>
@@ -111,11 +112,11 @@
           <tr>
             <td colspan="5" class="pt-4 text-right bg-white">
               <!-- Shopping Cart Total -->
-              <h6 class="mr-3"><strong>Cart Total: €{{ total|floatformat:2 }}</strong></h6>
+              <h6 class="mr-3"><strong>Cart Total: <span class="text-danger">€{{ total|floatformat:2 }}</span></strong></h6>
               <!-- Delivery Charge -->
-              <h6 class="mr-3">Delivery: €{{ delivery|floatformat:2 }}</h6>
+              <h6 class="mr-3">Delivery: <span class="text-danger">€{{ delivery|floatformat:2 }}</span></h6>
               <!-- Grand Total Amount -->
-              <h4 class="mt-2 mr-3"><strong>Amount Due: €{{ grand_total|floatformat:2 }}</strong></h4>
+              <h4 class="mt-2 mr-3"><strong>Amount Due: <span class="text-danger">€{{ grand_total|floatformat:2 }}</span></strong></h4>
               <!-- Lets user know they qualify for free delivery if they spend x amount more -->
               {% if free_delivery_point > 0 %}
               <p class="mb-1 text-danger">
