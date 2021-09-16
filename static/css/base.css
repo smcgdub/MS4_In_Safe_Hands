@@ -52,6 +52,22 @@ body {
   border: 1px solid #1fb4ff;
 }
 
+/* Toasts */
+.message-container {
+  position: fixed;
+  top: 72px;
+  right: 15px;
+  z-index: 999;
+}
+
+.custom-toast {
+  overflow: visible;
+}
+
+.toast-capper {
+  height: 2px;
+}
+
 /* Homepage Testimonials */
 .testimonial {
   margin-left: 20%;
