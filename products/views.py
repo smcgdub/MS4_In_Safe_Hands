@@ -38,9 +38,9 @@ def all_products(request):
         # Search function if the user has submitted a search term/word 
         if 'q' in request.GET:
             query = request.GET['q']
-            # If the user doesn't enter anything in the search box and presses search the site will load the all products page
             if not query:
-                messages.error(request, "You haven't entered anything to search for!")
+            # If the user doesn't enter anything in the search box and presses search the site will load the all products page with the mesage below
+                messages.info(request, "You didn't enter anything to search for....but here's all our products \U0001F642 ")
                 return redirect(reverse('products'))
 
             # Q allows to search for product by a product name or by a word in the description

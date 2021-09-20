@@ -150,12 +150,16 @@
     {% for message in messages %}
       {% with message.level as level %}
         {% if level == 40 %}
+          <!-- Error message  -->
           {% include 'includes/toasts/toast_error.html' %}
         {% elif level == 30 %}
+          <!-- Warning message -->
           {% include 'includes/toasts/toast_warning.html' %}
         {% elif level == 25 %}
+          <!-- Success message -->
           {% include 'includes/toasts/toast_success.html' %}
         {% else %}
+          <!-- Info message -->
           {% include 'includes/toasts/toast_info.html' %}
         {% endif %}
       {% endwith %}

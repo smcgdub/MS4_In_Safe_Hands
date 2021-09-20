@@ -221,7 +221,7 @@ Details
 
 **PROBLEM**
 
-* During development i decided i was going to use the Bootstrap toasts to provide feedback to a user when they completed various actions on the site. The Boutique Ado project provided some tutorials on how to install these. However when i followed the Boutique Ado tutorial i found that my toasts were not being displayed when i added an item to the shopping cart.
+* During development i was going to use the Bootstrap toasts to provide feedback to a user when they completed various actions on the site. The Boutique Ado project provided some tutorials on how to install these. However when i followed the Boutique Ado tutorial i found that my toasts were not being displayed when i added an item to the shopping cart.
 
 **SOLUTIONS TRIED**
 
@@ -235,17 +235,9 @@ Details
 
 ![Image of toast element 3](media/readme_images/toast_inspect_3.png)
 
-* Once i knew the element was being generated i looked on Google and Bootstrap as to why this might not have been generated. I also checked on slack. One of the solutions i came across was to try and use different `<script>` elements than the ones i had in my project. The links that were suggested can be found below:
+* Once i knew the element was being generated i looked on Google and Bootstrap as to why this might not have been generated. I also checked on slack. After speaking with tutor support the solution we found was i needed th change the `<script>` at the bottom of the page to: `<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>`
 
-<!-- JQuery -->
-`<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>`
-  <!-- Bootstrap JS -->
-`<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>`
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
-</script>
-
+I have tested the site and this appears to have resolved the issue. The toasts are displaying as normal. 
 
 </details>
 
