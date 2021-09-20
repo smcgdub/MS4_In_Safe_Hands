@@ -159,6 +159,12 @@ INSERT COLOUR PALLETTE HERE
 
 ![Image of Navbar on mobile](media/readme_images/navbar_opened.png)
 
+#### ** - Toasts** ####
+
+* To provide for a better user experience on the site i have used Bootstrap Toasts to provide users with feedback when they commit a specific action, adding an item to the cart for example. I have tried out several different toasts that incorporate images, cart totals, cart summaries and free shipping points. After trying all of these out on the site i decided i would keep the toast messaging to a small summary of each user action.
+
+* Each toast has also been colour coded for each category of success, error, warning and info so the user will know at a glance if their action has been successful or not. 
+
 </details>
 <hr>
 
@@ -237,7 +243,7 @@ Details
 
 * Once i knew the element was being generated i looked on Google and Bootstrap as to why this might not have been generated. I also checked on slack. After speaking with tutor support the solution we found was i needed th change the `<script>` at the bottom of the page to: `<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>`
 
-I have tested the site and this appears to have resolved the issue. The toasts are displaying as normal. 
+* I have tested the site and this appears to have resolved the issue. The toasts are displaying as normal. 
 
 </details>
 
