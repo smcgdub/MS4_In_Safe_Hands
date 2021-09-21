@@ -6,7 +6,7 @@ class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
         # Fields to dispaly on the checkout form
-        fields = ('first_name' 'last_name', 'email', 'phone_number',
+        fields = ('first_name', 'last_name', 'email', 'phone_number',
                   'street_address1', 'street_address2',
                   'town_or_city', 'county', 'eircode', 'country',)
 
@@ -36,6 +36,6 @@ class OrderForm(forms.ModelForm):
                 placeholder = placeholders[field]
             # Set placeholders 
             self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'stripe-style-input'
+            # self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             # Labels set to false as they are not being used 
             self.fields[field].label = False

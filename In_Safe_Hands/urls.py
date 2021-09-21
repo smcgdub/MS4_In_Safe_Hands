@@ -26,5 +26,6 @@ urlpatterns = [
     path('covid_numbers/', include('covid_numbers.urls')),
     path('products/', include('products.urls')),
     path('cart/', include('cart.urls')),
+    path('checkout/', include('checkout.urls')),
     # path('product_details/', include('products.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
