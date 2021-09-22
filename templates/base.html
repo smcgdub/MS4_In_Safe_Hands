@@ -32,11 +32,13 @@
   <!-- My CSS -->
   <link rel="stylesheet" href="{% static 'css/base.css' %}">
   {% endblock %}
-
+  
   {% block extra_css %}
   {% endblock %}
-
+  
   <title>In Safe Hands{% block extra_title %}{% endblock %}</title>
+  <!-- Stripe JS link (Stripe docs say to load here in header) -->
+  <script src="https://js.stripe.com/v3/"></script>
 </head>
 
 <body>
@@ -148,21 +150,21 @@
   {% if messages %}
   <div class="message-container">
     {% for message in messages %}
-      {% with message.level as level %}
-        {% if level == 40 %}
-          <!-- Error message  -->
-          {% include 'includes/toasts/toast_error.html' %}
-        {% elif level == 30 %}
-          <!-- Warning message -->
-          {% include 'includes/toasts/toast_warning.html' %}
-        {% elif level == 25 %}
-          <!-- Success message -->
-          {% include 'includes/toasts/toast_success.html' %}
-        {% else %}
-          <!-- Info message -->
-          {% include 'includes/toasts/toast_info.html' %}
-        {% endif %}
-      {% endwith %}
+    {% with message.level as level %}
+    {% if level == 40 %}
+    <!-- Error message  -->
+    {% include 'includes/toasts/toast_error.html' %}
+    {% elif level == 30 %}
+    <!-- Warning message -->
+    {% include 'includes/toasts/toast_warning.html' %}
+    {% elif level == 25 %}
+    <!-- Success message -->
+    {% include 'includes/toasts/toast_success.html' %}
+    {% else %}
+    <!-- Info message -->
+    {% include 'includes/toasts/toast_info.html' %}
+    {% endif %}
+    {% endwith %}
     {% endfor %}
   </div>
   {% endif %}
