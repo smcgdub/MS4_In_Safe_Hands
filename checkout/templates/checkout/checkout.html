@@ -1,30 +1,109 @@
 {% extends "base.html" %}
 {% load static %}
+{% load cart_tools %}
 
 {% block page_header %}
-<div class="container header-container">
+<!-- <div class="container header-container">
   <div class="row">
     <div class="col"></div>
   </div>
-</div>
+</div> -->
 {% endblock %}
 
 {% block content %}
 <!-- White background overlay -->
 <div class="overlay"></div>
-
-<!-- Checkout Banner -->
-<div class="row">
-  <div class="col text-center my-auto px-0">
-    <h4 class="page_top_banner text-uppercase text-dark pt-2 mb-2">CHECKOUT
-    </h4>
-  </div>
-</div>
-
-<!-- Page container -->
 <div class="container-fluid">
+
+  <!-- Checkout Banner -->
   <div class="row">
-    <div class="col">
+    <div class="col-12 text-center px-0">
+      <h4 class="page_top_banner text-uppercase text-dark pt-2 mb-2">
+        CHECKOUT
+      </h4>
+    </div>
+  </div>
+
+  <!-- Page container -->
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <!-- Checkout Form -->
+        <form action="{% url 'checkout' %}" method="POST" id="" class="rounded-0">
+          {% csrf_token %}
+          <fieldset class="" id="">
+            <!-- Users name and contact details -->
+            <legend class="text-center mb-0" id="">Your Details</legend>
+            <legend class="small text-left mt-0">* required info</legend>
+            {{ order_form.first_name | as_crispy_field }}
+            {{ order_form.last_name | as_crispy_field }}
+            {{ order_form.email | as_crispy_field }}
+            {{ order_form.phone_number | as_crispy_field }}
+          </fieldset>
+          <fieldset class="" id="">
+            <!-- Users delivery address -->
+            <legend class="text-center mb-0" id="">Delivery Address</legend>
+            {{ order_form.street_address1 | as_crispy_field }}
+            {{ order_form.street_address2 | as_crispy_field }}
+            {{ order_form.town_or_city | as_crispy_field }}
+            {{ order_form.county | as_crispy_field }}
+            {{ order_form.eircode | as_crispy_field }}
+            {{ order_form.country | as_crispy_field }}
+            <div class="form-check form-check-inline float-left mr-0">
+              <!-- If user is registered on the site -->
+              {% if user.is_authenticated %}
+              <label class="form-check-label" for="id-save-info">Save this address to my profile</label>
+              <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+              {% else %}
+              <!-- If user isn't registered -->
+              <label class="form-check-label" for="id-save-info">
+                <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or
+                <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+              </label>
+              {% endif %}
+            </div>
+          </fieldset>
+
+          <!-- <fieldset class="px-3">
+            <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend> -->
+            <!-- A Stripe card element will go here -->
+            <!-- <div class="mb-3" id="card-element"></div> -->
+            <!-- Used to display form errors -->
+            <!-- <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+          </fieldset> -->
+
+          <!-- Adjust order & complete order buttons -->
+          <div class="text-right mb-2">
+            <!-- Adjust order button -->
+            <a href="{% url 'view_cart' %}" class="btn cart-shopping-button rounded-0">
+              <span class="">
+                <i class="fas fa-angle-double-left"></i>
+              </span>
+              <span class="font-weight-bold">Adjust Order</span>
+            </a>
+            <!-- Complete order button -->
+            <button id="submit-button" class="btn cart-shopping-button rounded-0" type="submit">
+              <span class="font-weight-bold">Complete Order</span>
+              <span class="icon">
+                <i class="fas fa-lock"></i>
+              </span>
+            </button>
+            <!-- Card charge summary -->
+            <p class="text-danger mt-2 mb-0">
+              <span class="">
+                <i class="fas fa-exclamation-circle"></i>
+              </span>
+              <span>Your card will be charged €{{ grand_total|floatformat:2 }}</span>
+            </p>
+            <!-- Let user know if they are under the free delivery threshold they can qualify for free delivery if they spend X amount more -->
+            {% if free_delivery_point > 0 %}
+            <p class="mb-1 text-danger">
+              You qualify for free delivery if you spend <strong>€{{ free_delivery_point }}</strong> more!
+            </p>
+            {% endif %}
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>

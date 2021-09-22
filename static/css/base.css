@@ -163,3 +163,8 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
 }
+
+/* Checkout page */
+.form-control {
+  border-radius: 0px;
+}
