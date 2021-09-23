@@ -63,14 +63,6 @@ body {
   border: 1px solid #1fb4ff;
 }
 
-/* .custom-toast {
-  overflow: visible;
-}
-
-.toast-capper {
-  height: 2px;
-} */
-
 .dot-success {
   height: 15px;
   width: 15px;
@@ -123,6 +115,10 @@ body {
 
 .list-group-item, .card {
   border: 0px solid #fff;
+}
+
+.indicator:hover {
+  cursor: default !important;
 }
 
 /* Products Page */

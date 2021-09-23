@@ -67,11 +67,14 @@
               {% endif %}
             </div>
           </fieldset>
+          <hr>
 
-          <fieldset class="px-3">
-            <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+          <!-- Stripe Payment Details -->
+          <fieldset class="mt-3">
+            <legend class="text-center mb-0">Payment Details</legend>
+            <legend class="small text-black w-auto mb-1">Enter Card Details</legend>
             <!-- A Stripe card element will go here -->
-            <div class="mb-3" id="card-element">test</div>
+            <div class="mb-3 form-control" id="card-element"></div>
             <!-- Used to display form errors -->
             <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
           </fieldset>
