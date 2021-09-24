@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<!-- <div class="container header-container">
+  <div class="row">
+    <div class="col"></div>
+  </div>
+</div> -->
+{% endblock %}
+
+{% block content %}
+<!-- White background overlay -->
+<div class="overlay"></div>
+<div class="container-fluid">
+
+  <!-- Checkout Banner -->
+  <div class="row">
+    <div class="col-12 text-center px-0">
+      <h4 class="page_top_banner text-uppercase text-dark pt-2 mb-2">
+        PURCHASE COMPLETE
+      </h4>
+    </div>
+  </div>
+</div>
+
+  <!-- Page container -->
+  <div class="container">
+    <div class="row">
+
+      <!-- Thank you for yoru business message -->
+      <div class="col-12">
+        <h3 class="text-center text-dark mt-4">Thank you for your business {{ order.first_name }}</h3>
+        <hr>
+        <p class="text-center text-dark mt-3">Your order number for this purchase is: {{ order.order_number }}</p>
+        <p class="text-center text-dark">We will shortly be sending a confirmation email to you at {{ order.email }}</p>
+        <p class="text-center text-dark">We hope you will be fully satisfied with the products you have ordered</p>
+        <br>
+        <p class="text-center text-dark mb-1">The In Safe Hands Team</p>
+        <hr>
+        <div class="row">
+          <div class="col-12 text-center">
+            <!-- Back to shopping button -->
+            <p class="small text-center text-dark mb-1 mt-2">Did you forget anything in your order?</p>
+            <a href="{% url 'products' %}" class="text-center btn cart-shopping-button rounded-0 btn-lg">
+              <span class="">
+                <i class="fas fa-angle-double-left"></i>
+              </span>
+              <span class="">Back To Shopping</span>
+            </a>
+
+          </div>
+        </div>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
