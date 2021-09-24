@@ -28,14 +28,16 @@ def checkout(request):
         # metadata={'integration_check': 'accept_a_payment'},
     )
 
-    print(intent)
-
     order_form = OrderForm()
+
+    if not stripe_public_key:
+        messages.warning(request, 'Stripe public key is missing!')
+
     template = 'checkout/checkout.html'
     context = {
       'order_form': order_form,
-      'stripe_public_key': 'pk_test_51Jcbx4IXS6q4772pNrmlcRdvJ1UMA2OqeLeitpAoxeql1diJGdEeZBwQ6SW208jmXet2KYFdCUEE0idjMEZoA1P300NmJZiRzG',
-      'client_secret': 'Test client secret',
+      'stripe_public_key': stripe_public_key,
+      'client_secret': intent.client_secret,
     }
 
     return render(request, template, context)

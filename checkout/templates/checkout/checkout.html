@@ -33,7 +33,7 @@
     <div class="row">
       <div class="col-12">
         <!-- Checkout Form -->
-        <form action="{% url 'checkout' %}" method="POST" id="" class="rounded-0">
+        <form action="{% url 'checkout' %}" method="POST" id="payment-form" class="rounded-0">
           {% csrf_token %}
           <fieldset class="" id="">
             <!-- Users name and contact details -->
@@ -62,7 +62,7 @@
               <!-- If user isn't registered -->
               <label class="form-check-label" for="id-save-info">
                 <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or
-                <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information, or continue as an unregistered shopper
               </label>
               {% endif %}
             </div>
