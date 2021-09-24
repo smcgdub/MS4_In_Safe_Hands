@@ -99,9 +99,9 @@ def checkout_success(request, order_number):
     # If checkout has been successful
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
-    messages.success(request, f'Your order has been successfully placed \
-        Your order number is {order_number}. A confirmation email \
-        will be sent to {order.email}')
+    # messages.success(request, f'Your order has been successfully placed \
+    #     Your order number is {order_number}. A confirmation email \
+    #     will be sent to {order.email}')
 
     if 'cart' in request.session:
         del request.session['cart']
