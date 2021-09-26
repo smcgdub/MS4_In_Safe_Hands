@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load cart_tools %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
@@ -35,57 +36,116 @@
     <!-- Thank you for yoru business message -->
     <div class="col-12">
       <h3 class="text-center text-dark mt-4">Thank you for your business {{ order.first_name }}</h3>
+      <!-- Horizontal divider -->
       <hr>
-      <!-- <p class="text-center text-dark mt-3">Your order number for this purchase is: {{ order.order_number }}</p> -->
       <p class="text-center text-dark">We will now begin processing your order and we will send you a confirmation
         e-mail to {{ order.email }}</p>
       <p class="text-center text-dark">We hope you will be fully satisfied with the products you have purchased. A
         summary
         of your order can be found below:</p>
-      <!-- <p class="text-center text-dark mb-1">The In Safe Hands Team</p> -->
+      <!-- Horizontal divider -->
       <hr>
 
+      <!-- Order Details -->
       <div class="row">
         <div class="col">
-          <h4 class="text-center mb-3">Order Details</h4>
+          <h4 class="text-center mb-3"><span class="horiz-bar">| </span>Order Summary<span class="horiz-bar"> |</span>
+          </h4>
         </div>
       </div>
 
+      <!-- Order Number -->
       <div class="row text-center">
         <div class="col-12">
-          <p class="mb-0">Order Number</p>
+          <h5 class="mb-0">Order Number</h5>
         </div>
         <div class="col-12">
-          <p>{{ order.order_number }}</p>
+          <p class="mb-0"><span class="horiz-bar">| </span>{{ order.order_number }}<span class="horiz-bar"> |</span></p>
+          <p class=""><span class="horiz-bar">| </span>Placed on: {{ order.date }}<span class="horiz-bar"> |</span></p>
         </div>
       </div>
 
-      <!-- <div class="row text-center">
-        <div class="col-12">
-          <p class="mb-0">Order date</p>
-        </div>
-        <div class="col-12">
-          <p class="">{{ order.date }}</p>
-        </div>
-      </div> -->
+      <!-- Horizontal divider -->
+      <hr class="mt-0 mb-3">
 
+      <!-- You Purchased Header -->
       <div class="row">
-
         <div class="col-12">
-          <p class="mb-0 text-center">You purchased</p>
+          <h5 class="mb-0 text-center">You Purchased:</h5>
         </div>
-
+        <!-- Loop through each item individually including subtotal -->
         {% for item in order.lineitems.all %}
-          <div class="col-12 ">
-            <p class="text-center mb-0">{{ item.quantity }}x {{ item.product.name }}</p>
-          </div>
+        <div class="col-12 ">
+          <p class="text-center mb-0"><span class="horiz-bar">| </span>{{ item.quantity }}x {{ item.product.name }} =
+            <span class="text-danger">€{{ item.product.price | calc_subtotal:item.quantity }}</span><span
+              class="horiz-bar"> |</span>
+            <br>
+            <span class="small">- <em>(€{{ item.product.price }} each</em>) -</span></p>
+        </div>
         {% endfor %}
-
       </div>
 
-      <br>
-      <br>
-      <br>
+      <!-- Horizontal divider -->
+      <hr class="mt-3 mb-0">
+
+      <!-- Cart Breakdown -->
+      <div class="row">
+        <div class="col-12">
+          <!-- Cost of products purchased header -->
+          <h5 class="text-center mt-3 mb-0">Cost Breakdown:</h5>
+          <!-- Order cost -->
+          <p class="text-center mb-0"><span class="horiz-bar">| </span>Items Purchased: <span
+              class="text-danger">€{{ order.order_total }}</span><span class="horiz-bar"> |</span></p>
+          <!-- Delivery cost if applicable -->
+          <p class="text-center mb-0"><span class="horiz-bar">| </span>Delivery Fee: <span
+              class="text-danger">€{{ order.delivery_cost }}</span><span class="horiz-bar"> |</span></p>
+          <!-- Total cost -->
+          <p class="text-center mb-0"><span class="horiz-bar">| </span>Grand Total: <span
+              class="text-danger">€{{ order.grand_total }}</span><span class="horiz-bar"> |</span></p>
+        </div>
+      </div>
+
+      <!-- Horizontal divider -->
+      <hr class="mt-3 mb-0">
+
+      <!-- Delivery Address -->
+      <div class="row">
+        <div class="col-12">
+          <!-- Delivery Details Header -->
+          <h5 class="text-center mt-3 mb-0">Delivery Details:</h5>
+          <!-- Name On Order -->
+          <p class="text-center mt-0 mb-0"><span class="horiz-bar">| </span>Name: {{ order.first_name }}
+            {{ order.last_name }}<span class="horiz-bar"> |</span></p>
+          <!-- Street Address -->
+          <p class="text-center mt-0 mb-0"><span class="horiz-bar">| </span>Address: {{ order.street_address1 }},
+            <!-- Display street address 2 if entered -->
+            {% if order.street_address2 %}
+            {{ order.street_address2 }}
+            {% endif %}
+            <span class="horiz-bar"> |</span>
+          </p>
+          <!-- Town Or City -->
+          <p class="text-center mt-0 mb-0"><span class="horiz-bar">| </span>Town/City: {{ order.town_or_city }}<span
+              class="horiz-bar"> |</span></p>
+          <!-- County -->
+          <p class="text-center mt-0 mb-0"><span class="horiz-bar">| </span>County:
+            {% if order.county %}
+            {{ order.county }}
+            {% endif %}
+            <span class="horiz-bar"> |</span></p>
+          <!-- Eircode -->
+          <p class="text-center mt-0 mb-0"><span class="horiz-bar">| </span>Eircode: {{ order.eircode }}<span
+              class="horiz-bar"> |</span></p>
+          <!-- Country -->
+          <p class="text-center mt-0 mb-0"><span class="horiz-bar">| </span>Country: {{ order.country }}<span
+              class="horiz-bar"> |</span></p>
+        </div>
+      </div>
+
+      <!-- Horizontal divider -->
+      <hr class="mt-3 mb-0">
+
+      <!-- Back to shopping prompt -->
       <div class="row">
         <div class="col-12 text-center">
           <!-- Back to shopping button -->
@@ -98,8 +158,9 @@
           </a>
         </div>
       </div>
+      <!-- Line break -->
+      <br>
     </div>
   </div>
-</div>
 </div>
 {% endblock %}
