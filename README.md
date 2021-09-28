@@ -20,6 +20,7 @@ In Safe Hands was created and built by Stephen Mc Govern as my 4th and final mil
 ### **2. Features** ###
 * 2.1 Top header
 * 2.1 Navbar
+* Payment processing spinner
 
 ### **3. Technologies/Languages Used** ###
 * 3.1 Gitpod
@@ -322,6 +323,7 @@ All credit belongs to the owner of the image (Air), whose profile can be found [
 #### **6.2 Code** ####
 
 * All of the data on the covid numbers page is provided by Our World In Data. All credit for the charts, map, table and daily statistics goes to Our World Data who allow for the reproduction of this data free of charge once it is credited and the source is listed. The original link to the source of the data can be found by clicking here: https://ourworldindata.org/grapher/daily-covid-cases-deaths?tab=map&country=~OWID_WRL 
+* The payment processing spinner that i used was generated from the website [Loading.io](https://loading.io/) Loading.io offers both a free and paid service for creating simple animations for users to use on their sites and projects. The icon i used was a free one and is allowed to be used for projects as long as the credit for them is given which is done here in this section.  
 
 #### **6.3 Acknowledgements** ####
 
