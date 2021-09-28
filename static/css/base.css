@@ -184,3 +184,9 @@ body {
   margin: 0;
   margin-top: 10%;
 }
+
+/* select,
+select option
+select option[value=""] {
+  color: #495057 !important;
+} */
