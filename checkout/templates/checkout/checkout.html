@@ -62,7 +62,8 @@
               <!-- If user isn't registered -->
               <label class="form-check-label" for="id-save-info">
                 <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or
-                <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information, or continue as an unregistered shopper
+                <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information, or continue as
+                an unregistered shopper
               </label>
               {% endif %}
             </div>
@@ -88,6 +89,7 @@
               </span>
               <span class="font-weight-bold">Adjust Order</span>
             </a>
+
             <!-- Complete order button -->
             <button id="submit-button" class="btn cart-shopping-button rounded-0" type="submit">
               <span class="font-weight-bold">Complete Order</span>
@@ -95,6 +97,7 @@
                 <i class="fas fa-lock"></i>
               </span>
             </button>
+
             <!-- Card charge summary -->
             <p class="text-danger mt-2 mb-0">
               <span class="">
@@ -102,10 +105,11 @@
               </span>
               <span>Your card will be charged €{{ grand_total|floatformat:2 }}</span>
             </p>
+
             <!-- Let user know if they are under the free delivery threshold they can qualify for free delivery if they spend X amount more -->
             {% if free_delivery_point > 0 %}
             <p class="mb-1 text-danger">
-              You qualify for free delivery if you spend <strong>€{{ free_delivery_point }}</strong> more!
+              You qualify for free delivery if you spend €{{ free_delivery_point }} more!
             </p>
             {% endif %}
           </div>
@@ -114,6 +118,18 @@
     </div>
   </div>
 </div>
+
+<!-- Processing Overlay -->
+<div id="processing-overlay" class="">
+    <div class="processing-row">
+      <img class="processing-img" src="/media/processing/processing-1.gif" alt="">
+    </div>
+    <div>
+      <p class="mb-0 mt-2 text-center text-uppercase">Payment processing</p>
+      <p class="mb-0 mt-0 text-center text-uppercase">Do not close your browser</p>
+    </div>
+</div>
+
 {% endblock %}
 
 {% block postload_js %}

@@ -45,11 +45,11 @@
           <tr>
             <!-- Product ID -->
             <td class="py-2">
-              <p class="my-0 small text-dark text-center pt-4">ID: {{ item.product.p_id|upper }}</p>
+              <p class="my-0 text-dark text-center pt-4">ID: {{ item.product.p_id|upper }}</p>
             </td>
             <!-- Product name -->
             <td class="py-2">
-              <p class="my-0 text-dark text-center pt-4"><strong>{{ item.product.name }}</strong></p>
+              <p class="my-0 text-dark text-center pt-4">{{ item.product.name }}</p>
             </td>
             <!-- Product price -->
             <td class="py-2">
@@ -112,15 +112,15 @@
           <tr>
             <td colspan="5" class="pt-4 text-right bg-white">
               <!-- Shopping Cart Total -->
-              <h6 class="mr-3"><strong>Cart Total: <span class="text-danger">€{{ total|floatformat:2 }}</span></strong></h6>
+              <h6 class="mr-3">Cart Total: <span class="text-danger">€{{ total|floatformat:2 }}</span></h6>
               <!-- Delivery Charge -->
               <h6 class="mr-3">Delivery: <span class="text-danger">€{{ delivery|floatformat:2 }}</span></h6>
               <!-- Grand Total Amount -->
-              <h4 class="mt-2 mr-3"><strong>Amount Due: <span class="text-danger">€{{ grand_total|floatformat:2 }}</span></strong></h4>
+              <h4 class="mt-2 mr-3">Amount Due: <span class="text-danger">€{{ grand_total|floatformat:2 }}</span></h4>
               <!-- Lets user know they qualify for free delivery if they spend x amount more -->
               {% if free_delivery_point > 0 %}
               <p class="mb-1 text-danger">
-                You qualify for free delivery if you spend <strong>€{{ free_delivery_point }}</strong> more!
+                You qualify for free delivery if you spend €{{ free_delivery_point }} more!
               </p>
               {% endif %}
             </td>
