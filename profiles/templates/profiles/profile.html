@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<!-- <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}"> -->
+{% endblock %}
+
+{% block page_header %}
+<!-- <div class="container header-container">
+  <div class="row">
+    <div class="col"></div>
+  </div>
+</div> -->
+{% endblock %}
+
+{% block content %}
+<!-- White background overlay -->
+<div class="overlay"></div>
+<div class="container-fluid">
+
+  <!-- Checkout Banner -->
+  <div class="row">
+    <div class="col-12 text-center px-0">
+      <h4 class="page_top_banner text-uppercase text-dark pt-2 mb-2">
+        MY PROFILE
+      </h4>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
