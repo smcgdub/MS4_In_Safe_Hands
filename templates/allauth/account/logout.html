@@ -19,8 +19,8 @@
 
 <!-- Logout confirmation container -->
 <div class="container">
-  <h2 class="text-center mt-3">{% trans "Confirm Log Out" %}</h2>
-  <p class="text-center mb-3">{% trans 'Are you sure you want to log out?' %}</p>
+  <h2 class="text-center mt-3 text-dark">{% trans "Confirm Log Out" %}</h2>
+  <p class="text-center mb-3 text-dark">{% trans 'Are you sure you want to log out?' %}</p>
   <!-- Logout button/form -->
   <form method="post" action="{% url 'account_logout' %}" class="text-center">
     {% csrf_token %}
