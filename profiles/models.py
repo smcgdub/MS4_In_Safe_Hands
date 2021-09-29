@@ -6,7 +6,7 @@ from django.db import models
 
 
 class UserProfile(models.Model):
-    # Unique user profile for maintaining delivery information and order history
+    # Unique user profile for maintaining delivery information and order history. Address, contact details and username.
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     default_email = models.EmailField(max_length=254, null=True, blank=True)
     default_phone_number = models.CharField(max_length=20, null=True, blank=True)

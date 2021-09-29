@@ -186,7 +186,10 @@ body {
 }
 
 /* select,
-select option
+select option {
+  color: #495057;
+}
+
 select option[value=""] {
-  color: #495057 !important;
+  color: #dc3545 !important;
 } */
