@@ -82,6 +82,7 @@ def checkout(request):
             # metadata={'integration_check': 'accept_a_payment'},
         )
 
+        # Auto populate the delivery details if the user is authenticated 
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
@@ -93,6 +94,7 @@ def checkout(request):
                     'eircode': profile.default_eircode, 
                     'country': profile.default_country,
                 })
+            # If user isnt authenticated generate a blank form 
             except UserProfile.DoesNotExist:
                 order_form = OrderForm()
         else:
