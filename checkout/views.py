@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.conf import settings
 
+from profiles.forms import UserProfileForm
+from profiles.models import UserProfile
 from .models import Order, OrderLineItem
 from cart.contexts import cart_contents
 from products.models import Product
@@ -80,7 +82,21 @@ def checkout(request):
             # metadata={'integration_check': 'accept_a_payment'},
         )
 
-        order_form = OrderForm()
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                order_form = OrderForm(initial={
+                    'street_address1': profile.default_street_address1, 
+                    'street_address2': profile.default_street_address2,
+                    'town_or_city': profile.default_town_or_city, 
+                    'county': profile.default_county,
+                    'eircode': profile.default_eircode, 
+                    'country': profile.default_country,
+                })
+            except UserProfile.DoesNotExist:
+                order_form = OrderForm()
+        else:
+            order_form = OrderForm()
 
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing!')
@@ -102,6 +118,27 @@ def checkout_success(request, order_number):
     # messages.success(request, f'Your order has been successfully placed \
     #     Your order number is {order_number}. A confirmation email \
     #     will be sent to {order.email}')
+
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        # Attach the users profile to the order
+        order.user_profile = profile
+        order.save()
+
+        if save_info:
+            profile_data = {
+                'default_email': order.email,
+                'default_phone_number': order.phone_number,
+                'default_street_address1': order.street_address1,
+                'default_street_address2': order.street_address2,
+                'default_town_or_city': order.town_or_city,
+                'default_county': order.county,
+                'default_eircode': order.eircode,
+                'default_country': order.country, 
+            }
+            user_profile_form = UserProfileForm(profile_data, instance=profile)
+            if user_profile_form.is_valid():
+                user_profile_form.save()
 
     if 'cart' in request.session:
         del request.session['cart']

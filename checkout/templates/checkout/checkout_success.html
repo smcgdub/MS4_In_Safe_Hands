@@ -148,6 +148,16 @@
       <!-- Back to shopping prompt -->
       <div class="row">
         <div class="col-12 text-center">
+          <!-- If user lands on page via their profile page -->
+          {% if from_profile %}
+          <p class="small text-center text-dark mb-1 mt-2">Back to my profile page?</p>
+          <a href="{% url 'profile' %}" class="text-center btn cart-shopping-button rounded-0 btn-lg">
+            <span class="">
+              <i class="fas fa-angle-double-left"></i>
+            </span>
+            <span class="">My Profile</span>
+          </a>
+          {% else %}
           <!-- Back to shopping button -->
           <p class="small text-center text-dark mb-1 mt-2">Did you forget anything in your order?</p>
           <a href="{% url 'products' %}" class="text-center btn cart-shopping-button rounded-0 btn-lg">
@@ -156,6 +166,7 @@
             </span>
             <span class="">Back To Shopping</span>
           </a>
+          {% endif %}
         </div>
       </div>
       <!-- Line break -->
