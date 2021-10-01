@@ -95,3 +95,31 @@ def add_product(request):
     }
 
     return render(request, template, context)
+
+
+def edit_product(request, product_id):
+    # To add a product in the store
+    product = get_object_or_404(Product, pk=product_id)
+
+    # If user is posting
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Product has been successfully updated')
+            return redirect(reverse('product_details', args=[product.id]))
+        # Warning message if updating was unsuccessfull
+        else:
+            messages.warning(request, 'Warning, product update failed. Please check all fields are valid and try again.')
+    # Inform user that they are currently editing a product and name that product
+    else:
+        form = ProductForm(instance=product)
+        messages.info(request, f'You are currently editing {product.name}')
+
+    template = 'products/edit_product.html'
+    context = {
+        'form': form,
+        'product': product,
+    }
+
+    return render(request, template, context)
