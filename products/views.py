@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db.models.functions import Lower
 from django.db.models import Q
 from .models import Product, Category
 from .forms import ProductForm
+# from django.contrib.auth.decorators import user_passes_test
 
 
 def all_products(request):
@@ -72,6 +74,8 @@ def product_details(request, product_id):
     return render(request, 'products/product_details.html', context)
 
 
+@login_required
+# @user_passes_test(products_check)
 def add_product(request):
     # Add a new product to the site 
     # If add product form method is POST 
@@ -98,6 +102,8 @@ def add_product(request):
     return render(request, template, context)
 
 
+@login_required
+# @user_passes_test(lambda u: u.is_superuser)
 def edit_product(request, product_id):
     # To add a product in the store
     product = get_object_or_404(Product, pk=product_id)
@@ -126,6 +132,8 @@ def edit_product(request, product_id):
     return render(request, template, context)
 
 
+@login_required
+# @user_passes_test(lambda u: u.is_superuser)
 def delete_product(request, product_id):
     # Delete the product from the store 
     product = get_object_or_404(Product, pk=product_id)
