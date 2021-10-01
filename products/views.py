@@ -79,12 +79,13 @@ def add_product(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Product successfully added')
-            return redirect(reverse('add_product'))
+            messages.success(request, 'Product has been successfully added to the store')
+            # Return user to the products page after they have added the item
+            return redirect(reverse('products'))
         # If add product form is invalid
         else:
             messages.warning(request, 'Product add failed! Please recheck all form details are valid')
-    # If form isnt a POSt form then load a blank form
+    # If form isnt a POST form then load a blank form
     else:
         form = ProductForm()
         
@@ -106,7 +107,7 @@ def edit_product(request, product_id):
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Product has been successfully updated')
+            messages.success(request, f'{product.name} has been successfully updated')
             return redirect(reverse('product_details', args=[product.id]))
         # Warning message if updating was unsuccessfull
         else:
@@ -123,3 +124,11 @@ def edit_product(request, product_id):
     }
 
     return render(request, template, context)
+
+
+def delete_product(request, product_id):
+    # Delete the product from the store 
+    product = get_object_or_404(Product, pk=product_id)
+    product.delete()
+    messages.success(request, f'{product.name} has been successfully deleted from the store')
+    return redirect(reverse('products'))

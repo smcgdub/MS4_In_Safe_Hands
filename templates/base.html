@@ -93,30 +93,33 @@
             <a class="text-dark nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">
               <div class="text-center">
-                <div><i class="fas fa-user-md fa-lg font-weight-bold text-dark"></i></div>
-                <p class="my-0 font-weight-bold text-dark">My Account<i
-                    class="fas fa-caret-down my-auto pl-2 font-weight-bold text-dark"></i></p>
+                <div><i class="fas fa-user-md fa-lg  text-dark"></i></div>
+                <p class="my-0 text-dark">My Account<i
+                    class="fas fa-caret-down my-auto pl-2  text-dark"></i></p>
               </div>
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="user-options">
               {% if request.user.is_authenticated %}
               {% if request.user.is_superuser %}
-              <a class="dropdown-item font-weight-bold text-dark" href="{% url 'add_product' %}">Product Management</a>
+              <a class="dropdown-item text-dark" href="{% url 'add_product' %}">Product Management</a>
               {% endif %}
-              <a class="dropdown-item font-weight-bold text-dark" href="{% url 'profile' %}">My Profile</a>
-              <a class="dropdown-item font-weight-bold text-dark" href="{% url 'account_logout' %}">Logout</a>
+              <a class="dropdown-item text-dark" href="{% url 'profile' %}">My Profile</a>
+              <a class="dropdown-item text-dark" href="{% url 'account_logout' %}">Logout</a>
               {% else %}
-              <a class="dropdown-item font-weight-bold text-dark" href="{% url 'account_signup' %}">Register</a>
-              <a class="dropdown-item font-weight-bold text-dark" href="{% url 'account_login' %}">Login</a>
+              <a class="dropdown-item text-dark" href="{% url 'account_signup' %}">Register</a>
+              <a class="dropdown-item text-dark" href="{% url 'account_login' %}">Login</a>
               {% endif %}
             </div>
           </li>
           <!-- Shopping Cart -->
           <li class="list-inline-item">
-            <a class="{% if grand_total %}text-danger font-weight-bold{% else %}text-dark{% endif %} nav-link"
+            <!-- If items in cart then cart will display red -->
+            <a class="{% if grand_total %}text-danger {% else %}text-dark{% endif %} nav-link"
               href="{% url 'view_cart' %}">
               <div class="text-center">
-                <div><i class="fas fa-shopping-cart fa-lg font-weight-bold text-dark"></i></div>
+                <div class="">
+                  <i class="fas fa-shopping-cart fa-lg"></i>
+                </div>
                 <p class="my-0">
                   {% if grand_total %}
                   €{{ grand_total|floatformat:2 }}

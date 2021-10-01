@@ -66,7 +66,7 @@
           </a>
           {% else %}
           <a href="{% url 'product_details' product.id %}">
-            <img src="/media/no_photo/no_photo.png" class="card-img-top img-fluid" alt="{{ product.name }}"
+            <img src="/media/no_photo/no-photo.png" class="card-img-top img-fluid" alt="{{ product.name }}"
               style="height: 280px;">
           </a>
           {% endif %}
@@ -75,34 +75,40 @@
           <div class="card-body px-0 py-0">
             <!-- <h6 class="card-title mb-0 mt-3 text-center font-weight-bold text-dark"><span class="horiz-bar">|</span>
               Category: {{ product.category.friendly_name }} <span class="horiz-bar">|</span></h6> -->
-            <h6 class="card-title mb-0 mt-1 text-center font-weight-bold text-dark"><span class="horiz-bar">|</span>
+            <h6 class="card-title mb-0 mt-1 text-center text-dark"><span class="horiz-bar">|</span>
               {{ product.name }} <span class="horiz-bar">|</span></h6>
           </div>
 
           <!-- Product Details -->
           <ul class="list-group list-group-flush">
             <!-- Product Price -->
-            <li class="list-group-item px-0 py-0 text-center font-weight-bold text-dark"><span
+            <li class="list-group-item px-0 py-0 text-center text-dark"><span
                 class="horiz-bar">|</span> Price:
               €{{ product.price }}<span class="horiz-bar"> |</span></li>
             <!-- Product Rating -->
             {% if product.rating %}
-            <li class="list-group-item px-0 py-0 text-center font-weight-bold text-dark"><span
+            <li class="list-group-item px-0 py-0 text-center text-dark"><span
                 class="horiz-bar">|</span> Rating: &nbsp<i
                 class="fas fa-star-half-alt text-dark"></i>&nbsp{{ product.rating }} / 5 <span
                 class="horiz-bar">|</span></li>
             {% else %}
-            <li class="list-group-item px-0 py-0 text-center font-weight-bold text-dark">Not rated yet</li>
+            <li class="list-group-item px-0 py-0 text-center text-dark">Not rated yet</li>
             {% endif %}
             <!-- Product Category If Loop-->
             {% if product.category %}
-            <p class="mb-0 text-center font-weight-bold text-dark"><span class="horiz-bar">|</span><span
-                class="font-weight-bold text-dark"> Category:</span>
-              <a class="text-muted text-dark" href="{% url 'products' %}?category={{ product.category.name }}">
+            <p class="mb-0 text-center text-dark"><span class="horiz-bar">|</span><span
+                class="text-dark"> Category:</span>
+              <a class="text-dark text-decoration-none" href="{% url 'products' %}?category={{ product.category.name }}">
                 <!-- <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }} -->
                 <i class="fas fa-qrcode"></i> {{ product.category.friendly_name }}
               </a>
               <span class="horiz-bar">|</span></p>
+            {% endif %}
+            {% if request.user.is_superuser %}
+              <span class="text-center mt-1">
+                <a class="text-decoration-none" href="{% url 'edit_product' product.id %}">Edit |</a>
+                <a onclick="return confirm('Sure you want to delete?')" class="text-decoration-none text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+              </span>
             {% endif %}
           </ul>
         </div>
