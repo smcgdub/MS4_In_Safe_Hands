@@ -4,8 +4,7 @@ from django.contrib import messages
 from django.db.models.functions import Lower
 from django.db.models import Q
 from .models import Product, Category
-from .forms import ProductForm
-# from django.contrib.auth.decorators import user_passes_test
+from .forms import ProductForm, ReviewForm
 
 
 def all_products(request):
@@ -75,9 +74,13 @@ def product_details(request, product_id):
 
 
 @login_required
-# @user_passes_test(products_check)
 def add_product(request):
     # Add a new product to the site 
+    # If the user is not a superuser, display error message and redirect them to the homepage 
+    if not request.user.is_superuser:
+        messages.warning(request, 'Sorry, you are not authorized to perform that action')
+        return redirect(reverse('home'))
+
     # If add product form method is POST 
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
@@ -103,9 +106,13 @@ def add_product(request):
 
 
 @login_required
-# @user_passes_test(lambda u: u.is_superuser)
 def edit_product(request, product_id):
     # To add a product in the store
+    # If the user is not a superuser, display error message and redirect them to the homepage 
+    if not request.user.is_superuser:
+        messages.warning(request, 'Sorry, you are not authorized to perform that action')
+        return redirect(reverse('home'))
+
     product = get_object_or_404(Product, pk=product_id)
 
     # If user is posting
@@ -133,10 +140,47 @@ def edit_product(request, product_id):
 
 
 @login_required
-# @user_passes_test(lambda u: u.is_superuser)
 def delete_product(request, product_id):
-    # Delete the product from the store 
+    # Delete the product from the store
+    # If the user is not a superuser, display error message and redirect them to the homepage 
+    if not request.user.is_superuser:
+        messages.warning(request, 'Sorry, you are not authorized to perform that action')
+        return redirect(reverse('home'))
+
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, f'{product.name} has been successfully deleted from the store')
     return redirect(reverse('products'))
+
+
+
+
+
+# Code for adding a review 
+@login_required
+def add_review(request, product_id):
+    # If add product form method is POST
+    product = get_object_or_404(Product, pk=product_id)
+
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Review for {product.name} has been successfully added')
+            # Return user to the products page after they have added the item
+            return redirect(reverse('product_details'))
+        # If add form is invalid
+        else:
+            messages.warning(request, 'Review failed to post! Please re-check all form details are valid')
+    # If form isnt a POST form then load a blank form
+    else:
+        form = ReviewForm()
+        
+    form = ReviewForm()
+    template = 'products/add_product.html'
+    context = {
+        'form': form, 
+        'product': product,
+    }
+
+    return render(request, template, context)

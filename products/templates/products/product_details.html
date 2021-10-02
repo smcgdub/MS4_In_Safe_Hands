@@ -54,11 +54,19 @@
         {% if product.category %}
         <p class="mb-0 text-center text-md-left text-dark"><span class="horiz-bar">|</span><span class=" text-dark">
             Category:</span>
-          <a class="text-dark" href="{% url 'products' %}?category={{ product.category.name }}">
+          <a class="text-dark text-decoration-none" href="{% url 'products' %}?category={{ product.category.name }}">
             <!-- <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }} -->
             <i class="fas fa-qrcode"></i> {{ product.category.friendly_name }}
           </a>
           <span class="horiz-bar">|</span></p>
+        {% endif %}
+        <!-- Superuser edit & delete buttons -->
+        {% if request.user.is_superuser %}
+        <p class="text-center text-md-left mt-1">
+          <span class="horiz-bar">| </span><span>Admin:</span><a class="text-decoration-none" href="{% url 'edit_product' product.id %}"> Edit |</a>
+          <a onclick="return confirm('Sure you want to delete?')" class="text-decoration-none text-danger"
+            href="{% url 'delete_product' product.id %}">Delete <span class="horiz-bar"> |</span></a>
+        </p>
         {% endif %}
         <!-- Horizontal Line -->
         <hr>
@@ -110,18 +118,9 @@
         </form>
         <!-- Horizontal Line -->
         <hr>
-        <!-- Superuser edit & delete buttons -->
-        {% if request.user.is_superuser %}
-        <span class="text-center">
-          <a class="text-decoration-none" href="{% url 'edit_product' product.id %}">Edit |</a>
-          <a onclick="return confirm('Sure you want to delete?')" class="text-decoration-none text-danger"
-            href="{% url 'delete_product' product.id %}">Delete</a>
-          <span>- Superusers Only </span>
-        </span>
-        {% endif %}
         <!-- If user is registered on the site they can leave a review-->
         {% if user.is_authenticated %}
-        <p class="small mb-1 mt-1"><span class="horiz-bar">| </span>If you've purchased this product
+        <p class="mb-1 mt-1"><span class="horiz-bar">| </span>If you've purchased this product
           why not leave a review so others can see your feedback<span class="horiz-bar"> |</span></p>
         <a href="" class="mt-1 btn rounded-0 cart-shopping-button">Review this product</a>
         <!-- Line Break -->
@@ -136,16 +135,28 @@
           of the page.
           <span class="horiz-bar"> |</span></p>
         {% endif %}
+        <!-- Reviews -->
+        <div>
+          <p class="">
+            <button class="btn rounded-0 cart-shopping-button" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              Read Product Reviews
+            </button>
+          </p>
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body pl-0 pt-1 pb-1">
+              <p class="">
+                <!-- Insert review form in here -->
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col">Reviews</div>
-  </div>
-</div>
-{% endblock %}
+  {% endblock %}
 
-{% block postload_js %}
-{{ block.super }}
-{% include 'products/includes/quantity_input_script.html' %}
-{% endblock %}
+  {% block postload_js %}
+  {{ block.super }}
+  {% include 'products/includes/quantity_input_script.html' %}
+  {% endblock %}
