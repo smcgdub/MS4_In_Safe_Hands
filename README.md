@@ -4,7 +4,7 @@
 
 ## **Introduction** ##
 
-In Safe Hands was created and built by Stephen Mc Govern as my 4th and final milestone project for my fullstack diploma in software development with Code Institute. The website is a Django e-commerce website for a company that provides different types of PPE products and equipment to the general public as well as several COVID-19 specific items. 
+In Safe Hands was created and built by Stephen Mc Govern as my 4th and final milestone project for my fullstack diploma in software development with Code Institute. The website is a Django e-commerce website for a company that provides different types of PPE products and equipment to the general public as well as several COVID-19 specific items. Users of the site are able to purchase products whether they are registered users or if they wish to checkout as a guest. Registered users however benefit from more access to certain features on the site than none registered users. 
 
 <hr>
 
@@ -70,7 +70,7 @@ In Safe Hands was created and built by Stephen Mc Govern as my 4th and final mil
 
 #### **1.1 - Target Audience** ####
 
-* The website is aimed at users who are looking to purchase various types of PPE equipment that the company provides. The website is a B2C (Business to consumer) website and is not aimed at the B2B (Business to business market) 
+* The website is aimed at users who are looking to purchase various types of PPE equipment that the company provides. The website is a B2C (Business to consumer) website and is not aimed at the B2B (Business to business market) The site also provides the a large amount of the latest Covid-19 data however this data is only available for registered users.  
 
 #### **1.2 - Visitor goals** #### 
 
@@ -107,7 +107,7 @@ INSERT COLOUR PALLETTE HERE
 
 **IMAGES**
 
-* All of the imagery i used for the website was taken from Unsplash. Unsplash is a platform powered by a community of creators that have provided hundreds of thousands of their own photos for others to use in their projects free of charge as long as they abide by the Unsplash licence terms and conditons. These T&C's can be viewed by clicking [Here](https://unsplash.com/license) 
+* Some of the imagery i used for the website was taken from Unsplash. Unsplash is a platform powered by a community of creators that have provided hundreds of thousands of their own photos for others to use in their projects free of charge as long as they abide by the Unsplash licence terms and conditons. These T&C's can be viewed by clicking [Here](https://unsplash.com/license) 
 
 #### **1.5 - Wire Frames** ####
 
@@ -160,7 +160,7 @@ INSERT COLOUR PALLETTE HERE
 
 ![Image of Navbar on mobile](media/readme_images/navbar_opened.png)
 
-#### ** - Toasts** ####
+#### **- Toasts** ####
 
 * To provide for a better user experience on the site i have used Bootstrap Toasts to provide users with feedback when they commit a specific action, adding an item to the cart for example. I have tried out several different toasts that incorporate images, cart totals, cart summaries and free shipping points. After trying all of these out on the site i decided i would keep the toast messaging to a small summary of each user action.
 
@@ -267,6 +267,14 @@ Details
 
 The products PNG images i have sourced from various free PNG sites. The individual list of the images can be found below
 
+**HOMEPAGE IMAGE**
+Link to the original image: [Here](https://unsplash.com/photos/fy8WmFBIaRs)
+All credits belongs to the owner of the image [(Junior REIS)](https://unsplash.com/@juniorreisfoto) and the image is free to use under the Unsplash License
+
+**ABOUT US**
+Link to the original image: [Here](https://unsplash.com/photos/rE6FqsyyqwM)  
+All credits belongs to the owner of the image [(Usman Yousaf)](https://unsplash.com/@usmanyousaf) and the image is free to use under the Unsplash License
+
 **PRODUCTS**
 
 * **N95 Mask**<br>
@@ -322,8 +330,9 @@ All credit belongs to the owner of the image (Air), whose profile can be found [
 
 #### **6.2 Code** ####
 
-* All of the data on the covid numbers page is provided by Our World In Data. All credit for the charts, map, table and daily statistics goes to Our World Data who allow for the reproduction of this data free of charge once it is credited and the source is listed. The original link to the source of the data can be found by clicking here: https://ourworldindata.org/grapher/daily-covid-cases-deaths?tab=map&country=~OWID_WRL 
-* The payment processing spinner that i used on the checkout page was generated from the website [Loading.io](https://loading.io/) Loading.io offers both a free and paid service for creating simple animations for users to use on their sites and projects. The icon i used was a free one and is allowed to be used for projects as long as the credit for them is given which i am giving here in this section.  
+* All of the data on the Covid numbers page is provided by Our World In Data. All credit for the charts, map, table and daily statistics goes to Our World Data who allow for the reproduction of this data free of charge once it is credited and the source is listed. The original link to the source of the data can be found by clicking here: https://ourworldindata.org/grapher/daily-covid-cases-deaths?tab=map&country=~OWID_WRL 
+* The payment processing spinner that i used on the checkout page was generated from the website [Loading.io](https://loading.io/) 
+* Loading.io offers both a free and paid service for creating simple animations for users to use on their sites and projects. The icon i used was a free one and is allowed to be used for projects as long as the credit for them is given which i am giving here in this section.  
 
 #### **6.3 Acknowledgements** ####
 
