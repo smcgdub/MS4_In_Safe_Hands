@@ -184,4 +184,10 @@ body {
   margin-top: 10%;
 }
 
+.update-button {
+  background-color: #f1f1f1;
+  border: none;
+  color: #007bff;
+}
+
 /* Add Product Page */

@@ -25,6 +25,7 @@ def cart_contents(request):
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
         free_delivery_point = settings.FREE_DELIVERY_THRESHOLD - total
     else:
+        # If user spends more then the delivery threshold then delivery is free
         delivery = 0
         free_delivery_point = 0
     

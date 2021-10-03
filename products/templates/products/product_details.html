@@ -33,7 +33,7 @@
       </div>
     </div>
     <!-- Product Details -->
-    <div class="col-12 col-md-6 col-lg-4 offset-lg-2 ml-0 pl-sm-3 pl-md-3 pr-sm-3 px-lg-0">
+    <div class="col-12 col-md-6 col-lg-4 offset-lg-2 ml-0 pl-sm-3 pl-md-3 px-lg-3 pr-sm-3 pt-3 pt-md-0">
       <div class="mt-md-5">
         <!-- Product Name -->
         <p class="text-dark mb-1 text-center text-md-left"><span class="horiz-bar">|</span>
@@ -90,7 +90,7 @@
                   </div>
                   <!-- Quantity input -->
                   <input class="form-control qty_input text-center" type="number" name="quantity" value="1" min="1"
-                    max="10" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                    max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
                   <!-- Add button -->
                   <div class="input-group-prepend">
                     <button id="increase-qty_{{ product.id }}"
@@ -118,6 +118,7 @@
         </form>
         <!-- Horizontal Line -->
         <hr>
+        <p class="mb-1 text-uppercase">Reviews</p>
         <!-- If user is registered on the site they can leave a review-->
         {% if user.is_authenticated %}
         <p class="mb-1 mt-1"><span class="horiz-bar">| </span>If you've purchased this product

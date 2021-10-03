@@ -21,10 +21,12 @@ def add_to_cart(request, item_id):
     if item_id in list(cart.keys()):
         cart[item_id] += quantity
         messages.success(request, f'Quantity of {product.name} in cart is now {cart[item_id]} \U0001F44D')
+        print("Product quantity updated from product details page")
     else:
         # Add to cart
         cart[item_id] = quantity
         messages.success(request, f'{product.name} added to cart \U0001F44D ')
+        print("Product added to cart for first time from product details page")
     
     request.session['cart'] = cart
     return redirect(redirect_url)
@@ -37,13 +39,13 @@ def update_cart(request, item_id):
     quantity = int(request.POST.get('quantity'))
     cart = request.session.get('cart', {})
 
+    # If there is more than 1 item in the cart adjust the order
     if quantity > 0:
         cart[item_id] = quantity
-        print("test 1")
+        print("Product quantity update from shopping cart")
         messages.success(request, f'Quantity of {product.name} in cart is now {cart[item_id]} \U0001F44D')
     else:
         cart.pop(item_id)
-        print("test 2")
         messages.success(request, f'{product.name} removed from cart')
 
     request.session['cart'] = cart
@@ -59,11 +61,10 @@ def remove_from_cart(request, item_id):
         cart.pop(item_id)
         messages.success(request, f'{product.name} removed from cart \U0001F44D ')
         request.session['cart'] = cart
-        print("item removed from cart")
+        print("Product removed from shopping cart from the cart page")
         return redirect(reverse('view_cart'))
-        # return HttpResponse(status=700)
     
     except Exception as e:
         messages.error(request, f'Oops! There was an error removing {e} from the cart \U0001F62C ')
+        print("Error removing item from cart page")
         return redirect(reverse('view_cart'))
-        # return HttpResponse(status=500)
