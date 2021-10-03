@@ -1,16 +1,14 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.conf import settings
-
 from profiles.forms import UserProfileForm
 from profiles.models import UserProfile
 from .models import Order, OrderLineItem
 from cart.contexts import cart_contents
 from products.models import Product
 from .forms import OrderForm
-
 import stripe
-# Create your views here.
+
 
 def checkout(request):
 
@@ -22,7 +20,7 @@ def checkout(request):
         cart = request.session.get('cart', {})
         # Data from the checkout form 
         form_data = {
-            'first_name': request.POST['first_name'], 
+            'first_name': request.POST['first_name'],  
             'last_name': request.POST['last_name'], 
             'email': request.POST['email'], 
             'phone_number': request.POST['phone_number'], 
@@ -34,6 +32,7 @@ def checkout(request):
             'country': request.POST['country'], 
         }
         order_form = OrderForm(form_data)
+        
         # If order is valid
         if order_form.is_valid():
             order = order_form.save()
@@ -59,6 +58,7 @@ def checkout(request):
                     return redirect(reverse('view_cart'))
             # If form posted successfully redirect to checkout success page
             request.session['save_info'] = 'save-info' in request.POST
+            print(form_data)
             return redirect(reverse('checkout_success', args=[order.order_number]))
         # Error message if form is filled out incorrect 
         else:
@@ -82,6 +82,9 @@ def checkout(request):
             # metadata={'integration_check': 'accept_a_payment'},
         )
 
+        # Print the intent to the console
+        print(intent)
+
         # Auto populate the delivery details if the user is authenticated 
         if request.user.is_authenticated:
             try:
@@ -94,13 +97,18 @@ def checkout(request):
                     'eircode': profile.default_eircode, 
                     'country': profile.default_country,
                 })
-            # If user isnt authenticated generate a blank form 
+                print("Authenticated user form pre populated with previously saved details - checkout views.py")
+            # User profile doesnt exist
             except UserProfile.DoesNotExist:
+                print("User profile doesnt exist so blank form generated - checkout views.py")                
                 order_form = OrderForm()
+        # If user isnt authenticated generate a blank form
         else:
+            print("User isnt authenticated so blank form generated - checkout views.py")
             order_form = OrderForm()
 
     if not stripe_public_key:
+        print("Stripe public key is missing - checkout views.py")
         messages.warning(request, 'Stripe public key is missing!')
 
     template = 'checkout/checkout.html'
@@ -109,7 +117,7 @@ def checkout(request):
       'stripe_public_key': stripe_public_key,
       'client_secret': intent.client_secret,
     }
-
+    
     return render(request, template, context)
 
 

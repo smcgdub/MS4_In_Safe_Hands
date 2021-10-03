@@ -18,6 +18,7 @@ var style = {
     iconColor: '#dc3545'
   }
 };
+// Create the stripe card 
 var card = elements.create('card', {
   // Have set stripe so zip/post/eircode is required. Stripe will automatically detect the users country and adjust the form accordingly for zip/post/eircodes. 
   hidePostalCode: false,
