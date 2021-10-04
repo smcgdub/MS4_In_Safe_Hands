@@ -36,7 +36,14 @@
       <!-- Prodduct Input Form -->
       <form method="POST" action="{% url 'add_product' %}" class="form" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form|crispy }}
+        <!-- The loop below will remove the default images label so its not repeated twice -->
+        {% for field in form %}
+        {% if field.name != 'image' %}
+        {{ field|as_crispy_field }}
+        {% else %}
+        {{ field }}
+        {% endif %}
+        {% endfor %}
         <!-- Cancel Adding Product Button -->
         <a class="btn cart-shopping-button rounded-0" href="{% url 'products' %}">Cancel</a>
         <!-- Add product button -->

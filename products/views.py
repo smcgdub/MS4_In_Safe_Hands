@@ -76,8 +76,10 @@ def product_details(request, product_id):
 @login_required
 def add_product(request):
     # Add a new product to the site 
+
     # If the user is not a superuser, display error message and redirect them to the homepage 
     if not request.user.is_superuser:
+        print("A none superuser is attempting to access a restricted feature add product to store - Products / Views.py / add_product")
         messages.warning(request, 'Sorry, you are not authorized to perform that action')
         return redirect(reverse('home'))
 
@@ -86,6 +88,7 @@ def add_product(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            print("Add product to store was successful - Products / Views.py / add_product")
             messages.success(request, 'Product has been successfully added to the store')
             # Return user to the products page after they have added the item
             return redirect(reverse('products'))
@@ -107,9 +110,11 @@ def add_product(request):
 
 @login_required
 def edit_product(request, product_id):
-    # To add a product in the store
+    # To edit a product in the store
+
     # If the user is not a superuser, display error message and redirect them to the homepage 
     if not request.user.is_superuser:
+        print("A none superuser is attempting to access a restricted feature edit product in store - Products / Views.py / edit_product")
         messages.warning(request, 'Sorry, you are not authorized to perform that action')
         return redirect(reverse('home'))
 
@@ -120,14 +125,17 @@ def edit_product(request, product_id):
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
+            print("Product was successfully updated - Products / Views.py / edit_product")
             messages.success(request, f'{product.name} has been successfully updated')
             return redirect(reverse('product_details', args=[product.id]))
         # Warning message if updating was unsuccessfull
         else:
+            print("There was an error updating the product - Products / Views.py / edit_product")
             messages.warning(request, 'Warning, product update failed. Please check all fields are valid and try again.')
     # Inform user that they are currently editing a product and name that product
     else:
         form = ProductForm(instance=product)
+        print("Superuser is currently editing an item - Products / Views.py / edit_product")
         messages.info(request, f'You are currently editing {product.name}')
 
     template = 'products/edit_product.html'
@@ -144,6 +152,7 @@ def delete_product(request, product_id):
     # Delete the product from the store
     # If the user is not a superuser, display error message and redirect them to the homepage 
     if not request.user.is_superuser:
+        print("A none superuser is attempting to access a restricted feature delete product from store - Products / Views.py / delete_product")
         messages.warning(request, 'Sorry, you are not authorized to perform that action')
         return redirect(reverse('home'))
 
