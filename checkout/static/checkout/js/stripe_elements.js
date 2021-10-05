@@ -64,7 +64,7 @@ form.addEventListener('submit', function(ev) {
             line2: $.trim(form.street_address2.value),
             city: $.trim(form.town_or_city.value),
             state: $.trim(form.county.value),
-            postal_code: $.trim(form.eircode.value),
+            // Removed postcode as stripe will override this as part of the payment form
             country: $.trim(form.country.value),
           }
         }
