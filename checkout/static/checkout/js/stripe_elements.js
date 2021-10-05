@@ -26,7 +26,7 @@ var card = elements.create('card', {
 });
 card.mount('#card-element');
 
-// Handle validation errors on the card number input if user enters incorrect card details
+// This code validates any errors on the card input if user enters incorrect card details
 card.addEventListener('change', function (event) {
   var errorDiv = document.getElementById('card-errors');
   if (event.error) {
@@ -44,6 +44,7 @@ card.addEventListener('change', function (event) {
 
 // Handle form submit
 var form = document.getElementById('payment-form');
+
 form.addEventListener('submit', function(ev) {
     ev.preventDefault();
     card.update({'disabled': true});
@@ -55,6 +56,7 @@ form.addEventListener('submit', function(ev) {
         payment_method: {card: card,}
     }).then(function(result) {
         if (result.error) {
+            // Error message to user about their card
             var errorDiv = document.getElementById('card-errors');
             var html = `
                 <span class="icon" role="alert">

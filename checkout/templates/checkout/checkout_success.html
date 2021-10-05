@@ -120,7 +120,7 @@
           <p class="text-center mt-0 mb-0"><span class="horiz-bar">| </span>Address: {{ order.street_address1 }},
             <!-- Display street address 2 if entered -->
             {% if order.street_address2 %}
-            {{ order.street_address2 }}
+              {{ order.street_address2 }}
             {% endif %}
             <span class="horiz-bar"> |</span>
           </p>
@@ -128,14 +128,19 @@
           <p class="text-center mt-0 mb-0"><span class="horiz-bar">| </span>Town/City: {{ order.town_or_city }}<span
               class="horiz-bar"> |</span></p>
           <!-- County -->
+          {% if order.county %}
           <p class="text-center mt-0 mb-0"><span class="horiz-bar">| </span>County:
-            {% if order.county %}
             {{ order.county }}
-            {% endif %}
-            <span class="horiz-bar"> |</span></p>
+            <span class="horiz-bar"> |</span>
+          </p>
+          {% endif %}
           <!-- Eircode -->
-          <p class="text-center mt-0 mb-0"><span class="horiz-bar">| </span>Eircode: {{ order.eircode }}<span
-              class="horiz-bar"> |</span></p>
+          {% if order.eircode %}
+          <p class="text-center mt-0 mb-0"><span class="horiz-bar">| </span>Eircode:
+            {{ order.eircode }}
+            <span class="horiz-bar"> |</span>
+          </p>
+          {% endif %}
           <!-- Country -->
           <p class="text-center mt-0 mb-0"><span class="horiz-bar">| </span>Country: {{ order.country }}<span
               class="horiz-bar"> |</span></p>

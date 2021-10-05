@@ -17,7 +17,7 @@ def checkout(request):
 
     # If checkout form is a POST form
     if request.method == 'POST':
-        cart = request.session.get('cart', {})
+        cart = request.session.get('cart', {}) 
         # Data from the checkout form 
         form_data = {
             'first_name': request.POST['first_name'],  
@@ -32,7 +32,6 @@ def checkout(request):
             'country': request.POST['country'], 
         }
         order_form = OrderForm(form_data)
-        
         # If order is valid
         if order_form.is_valid():
             order = order_form.save()
@@ -101,7 +100,7 @@ def checkout(request):
                 print("Authenticated user form pre populated with previously saved details - checkout views.py")
             # User profile doesnt exist
             except UserProfile.DoesNotExist:
-                print("User profile doesnt exist so blank form generated - checkout views.py")                
+                print("User profile doesn't exist so blank form generated - checkout views.py")                
                 order_form = OrderForm()
         # If user isnt authenticated generate a blank form
         else:
