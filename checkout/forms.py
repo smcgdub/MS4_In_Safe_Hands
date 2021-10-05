@@ -17,7 +17,7 @@ class OrderForm(forms.ModelForm):
             'first_name': 'First Name',
             'last_name': 'Last Name',
             'email': 'Email Address',
-            'phone_number': 'Phone Number',
+            'phone_number': 'Phone Number - no spaces between digits',
             'street_address1': 'Street Address 1',
             'street_address2': 'Street Address 2',
             'town_or_city': 'Town or City',
