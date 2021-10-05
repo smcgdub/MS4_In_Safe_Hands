@@ -6,7 +6,6 @@ from django.db import models
 from products.models import Product
 from profiles.models import UserProfile
 
-# Create your models here.
 
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
@@ -58,7 +57,7 @@ class OrderLineItem(models.Model):
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
 
     def save(self, *args, **kwargs):
-        # Override the original save method and set an order number if one hasn't been set already
+        # Override the original save method and set line item total and update the order total
         self.lineitem_total = self.product.price * self.quantity
         super().save(*args, **kwargs)
 

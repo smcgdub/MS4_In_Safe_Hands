@@ -185,14 +185,12 @@ body {
 }
 
 .update-button {
-  background-color: #f1f1f1;
+  background-color: transparent;
   border: none;
   color: #007bff;
 }
 
 /* Add/Edit Product Page */
-
-
 .custom-checkbox .custom-control-label::before {
   border-radius: 0;
   border-color: #dc3545;

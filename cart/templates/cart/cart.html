@@ -13,15 +13,13 @@
 {% block content %}
 <!-- White background overlay -->
 <div class="overlay"></div>
-
 <!-- Shopping Cart Banner -->
 <div class="row">
   <div class="col text-center my-auto px-0">
-    <h4 class="page_top_banner text-uppercase text-dark pt-2 mb-2">SHOPPING CART
+    <h4 class="page_top_banner text-uppercase text-dark pt-2 mb-2">SHOPPING CART 
     </h4>
   </div>
 </div>
-
 <!-- Page container -->
 <div class="container-fluid">
   <div class="row">
@@ -39,7 +37,6 @@
               <th scope="col" class="text-uppercase text-center">Subtotal:</th>
             </tr>
           </thead>
-
           <!-- For each item in cart loop -->
           {% for item in cart_items %}
           <tr>
@@ -106,6 +103,7 @@
           <!-- Cart Summary -->
           <tr>
             <td colspan="5" class="pt-4 text-right bg-white">
+              <h6 class="mr-3">Items in cart: <span class="text-danger">{{ product_count }}</span></h6>
               <!-- Shopping Cart Total -->
               <h6 class="mr-3">Cart Total: <span class="text-danger">€{{ total|floatformat:2 }}</span></h6>
               <!-- Delivery Charge -->
@@ -120,7 +118,6 @@
               {% endif %}
             </td>
           </tr>
-
           <!-- Keep shopping & secure checkout button -->
           <tr>
             <td colspan="5" class="text-right bg-light">
@@ -142,7 +139,6 @@
           </tr>
         </table>
       </div>
-
       <!-- If shopping cart is empty -->
       {% else %}
       <div class="text-center">

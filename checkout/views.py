@@ -67,6 +67,7 @@ def checkout(request):
     else:
         cart = request.session.get('cart', {})
         if not cart:
+            print("User has attempted to type /checkout into the browser - Checkout / Views.py / Checkout")
             messages.error(request, "You've nothing in your cart at the moment, but here's are all of our products for you to browse \U0001F642")
             return redirect(reverse('products'))
 
@@ -104,7 +105,7 @@ def checkout(request):
                 order_form = OrderForm()
         # If user isnt authenticated generate a blank form
         else:
-            print("User isnt authenticated so blank form generated - checkout views.py")
+            print("User isn't authenticated so blank form generated - checkout views.py")
             order_form = OrderForm()
 
     if not stripe_public_key:

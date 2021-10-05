@@ -78,6 +78,31 @@ In Safe Hands was created and built by Stephen Mc Govern as my 4th and final mil
 
 #### **1.3 - User Stories** ####
 
+As the owner of the e-commerce site:
+
+* I want to be able to offer my customers a range of various types of PPE products so i can: acquire new customers and retain regular ones who will buy their PPE products from me
+* I want to be able to manage all of the items that my store sells myself so i can: Add, edit, update and remove different items quickly and easily depending on how they are selling 
+* I want to offer my customers a simple, efficient and user friendly shopping experience so i can: Offer users have a good user experience on the site they will come back and provide repeat business
+* I want to offer registered customers access to the latest Covid-19 data all in one place so i can: offer users a reason to come back to the site on a regular basis, they need to register to view this data so this allows me to send them email marketing to encourage them to buy and to update them on the store
+* I want to encourage my users to register so i can: so they can save their details and streamline the purchasing process. Once they have registered I can also email market to this database of customers
+* I want to provide a guest checkout so i can: offer users who do not wish to register the ability to still purchase from the store and checkout out in a quick and easy manner so the store doesn’t lose any potential business
+
+As a shopper on the site:
+
+* I want to view all of the products in the store so i can: select a product to purchase
+* I want to view individual products and their details so i can: identify the price, description, product protection rating, see the product image
+* I want to, at a glance, be able to keep track of my purchases at any time on the site so i can: keep track of the value of goods in my cart so i can avoid spending to much money
+* I want to be able to register for an account quickly and easily so i can: have a personal account on the site if I become a regular user
+* I want to be able to log in and log out quickly and easily so i can: know my account can be securely logged on and off with only a few clicks. 
+* I want to be able to recover my password simply if I forget it so i can: regain access to my account 
+* I want to view my profile when i wish so i can: see my order history and order details 
+* I want to search for a specific product or category so i can: quickly find the item that I am looking for 
+* I want to easily select the quantity of a product once I have chosen to buy it so i can: add more of the product to the cart if I choose to buy more with a few clicks 
+* I want to be offered a quick and easy checkout procedure so i: don’t have to register for an account if I don’t want to and still avail of a quick and easy checkout process 
+* I want to be able to fully adjust my cart before checkout: incase I decide to buy more or a product, remove a product, or have selected the incorrect amount of a product
+* I want to see an order confirmation in detail once ive completed my purchase so i can: verify that everything with my order is correct
+* Most importantly I want to be able to use a payment provider I feel safe with so i can: feel safe and secure that my card details will be safe with this purchase  
+
 #### **1.4 - Design Choices** ####
 <br>
 
@@ -246,6 +271,17 @@ Details
 
 * I have tested the site and this appears to have resolved the issue. The toasts are displaying as normal. 
 
+
+**3. Stripe Card Font**
+
+**PROBLEM**
+
+* The placeholder text in the credit card input on the checkout page isn't set to the same font as the rest of the site. I have tried to set this to the font used on the rest of the site which is "Josefin Sans" however the font seems to always load as the back up font which is "Sans-serif". 
+
+**SOLUTIONS TRIED**
+
+I know i have the settings correct as i have tried to change the font from "Josefin Sans" to a more common one such as "Times New Roman". When i test this change it does take effect on the placeholder text. But when i set it to "Josefin Sans" the font always seems to revert to the back up font of "Sans-serif". It is something i am aware of and will try to work on a solution at a later date. 
+
 </details>
 
 <hr>
@@ -268,12 +304,14 @@ Details
 The products PNG images i have sourced from various free PNG sites. The individual list of the images can be found below
 
 **HOMEPAGE IMAGE**
-Link to the original image: [Here](https://unsplash.com/photos/fy8WmFBIaRs)
-All credits belongs to the owner of the image [(Junior REIS)](https://unsplash.com/@juniorreisfoto) and the image is free to use under the Unsplash License
+
+* Link to the original image: [Here](https://unsplash.com/photos/fy8WmFBIaRs)
+* All credits belongs to the owner of the image [(Junior REIS)](https://unsplash.com/@juniorreisfoto) and the image is free to use under the Unsplash License
 
 **ABOUT US**
-Link to the original image: [Here](https://unsplash.com/photos/rE6FqsyyqwM)  
-All credits belongs to the owner of the image [(Usman Yousaf)](https://unsplash.com/@usmanyousaf) and the image is free to use under the Unsplash License
+
+* Link to the original image: [Here](https://unsplash.com/photos/rE6FqsyyqwM)  
+* All credits belongs to the owner of the image [(Usman Yousaf)](https://unsplash.com/@usmanyousaf) and the image is free to use under the Unsplash License
 
 **PRODUCTS**
 

@@ -22,10 +22,9 @@ var style = {
 var card = elements.create('card', {
   // Have set stripe so zip/post/eircode is required. Stripe will automatically detect the users country and adjust the form accordingly for zip/post/eircodes. 
   hidePostalCode: false,
-  style: style
+  style: style,
 });
 card.mount('#card-element');
-
 
 // Handle validation errors on the card number input if user enters incorrect card details
 card.addEventListener('change', function (event) {
@@ -43,10 +42,8 @@ card.addEventListener('change', function (event) {
   }
 });
 
-
 // Handle form submit
 var form = document.getElementById('payment-form');
-
 form.addEventListener('submit', function(ev) {
     ev.preventDefault();
     card.update({'disabled': true});
