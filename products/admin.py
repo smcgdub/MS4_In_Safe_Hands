@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Product, Category, ProductReview
+from .models import Product, Category
+# from .models import Product, Category, ProductReview
 
 # Selects which details will be shown in the Django admin
 class ProductAdmin(admin.ModelAdmin):
@@ -24,17 +25,17 @@ class CategoryAdmin(admin.ModelAdmin):
     )
 
 
-class ProductReviewAdmin(admin.ModelAdmin):
-    list_display = (
-      'review_title',
-      'reviewed_product',
-      'reviewer',
-      'date',
-    )
+# class ProductReviewAdmin(admin.ModelAdmin):
+#     list_display = (
+#       'review_title',
+#       'reviewed_product',
+#       'reviewer',
+#       'date',
+#     )
 
-    ordering = ('reviewer', 'date')
+#     ordering = ('reviewer', 'date')
 
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Product, ProductAdmin)
-admin.site.register(ProductReview, ProductReviewAdmin)
+# admin.site.register(ProductReview, ProductReviewAdmin)

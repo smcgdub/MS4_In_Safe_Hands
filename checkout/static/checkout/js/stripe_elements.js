@@ -58,7 +58,6 @@ form.addEventListener('submit', function(ev) {
           name: (form.first_name.value) + ( '\u00A0' ) + (form.last_name.value),
           email: $.trim(form.email.value),
           phone: $.trim(form.phone_number.value),
-          // phone: $trim(form.phone_number.value),
           address: {
             line1: $.trim(form.street_address1.value),
             line2: $.trim(form.street_address2.value),

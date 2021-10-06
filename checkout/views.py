@@ -79,7 +79,6 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
             # Verify your integration in this guide by including this parameter
-            # metadata={'integration_check': 'accept_a_payment'},
         )
 
         # Print the intent to the console

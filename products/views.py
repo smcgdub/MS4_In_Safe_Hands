@@ -4,7 +4,8 @@ from django.contrib import messages
 from django.db.models.functions import Lower
 from django.db.models import Q
 from .models import Product, Category
-from .forms import ProductForm, ReviewForm
+from .forms import ProductForm
+# from .forms import ProductForm, ReviewForm
 
 
 def all_products(request):
