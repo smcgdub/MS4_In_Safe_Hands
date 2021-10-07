@@ -70,3 +70,27 @@ def add_to_wishlist(request, product_id):
     return redirect(redirect_url)
 
 
+
+
+
+
+
+def contact_us(request):
+    # View that returns contact us page
+    messages_form = ContactMessagesForm()
+
+    if request.method == 'POST':
+        messages_form = ContactMessagesForm(ContactMessages)
+        if messages_form.is_valid():
+            messages_form.save()
+            messages.success(request, "Your message to us has been successfully sent")
+            return redirect(reverse('home'))
+    else:
+        messages.error(request, "There was an error sending your message, please try to send it again")
+        # return redirect(reverse('contact_us'))
+
+    template = 'contact_us/contact_us.html'
+    context = {
+        'form': messages_form
+    }
+    return render(request, template, context=context)
