@@ -131,8 +131,14 @@ body {
   color: #1fb4ff !important;
 }
 
+
 .fa-qrcode:before {
   color: #1fb4ff !important;
+}
+
+/* Wishlist heart icon colour */
+.fa-heart:before {
+  color: #1fb4ff;
 }
 
 /* Shopping Cart Page */

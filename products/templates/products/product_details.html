@@ -41,7 +41,7 @@
         <!-- Product Price -->
         <p class="text-dark mb-1 text-center text-md-left"><span class="horiz-bar">|</span> Price:
           €{{ product.price }} <span class="horiz-bar">|</span></p>
-        <!-- Product Rating -->
+        <!-- Product Protection Rating -->
         {% if product.rating %}
         <p class="px-0 py-0 mb-1  text-dark text-center text-md-left"><span class="horiz-bar">|</span>
           Protection Level: &nbsp<i class="fas fa-star-half-alt text-dark"></i>&nbsp{{ product.rating }} / 5 <span
@@ -60,10 +60,27 @@
           </a>
           <span class="horiz-bar">|</span></p>
         {% endif %}
+
+
+
+        <!-- Add to wishlist - MAY NOT USE THIS FEATURE -->
+        {% if user.is_authenticated %}
+        <span class="horiz-bar">| </span>Add to wishlist:
+          <!-- Full heart -->
+          <a href="{% url 'add_to_wishlist' product.id %}" class="btn px-0 py-0" role="button">
+            <i class="fas fa-heart"></i>
+          </a>
+        <span class="horiz-bar"> |</span>
+        {% endif %}
+
+
+
+
         <!-- Superuser edit & delete buttons -->
         {% if request.user.is_superuser %}
         <p class="text-center text-md-left mt-1">
-          <span class="horiz-bar">| </span><span>Admin:</span><a class="text-decoration-none" href="{% url 'edit_product' product.id %}"> Edit |</a>
+          <span class="horiz-bar">| </span><span>Admin:</span><a class="text-decoration-none"
+            href="{% url 'edit_product' product.id %}"> Edit |</a>
           <a onclick="return confirm('Sure you want to delete?')" class="text-decoration-none text-danger"
             href="{% url 'delete_product' product.id %}">Delete <span class="horiz-bar"> |</span></a>
         </p>
@@ -139,7 +156,8 @@
         <!-- Reviews -->
         <div>
           <p class="">
-            <button class="btn rounded-0 cart-shopping-button" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <button class="btn rounded-0 cart-shopping-button" type="button" data-toggle="collapse"
+              data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
               Read Product Reviews
             </button>
           </p>
@@ -147,7 +165,8 @@
             <div class="card card-body pl-0 pt-1 pb-1">
               <p class="">
                 <!-- Insert review form in here -->
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil
+                anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
               </p>
             </div>
           </div>

@@ -20,7 +20,7 @@ class ContactMessagesForm(forms.ModelForm):
             'subject': 'Message Subject',
             'message': 'Your Message',
             'contact_email': 'Your email address',
-            # 'date': 'Date & Time',
+            'date': 'Date & Time',
             }
 
         # Form will auto start on first name

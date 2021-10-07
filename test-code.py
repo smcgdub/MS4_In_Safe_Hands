@@ -31,3 +31,42 @@ class RegisterUserMessages(models.Model):
 
     def __str__(self):
         return self.subject
+
+
+
+
+Workflow: 
+customer > click on wishlist button > url connected to a view > view will action the function 
+
+> Click on wishlist button
+> Check if item already in wish list 
+> If yes: remove it from the wish list 
+> If no: add it to wishlist 
+
+Effectively we are just creating an if statement 
+Button will change display depending on wishlist ("Add to wishlist" if not in the list, "remove from wishlist" if it is in the list)
+
+# in urls
+path("wishlist/add_to_wishlist/<int:product_id>/", views.add_to_wishlist, name="user_wishlist")
+
+# Imports
+from django.shortcuts import get_object_or_404, redirect, render
+from product.models import Product
+
+# User will need to be logged in
+@login_required 
+def add_to_wishlist(request, product_id):
+    
+    product = get_object_or_404(Product, pk=product_id)
+    redirect_url = request.POST.get('redirect_url')
+
+    if product .users_wishlist.filter(id=request.user.id).exists():
+        product.users_wishlist.remove()
+        messages.success(request, f'{product.name} has been removed to your wishlist \U0001F44D ')       
+    else:
+        product.users_wishlist.add(request.user)
+        messages.success(request, f'{product.name} has been added to your wishlist \U0001F642 ')
+    
+    return redirect(redirect_url)
+
+
