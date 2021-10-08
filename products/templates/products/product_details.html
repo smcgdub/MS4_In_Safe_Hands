@@ -63,15 +63,7 @@
 
 
 
-        <!-- Add to wishlist - MAY NOT USE THIS FEATURE -->
-        {% if user.is_authenticated %}
-        <span class="horiz-bar">| </span>Add to wishlist:
-          <!-- Full heart -->
-          <a href="{% url 'add_to_wishlist' product.id %}" class="btn px-0 py-0" role="button">
-            <i class="fas fa-heart"></i>
-          </a>
-        <span class="horiz-bar"> |</span>
-        {% endif %}
+
 
 
 
@@ -180,3 +172,14 @@
   {{ block.super }}
   {% include 'products/includes/quantity_input_script.html' %}
   {% endblock %}
+
+
+  <!-- Add to wishlist - MAY NOT USE THIS FEATURE -->
+  {% if user.is_authenticated %}
+  <span class="horiz-bar">| </span>Add to wishlist:
+  <!-- Full heart -->
+  <a href="{% url 'add_to_wishlist' product.id %}" class="btn px-0 py-0" role="button">
+    <i class="fas fa-heart"></i>
+  </a>
+  <span class="horiz-bar"> |</span>
+  {% endif %}
