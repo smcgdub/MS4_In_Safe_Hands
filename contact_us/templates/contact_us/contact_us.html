@@ -62,57 +62,67 @@
     </div>
   </div>
 </div>
-
-
-  <!-- Registered users priority message -->
-  {% if user.is_authenticated %}
-  <!-- Horizontal Line -->
-  <hr>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col text-center my-auto px-0">
-        <h4 class="page_top_banner text-uppercase text-dark pt-2 mb-2">Registered Users Contact Form
-        </h4>
-      </div>
+<!-- Registered users priority message -->
+{% if user.is_authenticated %}
+<!-- Horizontal Line -->
+<hr>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col text-center my-auto px-0">
+      <h4 class="page_top_banner text-uppercase text-dark pt-2 mb-2">Registered Users Contact Form
+      </h4>
     </div>
   </div>
-  <!-- Message form container -->
-  <div class="container">
-    <div class="row text-center">
-      <div class="col">
-        <form action="{% url 'contact_us' %}" class="form text-center" method="POST">
-          {% csrf_token %}
-          <div class="">
-            <input type="text" value="{{ user }}" readonly>
-            <p class="small mb-0 text-left">required *</p>
-            {{ form|crispy }}
-          </div>
-          <!-- Send message button -->
-          <button class="btn cart-shopping-button rounded-0" type="submit"><i class="fas fa-envelope"></i> Send Message</button>
-        </form>
-      </div>
+</div>
+<!-- Message form container -->
+<div class="container">
+  <div class="row text-center">
+    <div class="col">
+      <!-- Registered users contact form -->
+      <form action="{% url 'contact_us' %}" class="form text-center" method="POST">
+        {% csrf_token %}
+        <div class="reg-users-contact-form-div">
+          <!-- Message from field - None editable, username is auto generated to current logged in user -->
+          <p class="text-left mb-2 mt-2 user-input-p text-muted">
+            Message From:
+            <input disabled="disabled" class="user-input-display" type="text" value="{{ user }}" readonly>
+          </p>
+          <!-- Crispy form - Subject, message & email -->
+          <p class="small mb-0 text-left">required *</p>
+          {{ form|crispy }}
+        </div>
+        <!-- Send message button -->
+        <button class="btn cart-shopping-button rounded-0" type="submit"><i class="fas fa-envelope"></i> Send
+          Message</button>
+      </form>
     </div>
-    <br>
-    <br>
   </div>
-  {% else %}
-  <!-- Horizontal line -->
-  <hr>
-  <!-- Registered user priority messaging service -->
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <h2 class="text-center">Registered Users Messaging Service</h2>
-        <p class="text-center mb-0">
-          Registered users on our site have access to our priority messaging service that can be found on this page. If you would like to avail of our priority messaging service you can do so by clicking on the sign up button below. Registration is free and only takes 1 minute. Once you're registered just come back to this page and you will see the message form here.
-        </p>
-        <div class="row text-center">
-          <div class="col">
-            <a class="btn rounded-0 cart-shopping-button mt-2 mt-md-2 text-center" href="{% url 'account_signup' %}">Sign Up Here</a>
-          </div>
+  <!-- Line breaks for some space -->
+  <br>
+  <br>
+</div>
+{% else %}
+<!-- Horizontal line -->
+<hr>
+<!-- Registered user priority messaging service -->
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2 class="text-center">Registered Users Messaging Service</h2>
+      <p class="text-center mb-0">
+        Registered users on our site have access to our priority messaging service that can be found on this page. If
+        you would like to avail of our priority messaging service you can do so by clicking on the sign up button below.
+        Registration is free and only takes 1 minute. Once you're registered just come back to this page and you will
+        see the message form here.
+      </p>
+      <div class="row text-center">
+        <div class="col">
+          <a class="btn rounded-0 cart-shopping-button mt-2 mt-md-2 text-center" href="{% url 'account_signup' %}">Sign
+            Up Here</a>
         </div>
       </div>
     </div>
   </div>
+</div>
 {% endif %}
 {% endblock %}

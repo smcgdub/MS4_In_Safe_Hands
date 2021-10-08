@@ -213,3 +213,15 @@ body {
 .custom-control-label::after {
   cursor: pointer;
 }
+
+/* Contact Us Page */
+.user-input-display {
+  border: none !important;
+}
+
+.user-input-p {
+  padding-left: 12px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border: 1px solid #c3c1c1;
+}
