@@ -398,6 +398,15 @@ If you need to reach me i can be contacted via the three methods below:
 <details>
 <summary><strong>
 8. Future Items To Develop
+
+<br>
+
+#### **8.1 - Social media login** ####
+* One of the features i will be incorporating at a later date is to enable users to be able to log in using their social media accounts such as Facebook and Google.
+
+#### **8.2 - Social media share buttons** ####
+* This feature will go on the product details pages, if a user to the site sees an item they like they will have the ability to share this with other people with only a few clicks. 
+
 </strong></summary>
 
 </details>

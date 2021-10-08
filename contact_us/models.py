@@ -5,7 +5,7 @@ from profiles.models import UserProfile
 
 class ContactMessages(models.Model):
     # Contact form model
-    sender = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    sender = models.ForeignKey(UserProfile, on_delete=models.CASCADE, null=True, blank=True)
     subject = models.CharField(max_length=80, null=False, blank=False)
     message = models.TextField(max_length=3000, null=False, blank=False)
     date = models.DateTimeField(auto_now_add=True, editable=False)

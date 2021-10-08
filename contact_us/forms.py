@@ -1,6 +1,8 @@
 from django import forms
 from django.forms import ModelForm
 from .models import ContactMessages
+from django.forms import HiddenInput
+
 # from .models import ContactForm
 
 
@@ -9,7 +11,10 @@ class ContactMessagesForm(forms.ModelForm):
         # exclude('sender',)
         model = ContactMessages
       # Fields to dispaly on the contact us form
-        fields = ('subject', 'message', 'contact_email')
+        # fields = ('sender', 'subject', 'message', 'contact_email')
+        fields = ('sender', 'subject', 'message', 'contact_email')
+        widgets={'sender': HiddenInput()}
+
 
     def __init__(self, *args, **kwargs):
         # Placeholders to be added to the checkout fields
@@ -19,7 +24,7 @@ class ContactMessagesForm(forms.ModelForm):
             'subject': 'Message subject',
             'message': 'Your message',
             'contact_email': 'Your email address',
-            'date': 'Date & Time',
+            # 'date': 'Date & Time',
             }
 
         # Form will auto start on first name
