@@ -528,6 +528,6 @@ If you need to reach me i can be contacted via the three methods below:<br>
 </strong></summary>
 <br>
 
-* This website and all of its content was completed for my final assessment project with Code Institute. The site is strictly for educational purposes only.
+* This website and all of its content was completed for my final assessment project with Code Institute. The site is strictly for educational purposes only, there is no commercial revenue and being generated from the site.
 
 </details>

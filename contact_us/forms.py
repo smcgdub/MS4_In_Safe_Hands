@@ -27,7 +27,7 @@ class ContactMessagesForm(forms.ModelForm):
             # 'date': 'Date & Time',
             }
 
-        # Form will auto start on first name
+        # Form will auto start on subject
         self.fields['subject'].widget.attrs['autofocus'] = True
         for field in self.fields:
                 # Asterisk will appear on required fields
