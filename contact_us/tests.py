@@ -27,9 +27,11 @@ class TestContactMessagesForm(TestCase):
         self.assertFalse(form.is_valid())
         self.assertIn('message', form.errors.keys())
 
-
-    # Test to confirm that the 'contact email' field is not required on the message form.
-    # This test is failing and needs looking at 
+    # Test to confirm that the 'contact email' field is not required on the message form and the form will send if the field is left blank
     def test_contact_us_form_email_not_required(self):
-        form = ContactMessagesForm({'contact_email': ''})
+        form = ContactMessagesForm({
+                                    'subject': 'subject',
+                                    'message': 'message',
+                                    'contact_email': ''
+                                  })
         self.assertTrue(form.is_valid())
