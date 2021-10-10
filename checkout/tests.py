@@ -1,11 +1,10 @@
 from django.test import TestCase
 
 # Create your tests here.
-class TestAboutUs(TestCase):
+class TestCheckout(TestCase):
 
-    # Test is failing as no item is in cart on this
-    # Test to confirm correct about us template page is rendering 
+    # If the user has nothing in the shopping cart and attempts to access the checkout page they will be redirected to the products page
     def test_checkout_page(self):
         response = self.client.get('/checkout/')
-        self.assertNotEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'products/products.html')
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, '/products/')

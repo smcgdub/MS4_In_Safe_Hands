@@ -23,7 +23,7 @@ class UserProfile(models.Model):
 
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
-    # Create a user profiel if none exists or update if it does exist
+    # Create a user profile if none exists or update if it does exist
     if created:
         UserProfile.objects.create(user=instance)
     # Existing users: just save the profile

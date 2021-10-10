@@ -2,7 +2,7 @@ from django.test import TestCase
 from .models import Product
 
 # Create your tests here.
-class TestAboutUs(TestCase):
+class TestProducts(TestCase):
 
     # Test to confirm correct products template page is rendering 
     def test_products_page(self):

@@ -1,9 +1,9 @@
 from django.test import TestCase
 
 # Create your tests here.
-class TestAboutUs(TestCase):
+class TestCovidNumbers(TestCase):
   
-    # Test to confirm correct cart template page is rendering 
+    # Test to confirm correct covid numbers template page is rendering 
     def test_covid_numbers_page(self):
         response = self.client.get('/covid_numbers/')
         self.assertEqual(response.status_code, 200)
