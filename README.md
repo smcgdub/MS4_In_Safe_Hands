@@ -11,11 +11,11 @@ In Safe Hands was created and built by Stephen Mc Govern as my 4th and final mil
 ## **Table of contents** ## 
 
 ### **1. User Experience & The 5 Planes Of UX** ###
-* 1.1 Target audience
+* 1.1 Target audience - The Strategy Plane
 * 1.2 Visitor goals
-* 1.3 User stories
-* 1.4 Design choices
-* 1.5 Wire frames
+* 1.3 User stories - The Scope Plane & - The Structure Plane
+* 1.4 Design choices - The Surface Plane
+* 1.5 Wire frames - The Skeleton Plane
 
 ### **2. Features** ###
 * 2.1 Top header
@@ -55,6 +55,9 @@ In Safe Hands was created and built by Stephen Mc Govern as my 4th and final mil
 * 7.3 Skype
 
 ### **8. Future Features To Develop** ###
+* 8.1 - Social media login
+* 8.2 - Social media share buttons
+* 8.3 - Paypal Payment Option
 
 ### **9. Disclaimer** ###
 * 9.0 Disclaimer on project
@@ -387,7 +390,7 @@ The screenshot below also shows that the item was added to the cart and the info
 
 **SOLUTIONS TRIED**
 
-I know i have the settings correct as i have tried to change the font from "Josefin Sans" to a more common one such as "Times New Roman". When i test this change it does take effect on the placeholder text. But when i set it to "Josefin Sans" the font always seems to revert to the back up font of "Sans-serif". It is something i am aware of and will try to work on a solution at a later date. 
+* I know i have the settings correct as i have tried to change the font from "Josefin Sans" to a more common one such as "Times New Roman". When i test this change it does take effect on the placeholder text. But when i set it to "Josefin Sans" the font always seems to revert to the back up font of "Sans-serif". It is something i am aware of and will try to work on a solution at a later date. 
 
 </details>
 
@@ -517,7 +520,8 @@ If you need to reach me i can be contacted via the three methods below:<br>
 #### **8.2 - Social media share buttons** ####
 * This feature will go on the product details pages, if a user to the site sees an item they like they will have the ability to share this with other people with only a few clicks. 
 
-
+#### **8.3 - Paypal Payment Option** ####
+* The site currently has a checkout powered by Stripe. I would also like to incorporate a PayPal payment feature at a later date as this would provide a better user experience and also give users another payment option. 
 
 </details>
 <hr>
