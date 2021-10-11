@@ -48,9 +48,33 @@ def add_review(request):
 
 
 @login_required
-def edit_review(request):
+def edit_review(request, product_id):
     # View that returns edits a review
-    return render(request, 'reviews/edit_review.html')
+
+    product = get_object_or_404(Product, pk=product_id)
+    review_form = ProductReviewForm()
+
+    # If user is authenticated then review form will show 
+    if request.user.is_authenticated:
+        review_form = ProductReviewForm(initial={'reviewer': UserProfile.objects.get(user=request.user)})
+    # If user is unregistered then they form will not show
+    else:
+        review_form = ProductReviewForm()
+    
+    if request.method == 'POST':
+        review_form = ProductReviewForm(request.POST, instance=product)
+        if review_form.is_valid():
+            review_form.save()
+            messages.success(request, f'Success! The edit you made to your review updated')
+            return redirect(reverse('home'))
+
+    template = 'reviews/edit_review.html'
+    context = {
+        'form': review_form,
+        'product': product
+    }
+
+    return render(request, template, context=context)
 
 
 @login_required
