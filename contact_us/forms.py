@@ -3,8 +3,6 @@ from django.forms import ModelForm
 from .models import ContactMessages
 from django.forms import HiddenInput
 
-# from .models import ContactForm
-
 
 class ContactMessagesForm(forms.ModelForm):
     class Meta:

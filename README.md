@@ -85,6 +85,7 @@ In Safe Hands was created and built by Stephen Mc Govern as my 4th and final mil
 
 * As an e-commerce site the main scope of the site is to sell as much PPE equipment to as many consumers as possible. The site is not overloaded with data and excess pages. When a user visits the site they are already considering making a purchase, you don't want to confuse or overload a potential customer who is in buying mode with redundant pages or information. The site functionality works in a way that allows users to view all the products, select a specific product to get more information on that product, and purchase that product if they wish to do so. The website also allows for unregistered/guest checkout purchases as you don't want to lose sales because someone may not wish to register.<br>
 <br>
+
 * As the owner of the e-commerce site:<br>
 * I want to be able to offer my customers a range of various types of PPE products so i can: acquire new customers and retain regular ones who will buy their PPE products from me
 * I want to be able to manage all of the items that my store sells myself so i can: Add, edit, update and remove different items quickly and easily depending on how they are selling 
