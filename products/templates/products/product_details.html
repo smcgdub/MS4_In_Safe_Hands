@@ -132,7 +132,7 @@
         {% if user.is_authenticated %}
         <p class="mb-1 mt-1"><span class="horiz-bar">| </span>If you've purchased this product
           why not leave a review so others can see your feedback<span class="horiz-bar"> |</span></p>
-        <a href="" class="mt-1 btn rounded-0 cart-shopping-button">Review this product</a>
+        <a href="{% url 'add_review' %}" class="mt-1 btn rounded-0 cart-shopping-button">Review this product</a>
         <!-- Line Break -->
         <br>
         <!-- Horizontal Line -->

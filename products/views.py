@@ -96,7 +96,7 @@ def add_product(request):
         # If add product form is invalid
         else:
             messages.warning(request, 'Product add failed! Please recheck all form details are valid')
-    # If form isnt a POST form then load a blank form
+    # If form isn't a POST form then load a blank form
     else:
         form = ProductForm()
         

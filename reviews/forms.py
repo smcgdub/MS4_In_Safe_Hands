@@ -7,8 +7,8 @@ from django.forms import HiddenInput
 class ProductReviewForm(forms.ModelForm):
     class Meta:
       model = ProductReview
-      fields = ('review_title', 'reviewed_product', 'reviewer', 'review', 'date')
-      widgets={'reviewer': HiddenInput(), 'date': HiddenInput()}
+      fields = ('review_title', 'reviewed_product', 'reviewer', 'review')
+      widgets={'reviewer': HiddenInput()}
 
 
     def __init__(self, *args, **kwargs):
@@ -19,7 +19,6 @@ class ProductReviewForm(forms.ModelForm):
             'reviewed_product': 'Reviewed Product',
             'reviewer': 'Reviewed By',
             'review': 'Your Review',
-            'date': 'Date & Time',
             }
 
         # Form will auto start on review title
