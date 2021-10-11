@@ -67,7 +67,6 @@
 
 
 
-
         <!-- Superuser edit & delete buttons -->
         {% if request.user.is_superuser %}
         <p class="text-center text-md-left mt-1">
@@ -146,22 +145,45 @@
           <span class="horiz-bar"> |</span></p>
         {% endif %}
         <!-- Reviews -->
-        <div>
-          <p class="">
+        <div class="">
+          <p class="mb-0">
+            <!-- Read product reviews button -->
             <button class="btn rounded-0 cart-shopping-button" type="button" data-toggle="collapse"
               data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
               Read Product Reviews
             </button>
           </p>
+          <br>
           <div class="collapse" id="collapseExample">
-            <div class="card card-body pl-0 pt-1 pb-1">
+            <div class="card card-body pl-0 pt-1 pb-1 review-scroll">
+              <!-- Reviews -->
               <p class="">
                 <!-- Insert review form in here -->
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil
-                anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                {% for review in reviews %}
+                <!-- Name of reviewer -->
+                <p class="mb-1 mt-1">
+                  <span class="horiz-bar">| </span>
+                  Reviewed by: {{ review.reviewer }}
+                  <span class="horiz-bar"> |</span>
+                </p>
+                <!-- Product Review -->
+                <p class="font-italic mb-1">
+                  "{{ review.review }}"
+                </p>
+                <!-- Review Date -->
+                <p class="mb-0">
+                  <span class="horiz-bar">| </span>
+                  {{ review.date }}
+                  <span class="horiz-bar"> |</span>
+                </p>
+                <!-- Edit button -->
+                <a href="">Edit</a>
+                <hr>
+                {% endfor %}
               </p>
             </div>
           </div>
+          <br><br>
         </div>
       </div>
     </div>

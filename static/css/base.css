@@ -225,3 +225,9 @@ body {
   padding-bottom: 6px;
   border: 1px solid #c3c1c1;
 }
+
+/* Reviews scroll box */
+.review-scroll {
+  overflow-y: scroll;
+  height: 150px;
+}
