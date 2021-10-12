@@ -3,6 +3,10 @@ from .models import ProductReview
 
 
 class ProductReviewAdmin(admin.ModelAdmin):
+    '''
+    Selects which details will be shown in the Django admin
+    '''
+
     list_display = (
       'review_title',
       'reviewed_product',
@@ -10,6 +14,7 @@ class ProductReviewAdmin(admin.ModelAdmin):
       'date',
     )
 
+    # Items in product review will be ordered via date
     ordering = ('date',)
 
 admin.site.register(ProductReview, ProductReviewAdmin)

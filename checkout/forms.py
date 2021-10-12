@@ -3,9 +3,15 @@ from .models import Order
 
 
 class OrderForm(forms.ModelForm):
+    '''
+    This sets the fields that will be used on the order form and also sets \
+    the placeholders for each field
+    '''
     class Meta:
+        '''
+        Fields to dispaly on the checkout form
+        '''
         model = Order
-        # Fields to dispaly on the checkout form
         fields = ('first_name', 'last_name', 'email', 'phone_number',
                   'street_address1', 'street_address2',
                   'town_or_city', 'county', 'eircode', 'country',)
@@ -35,8 +41,8 @@ class OrderForm(forms.ModelForm):
                     placeholder = f'{placeholders[field]} *'
                 else:
                     placeholder = placeholders[field]
-                # Set placeholders 
+                # Set placeholders
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             # self.fields[field].widget.attrs['class'] = 'stripe-style-input'
-            # Labels set to false as they are not being used 
+            # Labels set to false as they are not being used
             self.fields[field].label = False

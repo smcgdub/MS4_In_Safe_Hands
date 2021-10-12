@@ -4,16 +4,24 @@ from profiles.models import UserProfile
 
 
 class ContactMessages(models.Model):
-    # Contact form model
+    '''
+    Contact form model. This is found on the contact us page for logged in \
+    registered users
+    '''
     sender = models.ForeignKey(UserProfile, on_delete=models.CASCADE, null=True, blank=True)
     subject = models.CharField(max_length=80, null=False, blank=False)
     message = models.TextField(max_length=3000, null=False, blank=False)
     date = models.DateTimeField(auto_now_add=True, editable=False)
     contact_email = models.EmailField(max_length=254, null=True, blank=True)
 
-    # This will correct the spelling in Django admin to the correct plural spelling
     class Meta:
+        '''
+        To correct the verbose spelling in the Django admin
+        '''
         verbose_name_plural = 'Contact Messages'
 
     def __str__(self):
+        '''
+        Renames the instance of the model with the subject of the message
+        '''
         return self.subject

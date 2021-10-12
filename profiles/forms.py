@@ -3,13 +3,21 @@ from .models import UserProfile
 
 
 class UserProfileForm(forms.ModelForm):
+    '''
+    This details the registered users profile form
+    '''
     class Meta:
+        '''
+        Lists the fields to display on the user checkout form
+        '''
         model = UserProfile
-        # Fields to dispaly on the checkout form
+        # User is excluded from the checkout form
         exclude = ('user',)
 
     def __init__(self, *args, **kwargs):
-        # Placeholders to be added to the checkout fields
+        '''
+        Placeholders to be added to the checkout fields
+        '''
         super().__init__(*args, **kwargs)
         placeholders = {
             'default_email': 'Email Address',
@@ -31,8 +39,8 @@ class UserProfileForm(forms.ModelForm):
                     placeholder = f'{placeholders[field]} *'
                 else:
                     placeholder = placeholders[field]
-                # Set placeholders 
+                # Set placeholders
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             # self.fields[field].widget.attrs['class'] = 'stripe-style-input'
-            # Labels set to false as they are not being used 
+            # Labels set to false as they are not being used
             self.fields[field].label = False
