@@ -97,6 +97,7 @@ def edit_review(request, review_id):
 
     review = get_object_or_404(ProductReview, pk=review_id)
     product = review.product
+    form = ReviewForm(instance=review)
 
     if request.method == 'POST':
         form = ReviewForm(request.POST, instance=review)

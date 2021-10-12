@@ -56,7 +56,7 @@ def add_review(request):
 @login_required
 def edit_review(request, product_id):
     '''
-    A view that returns the edit review page
+    A view that allows for the editing of a review
     '''
     product = get_object_or_404(Product, pk=product_id)
     review_form = ProductReviewForm()
@@ -66,7 +66,7 @@ def edit_review(request, product_id):
         review_form = ProductReviewForm(initial={
             'reviewer': UserProfile.objects.get(user=request.user)
             })
-    # If user is unregistered then they form will not show
+    # If user is unregistered then they will be redirected to the login page
     else:
         review_form = ProductReviewForm()
 

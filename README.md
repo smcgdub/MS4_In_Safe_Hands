@@ -206,21 +206,22 @@ As a shopper on the site:
 
 #### **2. - The Shop Page** ####
 
-* Users to the site have the ability to shop in a number of different ways ont he site. In the "Shop PPE" dropdown menu they will see 5 different categories of items the store sells. 
+* Users to the site have the ability to shop in a number of different ways on the site. The first way is using the search bar at the top of the page. Here users can search for products via a products name, or by a key word that is mentioned in the products description. The page will return the number of products that mee that search criteria and also display the number of items its returned in the top left above the items (Screenshot below)
 
->All PPE Products
->Masks
->Covid Testing
->Hygiene
->Wearable PPE
+![Image of name searched for via name](media/readme_images/search_via_name.png)
 
-![Image of shop ppe page](media/readme_images/shop_dropdown.png)
+* The second way users can shop is via the SHOP PPE dropdown menu in the navbar. Here all of the items the shop sells are broken up into their respective categories, so users can quickly and easily search for what they need with a few clicks. 
 
-* If they select "All PPE Products" they will be brought ot the products page where they can see all of the items available in the store. 
+![Image of shop dropdown](media/readme_images/shop_dropdown.png)
+
+* After the user clicks on a category the page will render all of the products in that category and also display the number of products in that category. The image below is what is displayed if the user searches for "covid testing" 
+
+![Image of category search results](media/readme_images/covid_testing_search.png)
+
+* Finally if the user just clicks on the search button on the search bar without entering anything to search for then all of the products the store currently sells will be listed 
 
 ![Image of all products](media/readme_images/all_products.png)
 
-* When the user clicks on an item they are thinking of purchasing they will be brought to the product details page
 <hr>
 
 #### **2. - About Us Page** ####
@@ -232,7 +233,7 @@ As a shopper on the site:
 
 #### **2. - Covid Numbers Page** ####
 
-* One of the features of the site is to provide users with detailed up to the minute covid-19 data and stats. Again to drive people to register this data is kept behind a registered users wall. Users are informed that to view the data they only need to register on the site and don't need to purchase any items. (Screenshot below) 
+* One of the features of the site is the covid map that provides users with up to the minute covid-19 data and stats. Again, as part of the strategy to get as many people to register on the site as possible this data is kept behind a registered users wall. Unregistered users are informed upon landing on the page that to view the data they only need to register on the site and don't need to purchase any items. (Screenshot below) 
 
 ![Image of about us page](media/readme_images/covid_numbers_1.png)
 
@@ -240,18 +241,18 @@ As a shopper on the site:
 
 ![Image of about us page](media/readme_images/covid_numbers_2.png)
 
-* This map offers users a huge wealth of information that is updated daily. Users can view the latest charts, maps, tables, sources and are free to download some the data. Users can use this page to see covid stats on a global, regional and country by country basis. Again by incorporating this feature into the site you are firstly making users register to see the data, and secondly you are providing them with a reason to come back and visit the site on a regular basis. The goal would be to convert some of these regular visitors into customers. If covid numbers in their country are increasing or at a high level then ths will be enough of a prompt to encourage users to spend money on the site. 
+* This map offers users a huge wealth of information that is updated daily. Users can view the latest charts, maps, tables, sources and are free to download some the data. Users can use this page to see covid stats on a global, regional and country by country basis. Again by incorporating this feature into the site you are firstly making users register to see the data, and secondly you are providing them with a reason to come back and visit the site on a regular basis. The goal here would be to convert some of these regular visitors into customers. If covid numbers in their locality are increasing or at a high level, then this information can act as a motivator and encourage users to purchase PPE equipment on the site. 
 <hr>
 
 #### **2. - Contact Us Page & Registered User Messages** ####
 
-* One of the pass criteria for this project was to "Create at least 1 form with validation that will allow users to create records in the database (In addition ot the authentication mechanism").
-* The feature i have chosen to meet this requirement is a priority messaging service. One of the main goals of any e-commerce site is to get as many people as possible signed up and spending money. A site should always push for users to sign up, even if they don't buy something on the first visit because it still allows the site owner to email market to these registered users at a later date. 
-* If an unregistered user logs onto the site and navigates to the contact us page, they will see the company contact details as you would normally expect, below that they will see a message explaining about the registered users messages function and also a link for customers to sign up (screenshot below) 
+* One of the pass criteria for this project was to: "Create at least 1 form with validation that will allow users to create records in the database (In addition ot the authentication mechanism").
+* The feature i have chosen to meet this requirement is a priority messaging service. One of the main goals of any e-commerce site is to get as many people as possible signed up and spending money. A site should always be pushing for users to sign up and register, even if they don't buy something on the first visit (They could be on the site to use the covid numbers feature listed above) because it still allows the site owner to build their user database and email market to these registered users at a later date. 
+* If an unregistered user logs onto the site and navigates to the contact us page, they will see the company contact details as you would normally expect, below that they will see a message explaining about the registered users priority messages function and also a link for customers to sign up or log in (screenshot below) 
 
 ![Image of registered messages user prompt](media/readme_images/user_messages_1.png)
 
-* Once a registered/logged in user comes to the site on the contact us page they will see the message box automatically displayed. 
+* Once a registered/logged in user comes to the site on the contact us page they will see the message box automatically displayed. To hit the message home again to logged in users there is some text above the message form explaining that any message sent to the site via this messaging center will take priority over all other incoming communication.
 
 ![Image of registered messages user prompt](media/readme_images/user_messages_2.png)
 
@@ -259,7 +260,7 @@ On the form the logged in user will see the following visible fields:
 > Message From (Required)<br>
 > Message Subject (Required)<br>
 > Message Text Box (Required)<br>
-> Users email (None required)<br>
+> Users email (Not required)<br>
 
 The model for this form can be found below:
 
@@ -279,7 +280,7 @@ The model for this form can be found below:
 
 * The `sender` (Message From:) field is automatically generated depending on which user is logged in to the site. I have also made this input field disabled so the user can not adjust or alter it, this is to ensure that every message can be attached to a specific registered site user. For a better user experience the disabled feature also stops the user clicking on the name and a highlight box appearing and creating the impression the user can adjust the field. 
 
-* The `subject`, `message` and `email` field are self explanatory. I also have a `date & time` field which isn't displayed to the user.
+* The `subject`, `message` and `email` field are self explanatory. I also have a `date & time` field which is not displayed to the user.
 * This messaging service allows users to create records (messages) in the database as well as providing all of the important information a site owner needs. In the django admin panel how the messages are displayed can be seen below: 
 
 ![Image of registered messages in Django](media/readme_images/django_user_message.png)
