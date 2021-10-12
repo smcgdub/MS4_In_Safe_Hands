@@ -176,15 +176,15 @@
                   {{ review.date }}
                   <span class="horiz-bar"> |</span>
 
-                  {% if user.is_authenticated %}
-                  <a href="{% url 'edit_review' product.id %}">
+                  <!-- Edit button only visible to authenticated users-->
+                  {% if user|lower == review.reviewer|lower %}
+                  <a href="{% url 'edit_review' review.id %}">
                     Edit Your Review
                     <span class="horiz-bar"> |</span>
                   </a>
                   {% endif %}
   
                 </p>
-                <!-- Edit button only visible to authenticated users-->
                 <hr>
                 {% endfor %}
               </p>

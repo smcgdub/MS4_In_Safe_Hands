@@ -92,34 +92,34 @@ def add_review(request, product_id):
 
 
 @login_required
-def edit_review(request, review_id):
-    # A view to allow the users to edit their review
+# def edit_review(request, review_id):
+#     # A view to allow the users to edit their review
 
-    review = get_object_or_404(ProductReview, pk=review_id)
-    product = review.product
-    form = ReviewForm(instance=review)
+#     review = get_object_or_404(ProductReview, pk=review_id)
+#     product = review.product
+#     form = ReviewForm(instance=review)
 
-    if request.method == 'POST':
-        form = ReviewForm(request.POST, instance=review)
-        if form.is_valid():
-            form.save()
-            messages.info(request, f'Success! The edit to your review of {product.name} has now taken effect')
-            return redirect(reverse('product_details', args=[product.id]))
-        else:
-            messages.error(request, f'Oops! That review edit failed, please try again')
+#     if request.method == 'POST':
+#         form = ReviewForm(request.POST, instance=review)
+#         if form.is_valid():
+#             form.save()
+#             messages.info(request, f'Success! The edit to your review of {product.name} has now taken effect')
+#             return redirect(reverse('product_details', args=[product.id]))
+#         else:
+#             messages.error(request, f'Oops! That review edit failed, please try again')
 
-    else:
-        form = ReviewForm(instance=review)
+#     else:
+#         form = ReviewForm(instance=review)
 
-    messages.info(request, f'You are now editing your review of {product.name}')
-    template = 'products/product_details.html'
-    context = {
-        'form': form,
-        'review': review,
-        'product': product,
-        'edit': True,
-    }
-    return render(request, template, context)
+#     messages.info(request, f'You are now editing your review of {product.name}')
+#     template = 'products/product_details.html'
+#     context = {
+#         'form': form,
+#         'review': review,
+#         'product': product,
+#         'edit': True,
+#     }
+#     return render(request, template, context)
 
 #---------------------------------------------------------------------------------------------------------------------------------
 

@@ -19,7 +19,7 @@
   <div class="row">
     <div class="col">
       <!-- Review form -->
-      <form action="{% url 'edit_review' product.id %}" class="form" method="POST">
+      <form action="{% url 'edit_review' review.id %}" class="form" method="POST">
         {% csrf_token %}
         <div class="">
           <p class="small mb-0 text-left">required *</p>

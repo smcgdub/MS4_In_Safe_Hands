@@ -4,7 +4,7 @@ from django.contrib import messages
 from profiles.models import UserProfile
 from products.models import Product
 from .forms import ProductReviewForm
-# from .models import ProductReview
+from .models import ProductReview
 
 
 @login_required
@@ -19,8 +19,8 @@ def add_review(request):
         review_form = ProductReviewForm(initial={
             'reviewer': UserProfile.objects.get(user=request.user)
             })
-    # If user is unregistered then they form will not show
     else:
+    # If user is unregistered then they form will not show
         review_form = ProductReviewForm()
 
     if request.method == 'POST':
@@ -54,34 +54,42 @@ def add_review(request):
 
 
 @login_required
-def edit_review(request, product_id):
+def edit_review(request, review_id):
     '''
     A view that allows for the editing of a review
     '''
-    product = get_object_or_404(Product, pk=product_id)
-    review_form = ProductReviewForm()
+    review = get_object_or_404(ProductReview, pk=review_id)
+    review_form = ProductReviewForm(instance=review)
+
+    # product = get_object_or_404(ProductReview, review_id)
+    # review_form = ProductReviewForm()
 
     # If user is authenticated then review form will show
     if request.user.is_authenticated:
-        review_form = ProductReviewForm(initial={
-            'reviewer': UserProfile.objects.get(user=request.user)
-            })
-    # If user is unregistered then they will be redirected to the login page
+        review = get_object_or_404(ProductReview, pk=review_id)
+        review_form = ProductReviewForm(instance=review)
+        # review_form = ProductReviewForm(initial={
+        #     'reviewer': UserProfile.objects.get(user=request.user)
+        #     })
     else:
+        # If user is unregistered then they will be redirected to the login page
         review_form = ProductReviewForm()
 
     if request.method == 'POST':
-        review_form = ProductReviewForm(request.POST, instance=product)
+        review_form = ProductReviewForm(request.POST, instance=review)
         if review_form.is_valid():
             review_form.save()
+            print("EDIT REVIEW POST HAS GONE THROUGH IF FORM IS VALID BLOCK")
             messages.success(request, 'Success! The edit you made to your \
                                        review updated')
             return redirect(reverse('home'))
+        else:
+            print("Error from is form valid else block in EDIT_REVIEW")
 
     template = 'reviews/edit_review.html'
     context = {
         'form': review_form,
-        'product': product
+        'review': review,
     }
 
     return render(request, template, context=context)
