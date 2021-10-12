@@ -58,6 +58,7 @@ def edit_review(request, review_id):
     '''
     A view that allows for the editing of a review
     '''
+    # Need to test commenting the 2 line of code below out and see if the edit review function works still. Be sure to check terminal during testing
     review = get_object_or_404(ProductReview, pk=review_id)
     review_form = ProductReviewForm(instance=review)
 
