@@ -1,5 +1,6 @@
 from django.test import TestCase
 from .forms import ContactMessagesForm
+from contact_us import apps
 
 
 class TestContactMessagesForm(TestCase):
@@ -58,3 +59,9 @@ class TestContactMessagesForm(TestCase):
                                   })
         self.assertTrue(form.is_valid())
 
+
+    def test_contact_us_apps_configuration(self):
+        '''
+        Test to make sure the app is configured correctly
+        '''
+        self.assertEqual(apps.ContactUsConfig.name, 'contact_us')

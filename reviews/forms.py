@@ -8,10 +8,11 @@ class ProductReviewForm(forms.ModelForm):
     '''
     This details how the product review form will display
     '''
+    # ProductReview= forms.ModelChoiceField(label="", queryset=ProductReview.objects.all(), empty_label="Select item to review")
     class Meta:
         '''
         The fields on the form that will be displayed. Reviewer is hidden
-        '''  
+        '''
         model = ProductReview
         fields = ('review_title', 'reviewed_product', 'reviewer', 'review')
         widgets={'reviewer': HiddenInput()}

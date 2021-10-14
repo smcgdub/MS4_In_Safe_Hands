@@ -1,5 +1,7 @@
 from django.test import TestCase
 from .models import Product
+from products import apps
+
 
 # Create your tests here.
 class TestProducts(TestCase):
@@ -35,14 +37,20 @@ class TestProducts(TestCase):
         self.assertRedirects(response, '/accounts/login/?next=/products/add/')
 
 
+        # This test is failing and needs adjusting
     def test_editing_a_product(self):
         '''
         Test to confirm if a none superuser attempts to access the edit \
         product page they will be redirected to the login page
         '''
-        # This test is failing and needs adjusting
-        product = Product.objects.create(price='1', name='Test product')
-        response = self.client.get(f'/products/edit/{product.id}')
-        self.assertEqual(response.status_code, 302)
+        product = Product.objects.create(price=1, name='Test product')
+        response = self.client.get(f'/products/edit/{product.id}/')
+        # self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, '/accounts/login/?next=/products/edit/{product.id}/')
 
+
+    def test_products_apps_configuration(self):
+        '''
+        Test to make sure the app is configured correctly
+        '''
+        self.assertEqual(apps.ProductsConfig.name, 'products')
