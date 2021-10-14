@@ -1,4 +1,4 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 from home import apps
 
 
@@ -40,3 +40,4 @@ class TestHome(TestCase):
         Test to make sure the app is configured correctly
         '''
         self.assertEqual(apps.HomeConfig.name, 'home')
+

@@ -9,7 +9,7 @@ class ProductReview(models.Model):
     '''
     review_title = models.CharField(max_length=90, null=False, blank=False)
     reviewed_product = models.ForeignKey(Product, null=False, blank=False,
-                                         on_delete=models.CASCADE)
+                                         on_delete=models.CASCADE,)
     reviewer = models.ForeignKey(UserProfile, null=False, blank=False,
                                  on_delete=models.CASCADE)
     review = models.TextField(max_length=500)
