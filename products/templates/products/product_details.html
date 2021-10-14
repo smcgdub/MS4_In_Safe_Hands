@@ -44,7 +44,7 @@
         <!-- Product Protection Rating -->
         {% if product.rating %}
         <p class="px-0 py-0 mb-1  text-dark text-center text-md-left"><span class="horiz-bar">|</span>
-          Protection Level: &nbsp<i class="fas fa-star-half-alt text-dark"></i>&nbsp{{ product.rating }} / 5 <span
+          Protection Level: &nbsp;<i class="fas fa-star-half-alt text-dark"></i>&nbsp;{{ product.rating }} / 5 <span
             class="horiz-bar">|</span></p>
         {% else %}
         <p class="list-group-item px-0 py-0 text-dark text-center text-md-left"><span class="horiz-bar">| </span>Not
@@ -183,7 +183,7 @@
                     <span class="horiz-bar"> |</span>
                   </a>
                   {% endif %}
-  
+
                 </p>
                 <hr>
                 {% endfor %}
@@ -195,20 +195,21 @@
       </div>
     </div>
   </div>
-  {% endblock %}
+</div>
+{% endblock %}
 
-  {% block postload_js %}
-  {{ block.super }}
-  {% include 'products/includes/quantity_input_script.html' %}
-  {% endblock %}
+{% block postload_js %}
+{{ block.super }}
+{% include 'products/includes/quantity_input_script.html' %}
+{% endblock %}
 
 
-  <!-- Add to wishlist - MAY NOT USE THIS FEATURE -->
-  {% if user.is_authenticated %}
-  <span class="horiz-bar">| </span>Add to wishlist:
-  <!-- Full heart -->
-  <a href="{% url 'add_to_wishlist' product.id %}" class="btn px-0 py-0" role="button">
-    <i class="fas fa-heart"></i>
-  </a>
-  <span class="horiz-bar"> |</span>
-  {% endif %}
+<!-- Add to wishlist - MAY NOT USE THIS FEATURE -->
+{% if user.is_authenticated %}
+<span class="horiz-bar">| </span>Add to wishlist:
+<!-- Full heart -->
+<a href="{% url 'add_to_wishlist' product.id %}" class="btn px-0 py-0" role="button">
+  <i class="fas fa-heart"></i>
+</a>
+<span class="horiz-bar"> |</span>
+{% endif %}
