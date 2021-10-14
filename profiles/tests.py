@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from profiles import apps
 from .models import UserProfile
+from .forms import UserProfileForm
 
 
 # Create your tests here.
@@ -24,6 +25,26 @@ class TestProfile(TestCase):
         Test to make sure the app is configured correctly
         '''
         self.assertEqual(apps.ProfilesConfig.name, 'profiles')
+
+
+    def test_user_profile_form_is_valid(self):
+        '''
+        A test to confirm the fields that are required for the form to \
+        be valid. Only the user form is a required field.
+        '''
+        form = UserProfileForm({
+                               'user': 'user',
+                               'default_email': '',
+                               'default_phone_number': '',
+                               'default_street_address1': '',
+                               'default_street_address2': '',
+                               'default_town_or_city': '',
+                               'default_county': '',
+                               'default_eircode': '',
+                               'default_country': '',
+        })
+        self.assertTrue(form.is_valid())
+
 
 
     # def test_login(self):

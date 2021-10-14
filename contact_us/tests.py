@@ -20,19 +20,31 @@ class TestContactMessagesForm(TestCase):
     def test_contact_us_form_sender_required(self):
         '''
         Test to confirm that 'sender' field is required on the message form. \
-        This field autopopulates with the users username on so it shouldn't \
-        be able to leave this blank
+        This field autopopulates with the users username and the user \
+        has no way to adjust this field so it shouldn't be able to leave \
+        this blank
         '''
-        form = ContactMessagesForm({'sender': ''})
+        form = ContactMessagesForm({
+                                    'sender': '',
+                                    'subject': 'subject',
+                                    'message': 'message',
+                                    'contact_email': 'contact_email',
+                                   })
         self.assertFalse(form.is_valid())
 
 
     def test_contact_us_form_subject_required(self):
         '''
         Test to confirm that the 'subject' field is required on the message \
-        form. A user must input a subject manually in this field.
+        form. A user must input a subject manually in this field. If they \
+        do not then the form should be invalid.
         '''
-        form = ContactMessagesForm({'subject': ''})
+        form = ContactMessagesForm({
+                                    'sender': 'sender',
+                                    'subject': '',
+                                    'message': 'message',
+                                    'contact_email': 'contact_email',
+                                   })
         self.assertFalse(form.is_valid())
         self.assertIn('subject', form.errors.keys())
 
@@ -40,9 +52,14 @@ class TestContactMessagesForm(TestCase):
     def test_contact_us_form_message_required(self):
         '''
         Test to confirm that the 'message' field is required on the message \
-        form. A user must input a message manually in this field. 
+        form. A user must input a message manually in this field.
         '''
-        form = ContactMessagesForm({'message': ''})
+        form = ContactMessagesForm({
+                                    'sender': 'sender',
+                                    'subject': 'subject',
+                                    'message': '',
+                                    'contact_email': 'contact_email',
+                                   })
         self.assertFalse(form.is_valid())
         self.assertIn('message', form.errors.keys())
 
