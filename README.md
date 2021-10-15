@@ -248,6 +248,70 @@ As a shopper on the site:
 
 #### **2. - Product Review Page** ####
 
+* One of the pass criteria for this project was to:<br>
+
+* <strong>"Implement at least 1 form, with validation, that allows users to create and edit models in the backend"</strong>
+
+* The feature i have chosen for this is criteria is a registered users product review feature. A product review feature is something that most users expect to find on a modern e-commerce website. A review feature is a benefit to both customers and the store owner alike. When a store offers customers a review function it creates a better user engagement experience on your site. It allows users to leave feedback about what they thought about the product they have purchased. The review feature also lets the user know that their feedback is valued and is listened to. This feature also allows other potential customers to make a better buying decision based on the reviews of other users who have purchased the product. Finally it also allows the store owner to view the feedback each product is receiving. Store owners should never be afraid of a negative review, if a review is negative but constructive it will highlight a weak point that can be improved upon and the store owner will know they have 2 options. Firstly they can relay this feedback back to the manufacturer/supplier and see if it is possible ot improve the product, or if this is not an option, then the store owner can discontinue selling the product. 
+
+* Anyone on the site will have the ability to read reviews, but to drive registration and sign ups, creating a review is only available to registered users who are logged in. On the product details page a none logged in user will see the following prompt under the reviews section  <strong>"Have you purchased this product? If you are a registered/logged in user then you can leave a review for this item and let others know your feedback. Login or register by clicking on the My Account icon on the top right of the page."</strong>
+
+![Image of review prompt none logged in users](media/readme_images/review_prompt_2.png)
+
+* However logged in users will see a different prompt. The prompt they will see is: <strong>"If you've purchased this product why not leave a review so others can see your feedback"</strong> (Screenshot below:)
+
+![Image of review prompt](media/readme_images/review_prompt.png)
+
+* The review page is based on the ProductReview model. That model can be found below:
+
+`class ProductReview(models.Model):`<br>
+&nbsp; &nbsp; &nbsp; `review_title = models.CharField(max_length=90, null=False, blank=False)`<br>
+&nbsp; &nbsp; &nbsp; `reviewed_product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE,)`<br>
+&nbsp; &nbsp; &nbsp; `reviewer = models.ForeignKey(UserProfile, null=False, blank=False, on_delete=models.CASCADE)`<br>
+&nbsp; &nbsp; &nbsp; `review = models.TextField(max_length=500)`<br>
+&nbsp; &nbsp; &nbsp; `date = models.DateTimeField(auto_now_add=True)`<br><br>
+    `class Meta:`<br>
+&nbsp; &nbsp; &nbsp; # This will correct the verbose spelling in Django admin to the correct plural spelling of reviews<br>
+&nbsp; &nbsp; &nbsp; `verbose_name_plural = 'Reviews'`<br><br>
+&nbsp; &nbsp; &nbsp; `def __str__(self):`<br>
+&nbsp; &nbsp; &nbsp; # Renames the instance of the ProductReview model with the review title<br>
+&nbsp; &nbsp; &nbsp; `return self.review_title`<br>
+
+* The form that will render for the user can be seen below, it will have:
+1. Review from = `reviewer`
+2. Review Title = `review_title`
+3. Reviewed Product = `reviewed_product`
+4. Your Review = `review`
+5. Submit review button
+
+![Image of add review page](media/readme_images/add_review.png)
+
+* The field for the reviewer automatically generates the username of the current logged in user. This input field i have disabled so users are not able to adjust or alter it in any way. This was done as a defensive measure to ensure all reviews can be traced to their poster.
+* The reviewed product field is a dropdown menu that lists all of the items currently available in the store. The user can select the product from this menu when creating their review. 
+
+![Image of product review dropdown menu](media/readme_images/select_product_for_review.png)
+
+* All fields on the model are required fields. The `date` field is automatically generated but that field is hidden on the review form as it is automatically generated and you don't want the user adjusting it. Once a review has been created and the form has been validated it will be posted to the product details page as well as to the backend. The reviews in the backend are displayed to the owner with the layout below: 
+
+![Image of product review in django](media/readme_images/reviews_in_django.png)
+
+* When the user clicks on the review it will open in the admin page and the store owner can read the review (Screenshot below:)
+
+![Image of product review in django opened](media/readme_images/reviews_in_django_opened.png)
+
+* For displaying the product reviews on the site i have used a Bootstrap collapsible container with a `overflow-y` set to `scroll`. The reason for this again is defensive programming. As more and more users come to the site and reviews start to build up, i didn't want to someone to click on the "Read Product Reviews" button and then have 20 or 30 reviews appear for the user to have to scroll down what becomes a very long page. The collapsible element means the user will stay on the same part of the page and can just scroll through the reviews. I used this feature as i was especially conscious as to how the reviews would display on mobile devices (Screenshot below:)
+
+![Image of product review on mobile](media/readme_images/review_on_mobile.png)
+
+The 2nd part of the criteria on this model is that users must be able to edit a model. To meet this criteria i have also added the feature for users to be able to edit their own reviews. Users can only edit reviews they have created. As you can see in the image above a user, whether anonymous or not, can view all of the reviews on the site, but when a user is logged in they can see the <strong>"Edit your review"</strong> link next to the review they have created.
+
+![Image of edit your review link](media/readme_images/edit_your_review_link.png)
+
+* When the user clicks on the edit your review link the edit review page will open. It is the exact same as the add a review page however all of the information from the previous review will be populated so they user can read over their original review before editing and saving. 
+
+![Image of edit your review page](media/readme_images/edit_your_review_page.png)
+
+* Once the review has saved the updated review will be reflected both in the backend and on the site. 
 
 <hr>
 
