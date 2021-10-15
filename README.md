@@ -18,8 +18,20 @@ In Safe Hands was created and built by Stephen Mc Govern as my 4th and final mil
 * 1.5 Wire frames - The Skeleton Plane
 
 ### **2. Features** ###
-* 2.1 Top header
-* 2.1 Navbar
+* 2.1 Homepage 
+* 2.2 Top header
+* 2.3 Navbar
+* 2.4 The Shop Page
+* 2.5 Product Details
+* 2.6 Product Review
+* 2.7 About Us
+* 2.8 Covid Numbers
+* 2.9 Contact Us & Registered User Messages
+* 2.10 The Profile
+* 2.11 The Shopping Cart
+* 2.12 The Checkout Page
+* 2.13 Purchase Complete
+* 2.14 
 * Payment processing spinner
 
 ### **3. Technologies/Languages Used** ###
@@ -171,7 +183,7 @@ As a shopper on the site:
 
 <hr>
 
-#### **2.1 - Top header** ####
+#### **2.2 - Top header** ####
 
 * The top header on the page consists of 3 separate items. The company brand/logo occupies the top left 3rd of the screen. If the user clicks on the company brand/name the user will be be brought back to the homepage.
 
@@ -200,7 +212,7 @@ As a shopper on the site:
 
 <hr>
 
-#### **2.2 - The Navbar** ####
+#### **2.3 - The Navbar** ####
 
 * The navbar is a bootstrap navbar that contains 4 separate dropdown menus to allow users to easily navigate the site. The first dropdown is the one that is for the store and will allow users to search for different types of PPE products that the site offers. Users can search for all the PPE equipment on one single page, or search via category of items the store sells.
 
@@ -223,7 +235,7 @@ As a shopper on the site:
 ![Image of Navbar on mobile](media/readme_images/navbar_opened.png)
 <hr>
 
-#### **2. - The Shop Page** ####
+#### **2.4 - The Shop Page** ####
 
 * Users to the site have the ability to shop in a number of different ways on the site. The first way is using the search bar at the top of the page. Here users can search for products via a products name, or by a key word that is mentioned in the products description. The page will return the number of products that meet that search criteria and also display the number of items its returned in the top left above the items (Screenshot below)
 
@@ -243,9 +255,11 @@ As a shopper on the site:
 
 <hr>
 
-#### **2. - Product Details Page** ####
+#### **2.5 - Product Details Page** ####
 
-#### **2. - Product Review Page** ####
+<hr>
+
+#### **2.6 - Product Review Page** ####
 
 * One of the pass criteria for this project was to:<br>
 
@@ -314,14 +328,14 @@ The 2nd part of the criteria on this model is that users must be able to edit a 
 
 <hr>
 
-#### **2. - About Us Page** ####
+#### **2.7 - About Us Page** ####
 
 * This is a standard about us page you would expect to find on any business site. It has an image of 2 medial workers and some text detailing a bit about the company.
 
 ![Image of about us page](media/readme_images/about_us_page.png)
 <hr>
 
-#### **2. - Covid Numbers Page** ####
+#### **2.8 - Covid Numbers Page** ####
 
 * One of the features of the site is the covid map that provides users with up to the minute covid-19 data and stats. Again, as part of the strategy to get as many people to register on the site as possible this data is kept behind a registered users wall. Unregistered users are informed upon landing on the page that to view the data they only need to register on the site and don't need to purchase any items. (Screenshot below) 
 
@@ -334,7 +348,7 @@ The 2nd part of the criteria on this model is that users must be able to edit a 
 * This map offers users a huge wealth of information that is updated daily. Users can view the latest charts, maps, tables, sources and are free to download some the data. Users can use this page to see covid stats on a global, regional and country by country basis. Again by incorporating this feature into the site you are firstly making users register to see the data, and secondly you are providing them with a reason to come back and visit the site on a regular basis. The goal here would be to convert some of these regular visitors into customers. If covid numbers in their locality are increasing or at a high level, then this information can act as a motivator and encourage users to purchase PPE equipment on the site. 
 <hr>
 
-#### **2. - Contact Us Page & Registered User Messages** ####
+#### **2.9 - Contact Us Page & Registered User Messages** ####
 
 * One of the pass criteria for this project was to:<br>
 
@@ -385,7 +399,7 @@ As you can see they are displayed just like an incoming email would be displayed
 This allows the site owner to keep a record of any messages sent on the site from registered users. The main drive for this is to encourage registered users to message the store through the message facility on the website and not just via an email. This in tandem with the Covid Numbers data is done to encourage users of the site to return to it as regularly as possible. The more people that are visiting the site, the more the odds increase that the user may decide to spend some money while they are on the site. 
 <hr>
 
-#### **2. - The Profile Page** ####
+#### **2.10 - The Profile Page** ####
 
 * Registered users on the site will have their own dedicated profile page. On this page users will see 2 features. The first one is their address and contact details. The 2nd will be their order history. 
 
@@ -409,7 +423,7 @@ This allows the site owner to keep a record of any messages sent on the site fro
 
 <hr>
 
-#### **2. - The Shopping Cart Page** ####
+#### **2.11 - The Shopping Cart Page** ####
 
 * Once a user has added an item/items to the shopping cart they will be able to view it by clicking on the shopping cart icon. When they get to the shopping cart it will look like the image below: 
 
@@ -429,7 +443,7 @@ This allows the site owner to keep a record of any messages sent on the site fro
 
 <hr>
 
-#### **2. - The Checkout Page** ####
+#### **2.12 - The Checkout Page** ####
 
 * As covered above in the profile section above on the checkout page the user has to enter their contact details, their deliver address, and their payment details. 
 * There are 2 buttons on the page for the user to be able to go back and adjust their order 1 last time, or to complete the form and then complete their order. 
@@ -448,7 +462,7 @@ This allows the site owner to keep a record of any messages sent on the site fro
 
 <hr>
 
-#### **2. - Purchase Complete Page** ####
+#### **2.13 - Purchase Complete Page** ####
 
 * Once the users purchase has been completed they will receive a confirmation message detailing everything about their order. They will have:
 1. A thank you for your business prompt (The users name will automatically be generated in this thank you prompt as i feel it adds a bit of personalization to the thank you message.)
