@@ -162,6 +162,16 @@ As a shopper on the site:
 </strong></summary>
 <br>
 
+#### **2.1 - Home Page** ####
+
+* When the user lands on the homepage they will see the main homepage image which is of a doctor. In this image the doctor is pointing upwards towards the top of the page with the forefinger on each hand. I choose this image specifically because i thought it worked well as the doctor appears to be pointing towards towards the dropdown menu and the search bar located above the image, so at a glance its like he is drawing your attention to the main functioning part of the page. 
+
+![Image of homepage](media/readme_images/homepage.png)
+
+* At the base of the page i have used a bootstrap carousel to display 3 reviews that customers have left about the site. On these carousels i have used an image of a person (To represent the customer) and their brief review. I have also used indicators letting users see visually below the review that there are 3 reviews in total that are being filtered through. I have disabled click feature so users don't have the ability to click through the reviews, the reviews are on a set timer and rotate evenly.
+
+<hr>
+
 #### **2.1 - Top header** ####
 
 * The top header on the page consists of 3 separate items. The company brand/logo occupies the top left 3rd of the screen. If the user clicks on the company brand/name the user will be be brought back to the homepage.
@@ -172,22 +182,32 @@ As a shopper on the site:
 
 ![Image of search bar](media/readme_images/search_bar.png)
 
-* The right hand side of the header is where the user login and shopping cart are located. Here users can see at a glance if anything is in their cart and if so the value of those items.
+* The right hand side of the header is where the user login and shopping cart are located. Here users can see at a glance if anything is in their cart and if so the value of those items. When the shopping cart is empty the cart test will be black. When the user adds an item to the shopping cart the value of those items will be displayed on the cart in red. I choose to make the text red as it is more catching and it will stand out clearly against the black. 
 
 ![Image of shopping cart](media/readme_images/shopping_cart.png)
 
-* If they click on the user icon they will, depending on if they are logged in or not, see different account management options. 
+* If the user clicks on the My Account icon they will, depending on if they are logged in or not, see different account management options. A none logged in user will see the the option to register or to log in. (Screenshot Below)
 
 ![Image of user icon](media/readme_images/user_account.png)
+
+* A logged in user will see the options to view their profile, and to logout.
+
+![Image of logged in user options](media/readme_images/user_account_logged_in.png)
+
+* An admin or superuser will see the same options as a logged in user however they will also see the option to Add Products to the store. Only superusers and admin staff have this functionality. (Screenshot below)
+
+![Image of superuser options](media/readme_images/super_user_logged_in.png)
+
+
 <hr>
 
 #### **2.2 - The Navbar** ####
 
-* The navbar is a bootstrap navbar that contains 4 separate dropdown menus to allow users to easily navigate the site. The first dropdown is the one that will allow users to shop for different type of PPE products that the site offers.   
+* The navbar is a bootstrap navbar that contains 4 separate dropdown menus to allow users to easily navigate the site. The first dropdown is the one that is for the store and will allow users to search for different types of PPE products that the site offers. Users can search for all the PPE equipment on one single page, or search via category of items the store sells.
 
 ![Image of Shop PPE dropdown](media/readme_images/shop_dropdown.png)
 
-* The second dropdown item will bring users to the about us page where user can read a bit more information about the company.
+* The second dropdown item will bring users to the about us page where user can read a bit more information about the company. This is just a standard about us page one would expect. 
 
 ![Image of about us dropdown](media/readme_images/about_us.png)
 
@@ -206,7 +226,7 @@ As a shopper on the site:
 
 #### **2. - The Shop Page** ####
 
-* Users to the site have the ability to shop in a number of different ways on the site. The first way is using the search bar at the top of the page. Here users can search for products via a products name, or by a key word that is mentioned in the products description. The page will return the number of products that mee that search criteria and also display the number of items its returned in the top left above the items (Screenshot below)
+* Users to the site have the ability to shop in a number of different ways on the site. The first way is using the search bar at the top of the page. Here users can search for products via a products name, or by a key word that is mentioned in the products description. The page will return the number of products that meet that search criteria and also display the number of items its returned in the top left above the items (Screenshot below)
 
 ![Image of name searched for via name](media/readme_images/search_via_name.png)
 
@@ -224,9 +244,16 @@ As a shopper on the site:
 
 <hr>
 
+#### **2. - Product Details Page** ####
+
+#### **2. - Product Review Page** ####
+
+
+<hr>
+
 #### **2. - About Us Page** ####
 
-* This is a standard about us page you would expect to find on any business site. It has an image of 2 medial workers and a bit of text detailing about the company.
+* This is a standard about us page you would expect to find on any business site. It has an image of 2 medial workers and some text detailing a bit about the company.
 
 ![Image of about us page](media/readme_images/about_us_page.png)
 <hr>
@@ -246,7 +273,9 @@ As a shopper on the site:
 
 #### **2. - Contact Us Page & Registered User Messages** ####
 
-* One of the pass criteria for this project was to: "Create at least 1 form with validation that will allow users to create records in the database (In addition ot the authentication mechanism").
+* One of the pass criteria for this project was to:<br>
+
+"Create at least 1 form with validation that will allow users to create records in the database (In addition ot the authentication mechanism").
 * The feature i have chosen to meet this requirement is a priority messaging service. One of the main goals of any e-commerce site is to get as many people as possible signed up and spending money. A site should always be pushing for users to sign up and register, even if they don't buy something on the first visit (They could be on the site to use the covid numbers feature listed above) because it still allows the site owner to build their user database and email market to these registered users at a later date. 
 * If an unregistered user logs onto the site and navigates to the contact us page, they will see the company contact details as you would normally expect, below that they will see a message explaining about the registered users priority messages function and also a link for customers to sign up or log in (screenshot below) 
 
@@ -271,25 +300,103 @@ The model for this form can be found below:
     `date = models.DateTimeField(auto_now_add=True, editable=False)`<br>
     `contact_email = models.EmailField(max_length=254, null=True, blank=True)`<br>
     <br>
-    `# This will correct the spelling in Django admin to the correct plural spelling`<br>
+    # This will correct the spelling in Django admin to the correct plural spelling<br>
     `class Meta:`<br>
         `verbose_name_plural = 'Contact Messages'`<br>
     <br>
+    # Renames the instance of the ContactMessages model with the ContactMessages name
     `def __str__(self):`<br>
         `return self.subject`<br>
 
 * The `sender` (Message From:) field is automatically generated depending on which user is logged in to the site. I have also made this input field disabled so the user can not adjust or alter it, this is to ensure that every message can be attached to a specific registered site user. For a better user experience the disabled feature also stops the user clicking on the name and a highlight box appearing and creating the impression the user can adjust the field. 
-
 * The `subject`, `message` and `email` field are self explanatory. I also have a `date & time` field which is not displayed to the user.
-* This messaging service allows users to create records (messages) in the database as well as providing all of the important information a site owner needs. In the django admin panel how the messages are displayed can be seen below: 
+* This messaging service allows users to create records (messages) in the database as well as providing all the information i have stipulated as required in the model. In the django admin panel how the messages are received and displayed can be seen in the screenshot below. 
 
 ![Image of registered messages in Django](media/readme_images/django_user_message.png)
 
+As you can see they are displayed just like an incoming email would be displayed. When the site administrator clicks on the message they will see it in full, again with all of the information below on display. 
 <br>
 
 ![Image of registered messages in Django](media/readme_images/django_user_message2.png)
 
-This allows the site owner to keep a record of any messages sent on the site from registered users. The main drive for this is to encourage registered users to message the store through the message facility on the website and not just via an email. This in tandem with the Covid Numbers data is done to encourage users of the site to return to it regularly as we can. The more people that are visiting the site, the more the odds increase that the user may decide to spend some money while they are on the site. 
+This allows the site owner to keep a record of any messages sent on the site from registered users. The main drive for this is to encourage registered users to message the store through the message facility on the website and not just via an email. This in tandem with the Covid Numbers data is done to encourage users of the site to return to it as regularly as possible. The more people that are visiting the site, the more the odds increase that the user may decide to spend some money while they are on the site. 
+<hr>
+
+#### **2. - The Profile Page** ####
+
+* Registered users on the site will have their own dedicated profile page. On this page users will see 2 features. The first one is their address and contact details. The 2nd will be their order history. 
+
+* The address and contact details page allows users of the site to both create and update records in the backend. Users are able to log in at any time to the site and update their details and save them with a single click.
+
+![Image of user profile page](media/readme_images/profile_details.png)
+
+* When the user purchases an item and goes to the checkout page the delivery address will auto populate the delivery address that the user has saved. I have also set this form up so the personal details of the order recipient are not auto generated and must be entered in by the user (Screenshot below)
+
+![Image of user checkout page](media/readme_images/checkout_page.png)
+
+* The user will still have to enter a name, email and phone number on the checkout page for the order to be processed. I chose this approach as a user may not be home when an item is being delivered to their property, this allows the user purchasing their product to put the name and number of someone else who may be home and their contact details for the courier to reach. 
+
+* The 2nd feature on the profile page is the order history feature. Registered users on the site will be able to see all of the orders they have placed on the site previously.
+
+![Image of user order history](media/readme_images/order_history.png)
+
+* The user will see a small summary of the previous orders they have placed on the site in this section. If they wish to see a more detailed breakdown of that order they can do so by clicking on the order number and they will be brought to the order in more detail (Screenshot below:)
+
+![Image of user order history detailed](media/readme_images/order_history_detailed.png)
+
+<hr>
+
+#### **2. - The Shopping Cart Page** ####
+
+* Once a user has added an item/items to the shopping cart they will be able to view it by clicking on the shopping cart icon. When they get to the shopping cart it will look like the image below: 
+
+![Image of user shopping cart](media/readme_images/shopping_cart_2.png)
+
+* Here users will see a line by line breakdown of all of the items in their shopping cart. They will have the ability to adjust each line item directly in the cart and increase the quantity or remove an item completely with just a couple of clicks. 
+* After all of the line items the user will see a summary of their shopping cart at the bottom of the page. This summary will detail:<br>
+1. The number of items in the cart 
+2. The cart total (Value of items purchased) 
+3. Delivery fee (If applicable)
+4. Total amount due
+5. If the user is spending below the free delivery threshold they will also see a prompt informing them if they spend a certain amount of money they will qualify for free delivery (Screenshot below)<br><br>
+
+![Image of cart breakdown](media/readme_images/cart_breakdown.png)
+
+* They also have a button "Keep Shopping" that will bring them back to the store if they wish to continue shopping and a "Secure Checkout" button to proceed to the checkout. 
+
+<hr>
+
+#### **2. - The Checkout Page** ####
+
+* As covered above in the profile section above on the checkout page the user has to enter their contact details, their deliver address, and their payment details. 
+* There are 2 buttons on the page for the user to be able to go back and adjust their order 1 last time, or to complete the form and then complete their order. 
+
+![Image of cart breakdown](media/readme_images/checkout_form.png)
+
+* To encourage the user to spend a bit more money on this purchase the free delivery prompt will be located at the bottom of the page to try and encourage a user to spend some more money so they can avail of this feature. 
+
+* The only difference on the form for a logged in/registered user vs an anonymous user is a logged in user will have the option to save the delivery address to their profile via a checkbox.  
+
+![Image of cart checkbox](media/readme_images/checkout_checkbox.png)
+
+* A none registered user will see the prompt asking them do they wish to "Create an account or login to save this information, or continue as an unregistered shopper"
+
+![Image of cart create an account or login prompt](media/readme_images/checkout_login_register_prompt.png)
+
+<hr>
+
+#### **2. - Purchase Complete Page** ####
+
+* Once the users purchase has been completed they will receive a confirmation message detailing everything about their order. They will have:
+1. A thank you for your business prompt (The users name will automatically be generated in this thank you prompt as i feel it adds a bit of personalization to the thank you message.)
+2. An order number
+3. An order placed date and time
+4. List of items they purchased
+5. Breakdown of the costs
+6. The delivery details listed
+
+![Image of user order history detailed](media/readme_images/order_history_detailed.png)
+
 <hr>
 
 #### **- Toasts** ####
