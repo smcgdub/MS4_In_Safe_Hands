@@ -1,6 +1,7 @@
 from django.test import TestCase
 from checkout import apps
 
+
 class TestCheckout(TestCase):
     '''
     Tests for the checkout page
@@ -13,7 +14,6 @@ class TestCheckout(TestCase):
         response = self.client.get('/checkout/')
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, '/products/')
-
 
     def test_checkout_apps_configuration(self):
         '''

@@ -14,8 +14,7 @@ class ProductReviewForm(forms.ModelForm):
         '''
         model = ProductReview
         fields = ('review_title', 'reviewed_product', 'reviewer', 'review')
-        widgets={'reviewer': HiddenInput()}
-
+        widgets = {'reviewer': HiddenInput()}
 
     def __init__(self, *args, **kwargs):
         '''

@@ -106,43 +106,45 @@ Note!
 
 * The products page is displaying all of the products for sale in the store correctly. As the user adjusts the screen size the layout is adjusting on each browser as expected.  
 
-**3. The Product Details Page**
+**4. The Product Details Page**
 
 * All of the product details are displaying correctly as intended on all browsers. 
 * When the user clicks the Read Product Reviews the collapsible expands correctly and shows the reviews on each browser. 
 * If a user tries to set the quantity to 0 and add it to the cart they will see the validation error informing them the minimum number allowed is 1.
 * Users can add items to the cart as expected by selecting the quantity and pressing the add to cart button. 
 
-**3. The Cart Page**
+**5. The Cart Page**
 
 * A user who tries to access the cart with nothing in it will get the message there is nothing in your cart and be given the option to click and be redirected back to the store
 * Once the user has an item in the cart they can adjust the quantity and update the cart. The cart on all browsers reflects the update correctly
 * If a user presses the remove button the item is removed from the cart
 * If the user clicks on the secure checkout button the user will be brought to the checkout page 
 
-**3. The Checkout Page**
+**6. The Checkout Page**
 
-* The checkout page is rendering correctly and the logged in users delivery address is automatically populating on all browsers. 
+* The checkout page is rendering correctly and the logged in users delivery address is automatically populating on all browsers.<br>
+
 Note!
+
 * Again on safari the dropdown menu for Country is displaying slightly different than on the other browsers. I have checked the functionality and it is working as normal. The difference is purely aesthetic so i am noting here that i am aware of it
 
 ![Image of country dropdown safari](media/readme_images/country_dropdown_safari_2.png)
 
 * I have placed an order on each browser and the order has gone through successfully using the Stripe test card details. 
 
-**3. The Order Confirmation Page**
+**7. The Order Confirmation Page**
 
 * After placing an order the order confirmation page is generated and rendered correctly with all of the order details displayed as they should. 
 
-**3. About Us Page**
+**8. About Us Page**
 
 * The about us page is rendering as expected on all browsers with no issues or errors. It adjusts it structure as the page size is adjusted on smaller devices. 
 
-**4. Covid Data Page**
+**9. Covid Data Page**
 * When a none logged in user comes to this page they will see the message informing them the data is only available to registered users. 
 * Once logged in the covid data that was behind a registered users wall is now rendering correctly on each browser. I have used this feature to drill down into the various types of information available and it is all working as intended. 
 
-**5. Contact Us Page**
+**10. Contact Us Page**
 * When a none logged in user goes to the contact us page the page is displaying as it should for a none logged in user. The message about the priority message service being only available to logged in users is displaying correctly. 
 * When a logged in user goes to the contact us page the contact us form is rendering as expected on all browsers. 
 
@@ -176,23 +178,20 @@ Mobile testing was carried out on the following devices:<br>
 
 All mobile testing was carried out on Chrome, FireFox, Opera and Brave browsers.
 
-**1. Navbar**
+**1. The Home Page**
 
 * All tests on mobile devices returned the same results as the desktop results listed above. The page is functioning normally and as intended on mobile devices. 
 
-**3. Shop Page**
+**2. The My Account, Profile & Cart**
+**3. The Products Page**
+**4. The Product Details Page**
+**5. The Cart Page**
+**6. The Checkout Page**
+**7. The Order Confirmation Page**
+**8. About Us Page**
+**9. Covid Data Page**
+**10. Contact Us Page**
 
-**4. Register Page**
-
-**5. Log In**<br>
-
-**6. Add Drink**
-
-**7. Edit Drink**
-
-**8. Delete Drink**
-
-**9. Log Out**<br>
 </details>
 <hr>
 

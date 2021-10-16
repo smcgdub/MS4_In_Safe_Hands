@@ -8,7 +8,8 @@ class ContactMessages(models.Model):
     Contact form model. This is found on the contact us page for logged in \
     registered users
     '''
-    sender = models.ForeignKey(UserProfile, on_delete=models.CASCADE, null=True, blank=True)
+    sender = models.ForeignKey(UserProfile, on_delete=models.CASCADE,
+                               null=True, blank=True)
     subject = models.CharField(max_length=80, null=False, blank=False)
     message = models.TextField(max_length=3000, null=False, blank=False)
     date = models.DateTimeField(auto_now_add=True, editable=False)

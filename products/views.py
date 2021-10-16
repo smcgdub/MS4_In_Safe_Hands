@@ -45,9 +45,9 @@ def all_products(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-            # If the user doesn't enter anything in the search box and
-            # presses search the site will load the all products page with the
-            # mesage below
+                # If the user doesn't enter anything in the search box and
+                # presses search the site will load the all products page
+                # with the mesage below
                 messages.info(request, "You didn't enter anything to search \
                                         for....but here's all our products \
                                         \U0001F642")
@@ -111,12 +111,12 @@ def add_product(request):
                                        to the store')
             # Return user to the products page after they have added the item
             return redirect(reverse('products'))
-        # If add product form is invalid
         else:
+            # If add product form is invalid
             messages.warning(request, 'Product add failed! Please \
                                        recheck all form details are valid')
-    # If form isn't a POST form then load a blank form
     else:
+        # If form isn't a POST form then load a blank form
         form = ProductForm()
 
     form = ProductForm()
@@ -133,7 +133,8 @@ def edit_product(request, product_id):
     '''
     Function to edit a product in the store
     '''
-    # If the user is not a superuser, display error message and redirect them to the homepage
+    # If the user is not a superuser, display error message and redirect
+    # them to the homepage
     if not request.user.is_superuser:
         print("A none superuser is attempting to access a restricted feature \
                edit product in store - Products / Views.py / edit_product")
@@ -154,15 +155,15 @@ def edit_product(request, product_id):
                                         updated')
             return redirect(reverse('product_details', args=[product.id]))
         else:
-        # Warning message if updating was unsuccessfull
+            # Warning message if updating was unsuccessfull
             print("There was an error updating the product - Products - \
                    - Views.py - edit_product")
             messages.warning(request, 'Warning, product update failed. \
                                        Please check all fields are valid and \
                                        try again.')
     else:
-    # Inform user that they are currently editing a product and name that
-    # product
+        # Inform user that they are currently editing a product and name that
+        # product
         form = ProductForm(instance=product)
         print("Superuser is currently editing an item - Products - Views.py \
               - edit_product")
@@ -221,8 +222,8 @@ def delete_product(request, product_id):
 #             return redirect(reverse('product_details'))
 #         else:
 #         # If add form is invalid
-#             messages.warning(request, 'Review failed to post! Please re-check\
-#                                        all form details are valid')
+#             messages.warning(request, 'Review failed to post! Please \
+#                                        re-check all form details are valid')
 #     # If form isn't a POST form then load a blank form
 #     else:
 #         form = ReviewForm()

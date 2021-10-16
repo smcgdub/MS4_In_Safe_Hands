@@ -40,8 +40,8 @@ def order_history(request, order_number):
     '''
     order = get_object_or_404(Order, order_number=order_number)
 
-    messages.info(request, (f'All of the details for this order are listed \
-                              here.'))
+    messages.info(request, ('All of the details for this order are listed \
+                             here.'))
 
     template = 'checkout/checkout_success.html'
     context = {

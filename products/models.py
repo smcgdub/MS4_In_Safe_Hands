@@ -15,14 +15,13 @@ class Category(models.Model):
 
     name = models.CharField(max_length=200, blank=False)
     friendly_name = models.CharField(max_length=200, null=True,
-            blank=True)
+                                     blank=True)
 
     def __str__(self):
         '''
         Renames the instance of the Category model with the category name
         '''
         return self.name
-
 
     def get_friendly_name(self):
         '''
@@ -48,7 +47,6 @@ class Product(models.Model):
                                  null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
-
 
     def __str__(self):
         '''

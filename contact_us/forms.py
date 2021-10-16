@@ -14,8 +14,7 @@ class ContactMessagesForm(forms.ModelForm):
         '''
         model = ContactMessages
         fields = ('sender', 'subject', 'message', 'contact_email')
-        widgets={'sender': HiddenInput()}
-
+        widgets = {'sender': HiddenInput()}
 
     def __init__(self, *args, **kwargs):
         '''

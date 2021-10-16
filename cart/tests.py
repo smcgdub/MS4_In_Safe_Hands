@@ -14,7 +14,6 @@ class TestCart(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'cart/cart.html')
 
-
     def test_cart_apps_configuration(self):
         '''
         Test to make sure the app is configured correctly

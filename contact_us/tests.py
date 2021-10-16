@@ -16,7 +16,6 @@ class TestContactMessagesForm(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'contact_us/contact_us.html')
 
-
     def test_contact_us_form_sender_required(self):
         '''
         Test to confirm that 'sender' field is required on the message form. \
@@ -31,7 +30,6 @@ class TestContactMessagesForm(TestCase):
                                     'contact_email': 'contact_email',
                                    })
         self.assertFalse(form.is_valid())
-
 
     def test_contact_us_form_subject_required(self):
         '''
@@ -48,7 +46,6 @@ class TestContactMessagesForm(TestCase):
         self.assertFalse(form.is_valid())
         self.assertIn('subject', form.errors.keys())
 
-
     def test_contact_us_form_message_required(self):
         '''
         Test to confirm that the 'message' field is required on the message \
@@ -63,7 +60,6 @@ class TestContactMessagesForm(TestCase):
         self.assertFalse(form.is_valid())
         self.assertIn('message', form.errors.keys())
 
-
     def test_contact_us_form_email_not_required(self):
         '''
         Test to confirm that the 'contact email' field is not required on \
@@ -75,7 +71,6 @@ class TestContactMessagesForm(TestCase):
                                     'contact_email': ''
                                   })
         self.assertTrue(form.is_valid())
-
 
     def test_contact_us_apps_configuration(self):
         '''

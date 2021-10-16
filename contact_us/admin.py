@@ -12,7 +12,7 @@ class ContactMessagesAdmin(admin.ModelAdmin):
       'date',
       'contact_email',
     )
-    # Sets the ordering of the items in the django admin page. 
+    # Sets the ordering of the items in the django admin page.
     # Currently set to be organized by date
     ordering = ('date',)
 

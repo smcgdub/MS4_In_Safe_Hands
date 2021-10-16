@@ -7,7 +7,7 @@ class TestCovidNumbers(TestCase):
     '''
     Tests to be carried out on the covid numbers page
     '''
-    
+
     def test_covid_numbers_page(self):
         '''
         Test to confirm correct covid numbers template page is rendering

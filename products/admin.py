@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Product, Category
 
+
 class ProductAdmin(admin.ModelAdmin):
     '''
     Selects which details will be shown in the Django admin

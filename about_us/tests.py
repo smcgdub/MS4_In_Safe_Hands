@@ -15,7 +15,6 @@ class TestAboutUs(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'about_us/about_us.html')
 
-
     def test_about_us_apps_configuration(self):
         '''
         Test to make sure the app is configured correctly

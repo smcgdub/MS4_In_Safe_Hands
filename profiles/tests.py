@@ -19,13 +19,11 @@ class TestProfile(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, '/accounts/login/?next=/profile/')
 
-
     def test_profiles_apps_configuration(self):
         '''
         Test to make sure the app is configured correctly
         '''
         self.assertEqual(apps.ProfilesConfig.name, 'profiles')
-
 
     def test_user_profile_form_is_valid(self):
         '''
@@ -42,7 +40,7 @@ class TestProfile(TestCase):
                                'default_county': '',
                                'default_eircode': '',
                                'default_country': '',
-        })
+                               })
         self.assertTrue(form.is_valid())
 
 

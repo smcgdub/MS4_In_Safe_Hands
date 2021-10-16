@@ -17,7 +17,7 @@ def contact_us(request):
     # If user is unregistered then the form will not show
     else:
         messages_form = ContactMessagesForm()
-    
+
     if request.method == 'POST':
         messages_form = ContactMessagesForm(request.POST)
         sender = UserProfile.objects.get(user=request.user)
@@ -33,7 +33,8 @@ def contact_us(request):
                                            contact as soon as possible")
                 return redirect(reverse('home'))
             except Exception as e:
-                print("Error in try except block: ", e) # Edited by Jo
+                # Edited by Jo
+                print("Error in try except block: ", e)
                 messages.error(request, "There was an error sending your \
                                          message, please try to send it \
                                          again")

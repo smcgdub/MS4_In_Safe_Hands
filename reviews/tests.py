@@ -10,7 +10,6 @@ class Reviews(TestCase):
     '''
     Tests for the reviews page
     '''
-
     def test_review_page(self):
         '''
         Confirms the redirect if a none registered user tries to access the \
@@ -18,15 +17,14 @@ class Reviews(TestCase):
         '''
         response = self.client.get('/reviews/add_review/')
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, '/accounts/login/?next=/reviews/add_review/')
-
+        self.assertRedirects(response,
+                             '/accounts/login/?next=/reviews/add_review/')
 
     def test_reviews_apps_configuration(self):
         '''
         Test to make sure the app is configured correctly
         '''
         self.assertEqual(apps.ReviewsConfig.name, 'reviews')
-
 
     # def test_review_form_required_field_review_title(self):
     #     '''
@@ -146,9 +144,8 @@ class Reviews(TestCase):
                                  'reviewer': 'reviewer',
                                  'review': 'review',
                                  'date': 'date',
-        })
+                                 })
         self.assertTrue(form.is_valid())
-
 
     def test_review_form_required_field_date(self):
         '''
@@ -161,7 +158,7 @@ class Reviews(TestCase):
                                  'reviewer': 'reviewer',
                                  'review': 'review',
                                  'date': ''
-        })
+                                 })
         self.assertFalse(form.is_valid())
 
     def test_review_form_required_field_review(self):
@@ -175,7 +172,7 @@ class Reviews(TestCase):
                                  'reviewer': 'reviewer',
                                  'review': '',
                                  'date': 'date'
-        })
+                                 })
         self.assertFalse(form.is_valid())
 
     def test_review_form_required_field_reviewer(self):
@@ -189,13 +186,13 @@ class Reviews(TestCase):
                                  'reviewer': '',
                                  'review': 'review',
                                  'date': 'date'
-        })
+                                 })
         self.assertFalse(form.is_valid())
 
     def test_review_form_required_field_reviewed_product(self):
         '''
-        A test to confirm that reviewed product field is required on the product \
-        review form.
+        A test to confirm that reviewed product field is required on the \
+        product review form.
         '''
         form = ProductReviewForm({
                                  'review_title': 'review_title',
@@ -203,7 +200,7 @@ class Reviews(TestCase):
                                  'reviewer': 'reviewer',
                                  'review': 'review',
                                  'date': 'date'
-        })
+                                 })
         self.assertFalse(form.is_valid())
 
     def test_review_form_required_field_review_title(self):
@@ -217,5 +214,5 @@ class Reviews(TestCase):
                                  'reviewer': 'reviewer',
                                  'review': 'review',
                                  'date': 'date'
-        })
+                                 })
         self.assertFalse(form.is_valid())
