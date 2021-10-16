@@ -16,6 +16,7 @@ In Safe Hands was created and built by Stephen Mc Govern as my 4th and final mil
 * 1.3 User stories - The Scope Plane & - The Structure Plane
 * 1.4 Design choices - The Surface Plane
 * 1.5 Wire frames - The Skeleton Plane
+* 1.6 Database Design - The Skeleton Pane
 
 ### **2. Features** ###
 * 2.1 Homepage 
@@ -70,6 +71,7 @@ In Safe Hands was created and built by Stephen Mc Govern as my 4th and final mil
 * 8.1 - Social media login
 * 8.2 - Social media share buttons
 * 8.3 - Paypal Payment Option
+* 8.4 - Wishlist
 
 ### **9. Disclaimer** ###
 * 9.0 Disclaimer on project
@@ -164,7 +166,111 @@ As a shopper on the site:
 
 * The wire frames for the site can be found here: [wireframes.md](wireframes.md)
 
+<hr>
+
+#### **1.6 - Database Design - The Skeleton Plane** ####
+<br>
+
+* Django works with SQL databases by default, I used SQLite during development. Heroku provides a PostgreSQL database for deployment. Below you can find all of the models used in this project and their structure.<br><br>
+
+<strong>Checkout/Models/`Order`:</strong>
+
+|       Name       |   Database Key  |   Field Type  |                                     Type Validation                                    |
+|:----------------|:---------------|:-------------|:--------------------------------------------------------------------------------------|
+|   Order Number   |   order_number  |   Charfield   |                       `max_length=32, null=False, editable=False`                      |
+|     Username     |   user_profile  |   ForeignKey  | `UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='orders'` |
+|    Date & Time   |       date      | DateTimeField |                                   `auto_now_add=True`                                  |
+|    First Name    |    first_name   |   Charfield   |                        `max_length=50, null=False, blank=False`                        |
+|     Last Name    |    last_name    |   Charfield   |                        `max_length=50, null=False, blank=False`                        |
+|      Email       |      email      |   EmailField  |                        `max_length=254, null=False, blank=False`                       |
+|   Phone Number   |   phone_number  |   Charfield   |                        `max_length=20, null=False, blank=False`                        |
+| Street Address 1 | street_address1 |   Charfield   |                        `max_length=80, null=False, blank=False`                        |
+| Street Address 2 | street_address2 |   Charfield   |                        `max_length=80, null=False, blank=False`                        |
+|   Town or City   |   town_or_city  |   Charfield   |                        `max_length=40, null=False, blank=False`                        |
+|      County      |      county     |   Charfield   |                         `max_length=80, null=True, blank=True`                         |
+|      Eircode     |     eircode     |   Charfield   |                         `max_length=20, null=True, blank=True`                         |
+|      Country     |     country     |   Charfield   |                `blank_label='Select Country *', null=False, blank=False`               |
+|     Delivery     |  delivery_cost  |  DecimalField |                 `max_digits=6, decimal_places=2, null=False, default=0`                |
+|    Order Total   |   order_total   |  DecimalField |                `max_digits=10, decimal_places=2, null=False, default=0`                |
+|    Grand Total   |   grand_total   |  DecimalField |                `max_digits=10, decimal_places=2, null=False, default=0`                |
+
+<br>
+
+<strong>Checkout/Models/`OrderLineItem`:</strong>
+
+| Name            | Database Key   | Field Type   | Type Validation                                                                      |
+|:-----------------|:----------------|:--------------|:--------------------------------------------------------------------------------------|
+| Order           | order          | ForeignKey   | `Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems'` |
+| Product         | product        | ForeignKey   | `Product, null=False, blank=False, on_delete=models.CASCADE`                         |
+| Quantity        | quantity       | IntegerField | `null=False, blank=False, default=0`                                                 |
+| Line Item Total | lineitem_total | DecimalField | `max_digits=6, decimal_places=2, null=False, blank=False, editable=False`            |
+
+<br>
+
+<strong>Contact Us/Models/`ContactMessages`:</strong>
+
+| Name          | Database Key  | Field Type    | Type Validation                                                |
+|:---------------:|:---------------:|:---------------:|----------------------------------------------------------------|
+| Sender        | sender        | ForeignKey    | `UserProfile, on_delete=models.CASCADE, null=True, blank=True` |
+| Subject       | subject       | CharField     | `max_length=80, null=False, blank=False`                       |
+| Message       | message       | TextField     | `max_length=3000, null=False, blank=False`                     |
+| Date & Time   | date          | DateTimeField | `auto_now_add=True, editable=False`                            |
+| Contact Email | contact_email | EmailField    | `max_length=254, null=True, blank=True`                        |
+
+<br>
+
+<strong>Products/Models/`Category`:</strong>
+
+|      Name     |  Database Key | Field Type |             Type Validation            |
+|:-------------:|:-------------:|:----------:|:--------------------------------------:|
+|      Name     |      name     |  CharField |      `max_length=200, blank=False`     |
+| Friendly Name | friendly_name |  CharField | `max_length=200, null=True,blank=True` |
+
+<br>
+
+<strong>Products/Models/`Product`:</strong>
+
+| Name              | Database Key | Field Type   | Type Validation                                                |
+|-------------------|--------------|--------------|----------------------------------------------------------------|
+| Category          | category     | ForeignKey   | `'Category', null=True, blank=True, on_delete=models.SET_NULL` |
+| Product Id        | p_id         | CharField    | `max_length=200, null=True, blank=True`                        |
+| Name              | name         | CharField    | `max_length=200`                                               |
+| Description       | description  | TextField    |                                                                |
+| Price             | price        | DecimalField | `max_digits=6, decimal_places=2`                               |
+| Protection Rating | rating       | DecimalField | `max_digits=6, decimal_places=2, null=True, blank=True`        |
+| Image URL         | image_url    | URLField     | `max_length=1024, null=True, blank=True`                       |
+| Image             | image        | ImageField   | `null=True, blank=True`                                        |
+
+<br>
+
+<strong>Products/Models/`UserProfile`:</strong>
+
+| Name              | Database Key | Field Type   | Type Validation                                                |
+|-------------------|--------------|--------------|----------------------------------------------------------------|
+| Category          | category     | ForeignKey   | `'Category', null=True, blank=True, on_delete=models.SET_NULL` |
+| Product Id        | p_id         | CharField    | `max_length=200, null=True, blank=True`                        |
+| Name              | name         | CharField    | `max_length=200`                                               |
+| Description       | description  | TextField    |                                                                |
+| Price             | price        | DecimalField | `max_digits=6, decimal_places=2`                               |
+| Protection Rating | rating       | DecimalField | `max_digits=6, decimal_places=2, null=True, blank=True`        |
+| Image URL         | image_url    | URLField     | `max_length=1024, null=True, blank=True`                       |
+| Image             | image        | ImageField   | `null=True, blank=True`                                        |
+
+<br>
+
+<strong>Reviews/Models/`ProductReview`:</strong>
+
+|       Name       |   Database Key   |   Field Type  |                          Type Validation                         |
+|:----------------|:----------------|:-------------|:----------------------------------------------------------------|
+|   Review Title   |   review_title   |   CharField   |             `max_length=90, null=False, blank=False`             |
+| Reviewed Product | reviewed_product |   ForeignKey  |   `Product, null=False, blank=False, on_delete=models.CASCADE`   |
+|     Reviewer     |     reviewer     |   ForeignKey  | `UserProfile, null=False, blank=False, on_delete=models.CASCADE` |
+|      Review      |      review      |   TextField   |                         `max_length=500`                         |
+|    Date & Time   |       date       | DateTimeField |                        `auto_now_add=True`                       |
+<br>
+
 </details>
+
 <hr>
 
 <details>
@@ -708,6 +814,15 @@ If you need to reach me i can be contacted via the three methods below:<br>
 
 #### **8.3 - Paypal Payment Option** ####
 * The site currently has a checkout powered by Stripe. I would also like to incorporate a PayPal payment feature at a later date as this would provide a better user experience and also give users another payment option. 
+
+#### **8.3 - Wishlist** ####
+* Another feature i will develop for the site is a wishlist. This feature would allow logged in users to be able to click on an icon and the product would then be added to the wishlist. The way this wishlist would work is:<br>
+1. Click on wishlist button
+2. Check if item already in wish list 
+3. If yes: remove it from the wish list 
+4. If no: add it to wishlist 
+
+* Effectively we are just creating an IF statement. Clicking the button will change display depending on wishlist ("Add to wishlist" if not in the list, "remove from wishlist" if it is in the wishlist)
 
 </details>
 <hr>
