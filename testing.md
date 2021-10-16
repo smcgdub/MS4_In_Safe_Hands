@@ -73,29 +73,92 @@
 
 All desktop testing was carried out on Chrome, FireFox, Opera and Safari. Results listed below will apply to all browsers unless highlighted as otherwise. 
 
-**1. Navbar**
+**1. The Home Page**
 
-* Have clicked on the Tipsy's text on the left hand side of the Navbar. Can confirm it brings the user back to the drinks.html landing page.
-* Have clicked on each item in the Navbar and can confirm the page then brings to user to that section.
-* Can confirm on smaller screen sizes and mobile devices the list items in the Navbar collapse and now appear as a hamburger menu. When pressed the menu expands to show items. 
+* The homepage is rendering correctly on all of the browsers as intended.
+* Clicking the In Safe Hands name in the top left brings the user back to the home page
+* Clicking the search bar without entering an item to search for brings the user to the all products page and the correct toast displays the message in the top right of the screen. 
+* The dropdown menus are all expanding when clicked and showing the correct sub menu options
+* I have clicked on every option in the 4x dropdown menus and all the links bring the user to the correctly specified page
+* The reviews carousel on the bottom of the page is rendering and cycling through the reviews as is intended. 
 
-**2. Homepage**
+**2. The My Account, Profile & Cart**
 
-* The search bar at the top pf the page loads and is functioning as intended.
+* When a user clicks on the My Account icon and clicks on the sign up option the correct sign up page is rendering
+* I have clicked on sign up and followed the steps to create a new registered user on each browser. All of the accounts were able to be set up correctly as expected on all browsers.  
+* When a user clicks on the My Account icon and clicks on the Log in option the correct Log in page rendering
+* If a user enterers the incorrect username and/or password the page will reload with a warning message saying <strong>"The username and/or password you specified are not correct"</strong>
+* If a user tries to enter just the username or just the password the the login form validation will notify them that all fields are required and they must complete all fields. 
+* Users can click on the forgot my password link and enter their email address to be sent the password reset link. In testing the email with the password reset link and username is sent as expected. This works on all browsers.
+* I have been able to log in with the created username and password on all browsers and have been able to log out on every browser. The correct toast confirming login and logout in the top right is also generated.
+* After logging in i am able to see the users profile page and order history as expected on all browsers. 
 
-**3. Shop Page**
+Note!
+* On safari the dropdown menu for Country is displaying slightly different than on the other browsers. I have checked the functionality and it is working as normal. The difference is purely aesthetic so i am noting here that i am aware of it
 
-**4. Register Page**
+![Image of country dropdown safari](media/readme_images/country_dropdown_safari.png)
 
-**5. Log In**<br>
+* When i click on a past order number on the profile page the order details open and are all displaying correctly. 
+* If i click on the cart button when the cart is empty then the correct message saying the shopping cart is empty and the link to go to the store is displaying correctly. 
+* If i try and bypass this by typing checkout in the url i correctly get redirected to he products page with the warning toast saying there is nothing in your cart. 
 
-**Username Left Empty**<br>
+**3. The Products Page**
 
-**Password Left Empty**<br>
+* The products page is displaying all of the products for sale in the store correctly. As the user adjusts the screen size the layout is adjusting on each browser as expected.  
 
-**Incorrect details entered**<br>
+**3. The Product Details Page**
 
-**9. Log Out**<br>
+* All of the product details are displaying correctly as intended on all browsers. 
+* When the user clicks the Read Product Reviews the collapsible expands correctly and shows the reviews on each browser. 
+* If a user tries to set the quantity to 0 and add it to the cart they will see the validation error informing them the minimum number allowed is 1.
+* Users can add items to the cart as expected by selecting the quantity and pressing the add to cart button. 
+
+**3. The Cart Page**
+
+* A user who tries to access the cart with nothing in it will get the message there is nothing in your cart and be given the option to click and be redirected back to the store
+* Once the user has an item in the cart they can adjust the quantity and update the cart. The cart on all browsers reflects the update correctly
+* If a user presses the remove button the item is removed from the cart
+* If the user clicks on the secure checkout button the user will be brought to the checkout page 
+
+**3. The Checkout Page**
+
+* The checkout page is rendering correctly and the logged in users delivery address is automatically populating on all browsers. 
+Note!
+* Again on safari the dropdown menu for Country is displaying slightly different than on the other browsers. I have checked the functionality and it is working as normal. The difference is purely aesthetic so i am noting here that i am aware of it
+
+![Image of country dropdown safari](media/readme_images/country_dropdown_safari_2.png)
+
+* I have placed an order on each browser and the order has gone through successfully using the Stripe test card details. 
+
+**3. The Order Confirmation Page**
+
+* After placing an order the order confirmation page is generated and rendered correctly with all of the order details displayed as they should. 
+
+**3. About Us Page**
+
+* The about us page is rendering as expected on all browsers with no issues or errors. It adjusts it structure as the page size is adjusted on smaller devices. 
+
+**4. Covid Data Page**
+* When a none logged in user comes to this page they will see the message informing them the data is only available to registered users. 
+* Once logged in the covid data that was behind a registered users wall is now rendering correctly on each browser. I have used this feature to drill down into the various types of information available and it is all working as intended. 
+
+**5. Contact Us Page**
+* When a none logged in user goes to the contact us page the page is displaying as it should for a none logged in user. The message about the priority message service being only available to logged in users is displaying correctly. 
+* When a logged in user goes to the contact us page the contact us form is rendering as expected on all browsers. 
+
+Error Detected!
+* When a logged in user goes to the contact us page on Firefox, the username field that automatically generates the username has a grey background, this is only happening on Firefox and not on the other browsers (Screenshot below:)   
+
+![Image of contact us form greyed out](media/readme_images/firefox_contact_us_field.png)
+
+I have resolved this with the following css:<br><br>
+`.user-input-display {`<br>
+  `background: transparent;`<br>
+`}`
+
+* The user input field now has a white background like the rest of the browsers. 
+
+* I have tested sending a message via the priority email messaging service on the contact us page and the message successfully goes through and is appearing in the Django admin panel as expected. 
 
 <hr>
 

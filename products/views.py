@@ -20,18 +20,20 @@ def all_products(request):
 
     if request.GET:
         # If user is looking to sort the results
-        if 'sort' in request.GET:
-            sortkey = request.GET['sort']
-            sort = sortkey
-            if sortkey == 'name':
-                sortkey = 'lower_name'
-                products = products.annotate(lower_name=Lower('name'))
+        # Code below is if a user wishes to filter
 
-            if 'direction' in request.GET:
-                direction = request.GET['direction']
-                if direction == 'desc':
-                    sortkey = f'-{sortkey}'
-            products = products.order_by(sortkey) 
+        # if 'sort' in request.GET:
+        #     sortkey = request.GET['sort']
+        #     sort = sortkey
+        #     if sortkey == 'name':
+        #         sortkey = 'lower_name'
+        #         products = products.annotate(lower_name=Lower('name'))
+
+        #     if 'direction' in request.GET:
+        #         direction = request.GET['direction']
+        #         if direction == 'desc':
+        #             sortkey = f'-{sortkey}'
+        #     products = products.order_by(sortkey)
 
         # If user is searching via category
         if 'category' in request.GET:
@@ -51,7 +53,7 @@ def all_products(request):
                                         \U0001F642")
                 return redirect(reverse('products'))
 
-            # Q allows to search for product by a product name or by a word 
+            # Q allows to search for product by a product name or by a word
             # in the description
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
@@ -120,7 +122,7 @@ def add_product(request):
     form = ProductForm()
     template = 'products/add_product.html'
     context = {
-        'form': form, 
+        'form': form,
     }
 
     return render(request, template, context)

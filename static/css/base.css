@@ -237,3 +237,7 @@ body {
   overflow-y: scroll;
   height: 150px;
 }
+
+.user-input-display {
+  background: transparent;
+}
