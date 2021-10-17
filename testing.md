@@ -53,8 +53,47 @@
 <hr>
 
 #### **1.4 Python Code Validating** ####
+
 * The testing for the python files were carried out on [pep 8 online](http://pep8online.com/) The results from the test were as follows:<br>
-* NEED TO DETAIL TEST RESULTS HERE
+
+* <strong>Results:</strong> All of the python code has passed the pep8 checks. There are however 3 lines of code in the project that were highlighted as exceeding the recommended character length of 79 characters. They are:
+
+<strong>1. Checkout > models.py > line 69</strong><br>
+
+`self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100`
+
+I have tried to place a pair of parentheses after the = and split this line into 2 lines as you can line break after the parentheses<br>
+
+`self.delivery_cost = (`<br>
+&nbsp; &nbsp; &nbsp;`self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100)`
+
+However that still leaves the line as 80 characters once you allow for the correct indentation therefore i have left it as one single line. It is something i am aware of but leaving this line as one line doesn't effect the functionality of the site so i have noted here int he readme i am aware of it but have left it as it is on one line.<br>
+<hr>
+
+<strong>2. Products > views.py > line 58</strong><br>
+
+`queries = Q(name__icontains=query) | Q(description__icontains=query)`
+
+This line of code comes in at greater than 79 characters, i have adjusted the code using a \ to go to a new line, example below:
+
+`queries = Q(name__icontains=query) | \`<br>
+&nbsp; &nbsp; &nbsp;`Q(description__icontains=query)`
+
+This has resolved the line length issue and I have tested the site after this adjustment and the search functionality has not changed and is working as intended. 
+
+<hr>
+
+<strong>3. Products > widgets.py > line 9</strong><br>
+
+`template_name = 'products/custom_widget_templates/custom_clearable_file_input.html'`
+
+This line of code comes in at greater than 79 characters. As with item 1 on this list i have wrapped the code after the = in parentheses and split it onto 2 lines, example below:
+
+`template_name = (`<br>
+&nbsp; &nbsp; &nbsp;`'products/custom_widget_templates/custom_clearable_file_input.html')`
+
+This has resolved the line length issue and I have tested the site after this adjustment and the search functionality has not changed and is working as intended. 
+
 <hr>
 
 #### **1.5 Django Tests** ####

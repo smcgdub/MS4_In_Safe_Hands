@@ -55,7 +55,8 @@ def all_products(request):
 
             # Q allows to search for product by a product name or by a word
             # in the description
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | \
+                Q(description__icontains=query)
             products = products.filter(queries)
 
     # Return sorting to the template
