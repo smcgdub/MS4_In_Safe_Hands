@@ -89,6 +89,7 @@ All desktop testing was carried out on Chrome, FireFox, Opera and Safari. Result
 * When a user clicks on the My Account icon and clicks on the Log in option the correct Log in page rendering
 * If a user enterers the incorrect username and/or password the page will reload with a warning message saying <strong>"The username and/or password you specified are not correct"</strong>
 * If a user tries to enter just the username or just the password the the login form validation will notify them that all fields are required and they must complete all fields. 
+* If a user tries to create an account with an email address that is already in use they will see an error message displayed saying that email address is already associated with another account. 
 * Users can click on the forgot my password link and enter their email address to be sent the password reset link. In testing the email with the password reset link and username is sent as expected. This works on all browsers.
 * I have been able to log in with the created username and password on all browsers and have been able to log out on every browser. The correct toast confirming login and logout in the top right is also generated.
 * After logging in i am able to see the users profile page and order history as expected on all browsers. 
@@ -178,19 +179,52 @@ Mobile testing was carried out on the following devices:<br>
 
 All mobile testing was carried out on Chrome, FireFox, Opera and Brave browsers.
 
+Error Found - Several Pages:
+* On some of the pages on the site (Login, Sign up, Products, About us page image) the content of that page was sitting right at the very bottom of the screen on tablet devices when the tablet was held horizontally. Items such as buttons, text and images were touching the very bottom of the tablet screen which doesn't give a good user experience and it made the pages look poor.  
+
+Solution:
+On pages where i have encountered this issue i have added a `<br>` element at the very bottom of the code on each of the pages. Now when i reload the page there is an extra row of whitespace at he bottom which has rectified the issue. 
+
 **1. The Home Page**
 
-* All tests on mobile devices returned the same results as the desktop results listed above. The page is functioning normally and as intended on mobile devices. 
+* Apart from the issue highlighted above all tests on mobile devices returned the same results as the desktop results listed above. The page is functioning normally and as intended on mobile devices. 
 
 **2. The My Account, Profile & Cart**
+
+* Apart from the issue highlighted above all tests on mobile devices returned the same results as the desktop results listed above. The page is functioning normally and as intended on mobile devices. 
+
 **3. The Products Page**
+
+* Apart from the issue highlighted above all tests on mobile devices returned the same results as the desktop results listed above. The page is functioning normally and as intended on mobile devices. 
+
 **4. The Product Details Page**
+
+* The page is functioning normally and as intended on mobile devices. 
+
 **5. The Cart Page**
+
+* The page is functioning normally and as intended on mobile devices. 
+
 **6. The Checkout Page**
+
+* The page is functioning normally and as intended on mobile devices. 
+* One thing to note is on Google Chrome when the user clicks on the credit card details input field to enter their card number, the browser will automatically zoom into that field to help make entering the card details easier. When the user presses the button to complete the purchase they wont see the payment processing spinner. The processing spinner is still there and is still being generated correctly, whats happening is if the user doesn't zoom back out after entering their credit card details when they press the button to complete the transaction the screen will stay zoomed in on the bottom corner. 
+
 **7. The Order Confirmation Page**
+
+* The page is functioning normally and as intended on mobile devices. 
+
 **8. About Us Page**
-**9. Covid Data Page**
+
+* Apart from the issue highlighted above all tests on mobile devices returned the same results as the desktop results listed above. The page is functioning normally and as intended on mobile devices. 
+
+**9. Covid Numbers Page**
+
+* The page is functioning normally and as intended on mobile devices. 
+
 **10. Contact Us Page**
+
+* The page is functioning normally and as intended on mobile devices. 
 
 </details>
 <hr>

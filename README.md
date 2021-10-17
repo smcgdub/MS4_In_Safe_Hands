@@ -69,6 +69,7 @@ In Safe Hands was created and built by Stephen Mc Govern as my 4th and final mil
 * 8.2 - Social media share buttons
 * 8.3 - Paypal Payment Option
 * 8.4 - Wishlist
+* 8.5 - Sort by price functionality
 
 ### **9. Disclaimer** ###
 * 9.0 Disclaimer on project
@@ -842,7 +843,7 @@ If you need to reach me i can be contacted via the three methods below:<br>
 #### **8.3 - Paypal Payment Option** ####
 * The site currently has a checkout powered by Stripe. I would also like to incorporate a PayPal payment feature at a later date as this would provide a better user experience and also give users another payment option. 
 
-#### **8.3 - Wishlist** ####
+#### **8.4 - Wishlist** ####
 * Another feature i will develop for the site is a wishlist. This feature would allow logged in users to be able to click on an icon and the product would then be added to the wishlist. The way this wishlist would work is:<br>
 1. Click on wishlist button
 2. Check if item already in wish list 
@@ -850,6 +851,12 @@ If you need to reach me i can be contacted via the three methods below:<br>
 4. If no: add it to wishlist 
 
 * Effectively we are just creating an IF statement. Clicking the button will change display depending on wishlist ("Add to wishlist" if not in the list, "remove from wishlist" if it is in the wishlist)
+
+#### **8.5 - Sort By Price Functionality** ####
+
+* Another feature i will add at a later date is the ability to sort items by price. This is something that was covered in the Code Institute Boutique Ado tutorial before starting this project however as the site currently has a limited number of items (Far less than say a clothes store) then it seems a bit of a redundant feature, especially for categories where you are only selling 2 or 3 items. Unlike a clothes store where you can have a vast range of products there is only a limited number of types of items you can sell as a PPE store. Moving forward if i expand the number of items for sale in this project then i will implement this feature. 
+
+#### **8.5 - Sort By Price Functionality** ####
 
 </details>
 <hr>
