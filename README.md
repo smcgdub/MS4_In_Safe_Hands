@@ -856,7 +856,19 @@ If you need to reach me i can be contacted via the three methods below:<br>
 
 * Another feature i will add at a later date is the ability to sort items by price. This is something that was covered in the Code Institute Boutique Ado tutorial before starting this project however as the site currently has a limited number of items (Far less than say a clothes store) then it seems a bit of a redundant feature, especially for categories where you are only selling 2 or 3 items. Unlike a clothes store where you can have a vast range of products there is only a limited number of types of items you can sell as a PPE store. Moving forward if i expand the number of items for sale in this project then i will implement this feature. 
 
-#### **8.5 - Sort By Price Functionality** ####
+#### **8.6 - Dark Mode** ####
+
+* While i was doing my testing on the Opera browser on my tablet i saw that the browser (Only on tablet and not on desktop) offered a "Night mode" feature. This feature is the similar to dark mode you can see on some browsers and webpages however in Opera you are abel to select a range of dark modes with the contrasting colour being black, red, grey and green. I thought this was a great feature and i plan on developing this for the site at a later date. The screenshots of how this looks on Opera on the tablet can be found below:
+
+![Image of products in dark mode](media/readme_images/products_dark_mode.png)
+
+<br>
+
+![Image of covid numbers in dark mode](media/readme_images/covid_numbers_dark_mode.png)
+
+<br>
+
+![Image of contact us in dark mode](media/readme_images/contact_us_dark_mode.png)
 
 </details>
 <hr>

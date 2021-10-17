@@ -126,6 +126,12 @@ body {
   color: #1fb4ff !important;
 }
 
+/* Reviews scroll box */
+.review-scroll {
+  overflow-y: scroll;
+  height: 150px;
+}
+
 /* Star rating icon */
 .fa-star-half-alt:before {
   color: #1fb4ff !important;
@@ -137,9 +143,9 @@ body {
 }
 
 /* Wishlist heart icon colour */
-.fa-heart:before {
+/* .fa-heart:before {
   color: #1fb4ff;
-}
+} */
 
 /* Shopping Cart Page */
 .cart-shopping-button {
@@ -226,18 +232,14 @@ body {
   border: 1px solid #c3c1c1;
 }
 
+/* Contact Us Page - Google map */
 .iframe {
   height: 380px;
   width: 100%;
   border: 0px;
 }
 
-/* Reviews scroll box */
-.review-scroll {
-  overflow-y: scroll;
-  height: 150px;
-}
-
+/* Contact Us Priority Message Form */
 .user-input-display {
   background: transparent;
 }
