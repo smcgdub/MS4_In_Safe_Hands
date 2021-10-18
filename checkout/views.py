@@ -1,4 +1,6 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+import json
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 import stripe
@@ -9,6 +11,27 @@ from products.models import Product
 from .models import Order, OrderLineItem
 from .forms import OrderForm
 
+
+@require_POST
+def cache_checkout_data(request):
+    '''
+    View to see if the user has the Save this address to my profile \
+    box checked
+    '''
+    try:
+        pid = request.POST.get('client_secret').split('_secret')[0]
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        stripe.PaymentIntent.modify(pid, metadata={
+            'cart': json.dumps(request.session.get('cart', {})),
+            'save_info': request.POST.get('save_info'),
+            'username': request.user,
+        })
+        print("metadata")
+        return HttpResponse(status=200)
+    except Exception as e:
+        messages.error(request, 'Sorry, your payment is unable to be \
+            processed right now. Please try again later.')
+        return HttpResponse(content=e, status=400)
 
 def checkout(request):
     '''
@@ -96,18 +119,18 @@ def checkout(request):
             try:
                 profile = UserProfile.objects.get(user=request.user)
                 order_form = OrderForm(initial={
-                    'street_address1': profile.default_street_address1, 
+                    'street_address1': profile.default_street_address1,
                     'street_address2': profile.default_street_address2,
-                    'town_or_city': profile.default_town_or_city, 
+                    'town_or_city': profile.default_town_or_city,
                     'county': profile.default_county,
-                    'eircode': profile.default_eircode, 
+                    'eircode': profile.default_eircode,
                     'country': profile.default_country,
                 })
                 print("Authenticated user form pre populated with previously \
                       saved details - checkout views.py")
             # User profile doesn't exist
             except UserProfile.DoesNotExist:
-                print("User profile doesn't exist so blank form generated - checkout views.py")                
+                print("User profile doesn't exist so blank form generated - checkout views.py")
                 order_form = OrderForm()
         # If user isn't authenticated generate a blank form
         else:
