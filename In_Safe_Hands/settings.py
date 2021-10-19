@@ -125,16 +125,14 @@ WSGI_APPLICATION = 'In_Safe_Hands.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
-    'default': dj_database_url.parse('postgres://ruttdapxbiniqu:9fdea8774ff248745ef2b62cfef3097b08af184788142ea6e3c97244da7ee336@ec2-54-154-101-45.eu-west-1.compute.amazonaws.com:5432/dbvbva9d4pam1')
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
