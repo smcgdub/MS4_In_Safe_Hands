@@ -46,6 +46,7 @@ In Safe Hands was created and built by Stephen Mc Govern as my 4th and final mil
 * 3.11 W3schools
 * 3.12 Balsamiq 
 * 3.13 Favicon Generator
+* 3.14 Stripe 
 
 ### **4. Testing** ###
 * 4.1 See [testing.md](testing.md) document 
@@ -541,12 +542,11 @@ This allows the site owner to keep a record of any messages sent on the site fro
 
 ![Image of user profile page](media/readme_images/profile_details.png)
 
-* When the user purchases an item and goes to the checkout page the delivery address will auto populate the delivery address that the user has saved. I have also set this form up so the personal details of the order recipient are not auto generated and must be entered in by the user (Screenshot below)
+* When the user purchases an item and goes to the checkout page the delivery address will auto populate the delivery address if the user has saved that info. I have also set this form up so the personal details of the order recipient are not auto generated and must be entered in by the user (Screenshot below)
 
 ![Image of user checkout page](media/readme_images/checkout_page.png)
 
 * The user will still have to enter a name, email and phone number on the checkout page for the order to be processed. I chose this approach as a user may not be home when an item is being delivered to their property, this allows the user purchasing their product to put the name and number of someone else who may be home and their contact details for the courier to reach. 
-
 * The 2nd feature on the profile page is the order history feature. Registered users on the site will be able to see all of the orders they have placed on the site previously.
 
 ![Image of user order history](media/readme_images/order_history.png)
@@ -594,6 +594,8 @@ This allows the site owner to keep a record of any messages sent on the site fro
 
 ![Image of cart create an account or login prompt](media/readme_images/checkout_login_register_prompt.png)
 
+* The payment processor on the Checkout page is from Stripe. 
+
 <hr>
 
 #### **2.13 - Purchase Complete Page** ####
@@ -637,6 +639,7 @@ This allows the site owner to keep a record of any messages sent on the site fro
 * 3.11 - [W3schools](https://www.w3schools.com/) - One of the first ports of call for any developer. It has a vast amount of content and code tutorials that will help explain how code works. A great free resource for every developer. 
 * 3.12 - [Balsamiq](https://balsamiq.com/) - Balsamiq Wireframes is a small graphical tool to sketch out user interfaces for websites and web / desktop / mobile applications. I used Balsamiq to formulate my initial ideas for the site so i could visualize how the site would look and also be able to gage the scope of the project. 
 * 3.13 - [Favicon](https://favicon.io/favicon-generator/) - A free and simple website that allows you to create, build and customize your Favicons for your own site.
+* 3.14 - [Stripe](https://stripe.com/) - Stripe is an Irish-American financial services and software as a service company dual-headquartered in San Francisco, United States and Dublin, Ireland. The company primarily offers payment processing software and application programming interfaces for e-commerce websites and mobile applications.
 </details>
 <hr>
 
