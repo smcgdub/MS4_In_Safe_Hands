@@ -715,6 +715,22 @@ The screenshot below also shows that the item was added to the cart and the info
 
 * I know i have the settings correct as i have tried to change the font from "Josefin Sans" to a more common one such as "Times New Roman". When i test this change it does take effect on the placeholder text. But when i set it to "Josefin Sans" the font always seems to revert to the back up font of "Sans-serif". It is something i am aware of and will try to work on a solution at a later date. 
 
+1. PostgreSQL URI exposed 
+
+PROBLEM
+
+When I first started pushing the project to Heroku i was setting up the database in the settings.py file. Unfortunately when i was doing a commit i thought i had deleted the postgres key however i received an email from GitGuardian saying: 
+
+"GitGuardian has detected the following PostgreSQL URI exposed within your GitHub account."
+
+Details
+- Secret type: PostgreSQL URI
+- Repository: smcgdub/MS4_In_Safe_Hands
+- Pushed date: October 19th 2021, 21:10:11 UTC
+
+SOLUTION
+For safety i have destroyed the database in Heroku and generated a new one with a new key. Everything is now running as normal and the new SECRET_KEY is secured and no longer exposed and the old one has been discarded.
+
 </details>
 
 <hr>
