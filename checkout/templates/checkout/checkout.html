@@ -81,6 +81,8 @@
             <div class="mb-1 form-control" id="card-element"></div>
             <!-- Used to display form errors -->
             <div class="mb-0 text-danger" id="card-errors" role="alert"></div>
+            <!-- Pass the client secret to the view so we can get the payment intent id -->
+            <input type="hidden" value="{{ client_secret }}" name="client_secret">
           </fieldset>
           <!-- Stripe payment notification -->
           <p class="small">Our payment processing is provided by Stripe</p>
