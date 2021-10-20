@@ -96,7 +96,7 @@ TEMPLATES = [
 ]
 
 
-# Line below is to store messages in the session 
+# Line below is to store messages in the session
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 
