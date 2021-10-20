@@ -582,10 +582,10 @@ This allows the site owner to keep a record of any messages sent on the site fro
 * As covered above in the profile section above on the checkout page the user has to enter their contact details, their deliver address, and their payment details. 
 * There are 2 buttons on the page for the user to be able to go back and adjust their order 1 last time, or to complete the form and then complete their order. 
 
-![Image of cart breakdown](media/readme_images/checkout_form.png)
+![Image of user checkout page](media/readme_images/checkout_page.png)
+
 
 * To encourage the user to spend a bit more money on this purchase the free delivery prompt will be located at the bottom of the page to try and encourage a user to spend some more money so they can avail of this feature. 
-
 * The only difference on the form for a logged in/registered user vs an anonymous user is a logged in user will have the option to save the delivery address to their profile via a checkbox.  
 
 ![Image of cart checkbox](media/readme_images/checkout_checkbox.png)
@@ -612,7 +612,58 @@ This allows the site owner to keep a record of any messages sent on the site fro
 
 <hr>
 
-#### **- Toasts** ####
+#### **2.14 - Stripe In The Background** ####
+
+* The shopping cart in this project is powered by Stripe. When a user adds items to the shopping cart and proceeds to the checkout page, a payment intent will be created in the events section of the stripe dashboard (Screenshot below:) 
+
+![Image of user order in checkout before payment](media/readme_images/stripe_1.png)
+
+* Below you can see the event created waiting for payment:
+
+![Image of user order in checkout before payment](media/readme_images/stripe_2.png)
+
+* After the user has entered all their details into the checkout form and pressed the pay now button, Stripe will process the payment and the user of the site will see an order confirmation page if the order has been processed successfully. 
+
+![Image of user order in checkout before payment](media/readme_images/stripe_order_confirmation_1.png)
+
+In the Stripe dashboard we can see the following 3 events in relation to that payment which are:
+1. Event created
+2. Event charged
+3. Event succeeded 
+
+![Image of stripe events in dashboard](media/readme_images/stripe_3_events.png)
+
+* When we drill into the stripe event data we can see that the information we have set up for request has been captured by stripe. The 4 main portions of info are:
+1. Amount To be charged 
+
+![Image of stripe events in dashboard](media/readme_images/stripe_amount_charged.png)
+
+2. Billing address and contact details:
+
+![Image of stripe events in dashboard](media/readme_images/stripe_billing_and_contact.png)
+
+3. The metadata we have set up to capture via webhooks. The information you can see captured here is:
+* Shopping cart item id and quantity of that item
+* If the user has checked the "Save Delivery Address Info" checkbox on the checkout page (Registered users only)
+* Customer Username 
+
+![Image of stripe events in dashboard](media/readme_images/stripe_metadata.png)
+
+* The Stripe webhooks and metadata are an important feature on the site. We have this in place incase the user either intentionally, or accidentally, closes the web browser before the order confirmed page has generated letting the user know the order has been processed. This safety feature allows us to capture the shopping cart information so the order can still be processed, and we can avoid a worst case scenario of a user being charged and not receiving their order. 
+
+4. The final crucial part of the information that we capture is the shipping address. 
+
+![Image of stripe events in dashboard](media/readme_images/stripe_shipping_address.png)
+
+* This set up allows us to capture all of the information we would need for an order in the store. 
+
+NOTE ON SHIPPING ADDRESS:
+
+* For now in this project the shipping and billing address are the same. I future i would like to have the option for the registered users to be able to add multiple shipping & billing addresses. However due to time constraints and a rapidly approaching deadline on this project it is a feature i will have ot develop at a later date.  
+
+<hr>
+
+#### **2.15- Toasts** ####
 
 * To provide for a better user experience on the site i have used Bootstrap Toasts to provide users with feedback when they commit a specific action, adding an item to the cart for example. I have tried out several different toasts that incorporate images, cart totals, cart summaries and free shipping points. After trying all of these out on the site i decided i would keep the toast messaging to a small summary of each user action.
 
