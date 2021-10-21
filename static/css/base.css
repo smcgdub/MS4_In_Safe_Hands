@@ -243,3 +243,34 @@ body {
 .user-input-display {
   background: transparent;
 }
+
+/* Media querires to resolve the icons being to large for mobile devices. */
+@media (max-width: 380px) {
+  .p-search {
+    font-size: 0.8rem;
+  }
+  .fa-search:before{
+    font-size: 0.8rem;
+  }
+  .p-my-account {
+    font-size: 0.8rem;   
+  }
+  .fa-user-md:before {
+    font-size: 0.8rem;   
+  }
+  .p-cart-total {
+    font-size: 0.8rem;   
+  }
+  .fa-shopping-cart:before {
+    font-size: 0.8rem;   
+  }
+  .search-a-tag {
+    padding: 0px !important;
+  }
+  .my-account-a-tag {
+    padding: 0px !important;
+  }
+  .shopping-cart-a-tag {
+    padding: 0px !important;
+  }
+}

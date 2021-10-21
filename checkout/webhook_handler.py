@@ -55,6 +55,7 @@ class StripeWH_Handler:
                 profile.save()
 
         order_exists = False
+        
         # Create delay incase of slow communicaiton
         attempt = 1
         while attempt <= 5:

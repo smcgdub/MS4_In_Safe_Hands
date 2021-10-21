@@ -1,11 +1,11 @@
 <ul class="my-auto">
   <!-- Search -->
   <li class="list-inline-item">
-    <a class="text-dark nav-link d-block d-lg-none px-1 pt-1 pb-0" href="#" id="mobile-search" data-toggle="dropdown"
+    <a class="text-dark nav-link d-block d-lg-none px-1 pt-1 pb-0 search-a-tag" href="#" id="mobile-search" data-toggle="dropdown"
       aria-haspopup="true" aria-expanded="false">
       <div class="text-center">
         <div><i class="fas fa-search fa-lg"></i></div>
-        <p class="my-0">Search</p>
+        <p class="my-0 p-search">Search</p>
       </div>
     </a>
     <!-- Search form -->
@@ -26,11 +26,11 @@
   </li>
   <!-- Open my account drop down menu -->
   <li class="list-inline-item dropdown">
-    <a class="text-dark nav-link d-block d-lg-none px-1 pt-1 pb-0" href="#" id="user-options" data-toggle="dropdown"
+    <a class="text-dark nav-link d-block d-lg-none px-1 pt-1 pb-0 my-account-a-tag" href="#" id="user-options" data-toggle="dropdown"
       aria-haspopup="true" aria-expanded="false">
       <div class="text-center">
         <div><i class="fas fa-user-md fa-lg"></i></div>
-        <p class="my-0">My Account<i class="fas fa-caret-down my-auto pl-2"></i></p>
+        <p class="my-0 p-my-account">My Account<i class="fas fa-caret-down my-auto pl-2"></i></p>
       </div>
     </a>
     <div class="dropdown-menu border-0" aria-labelledby="user-options">
@@ -48,11 +48,11 @@
   </li>
   <!-- Shopping Cart -->
   <li class="list-inline-item">
-    <a class="px-1 pt-1 pb-0 {% if grand_total %}text-danger {% else %}text-dark{% endif %} nav-link d-block d-lg-none"
+    <a class="px-1 pt-1 pb-0 {% if grand_total %}text-danger {% else %}text-dark{% endif %} nav-link d-block d-lg-none shopping-cart-a-tag"
       href="{% url 'view_cart' %}">
       <div class="text-center">
         <div><i class="fas fa-shopping-cart fa-lg"></i></div>
-        <p class="my-0">
+        <p class="my-0 p-cart-total">
           {% if grand_total %}
           ${{ grand_total|floatformat:2 }}
           {% else %}

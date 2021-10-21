@@ -827,9 +827,9 @@ The screenshot below also shows that the item was added to the cart and the info
 
 **4. PostgreSQL URI exposed**
 
-PROBLEM
+#### **PROBLEM** ####
 
-When I first started pushing the project to Heroku i was setting up the database in the settings.py file. Unfortunately when i was doing a commit i thought i had deleted the postgres key however i received an email from GitGuardian saying: 
+* When I first started pushing the project to Heroku i was setting up the database in the settings.py file. Unfortunately when i was doing a commit i thought i had deleted the postgres key however i received an email from GitGuardian saying: 
 
 "GitGuardian has detected the following PostgreSQL URI exposed within your GitHub account."
 
@@ -840,8 +840,27 @@ Details
 
 ![Image of postgres key compromised](media/readme_images/postgresql_exposed.png)
 
-SOLUTION
-For safety i have destroyed the database in Heroku and generated a new one with a new key. Everything is now running as normal and the new SECRET_KEY is secured and no longer exposed and the old one has been discarded.
+#### **SOLUTION** ####
+
+* For safety i have destroyed the database in Heroku and generated a new one with a new key. Everything is now running as normal and the new SECRET_KEY is secured and no longer exposed and the old one has been discarded.
+
+**5. Mobile Navbar Icons**
+
+**PROBLEM**
+
+* During mobile testing i discovered that on smaller screensizes the navbar icons were being pushed down onto a seperate line. This was happening on mobile devices with a smaller screen (Screenshot below:)
+
+![Image of mobile issue 1](media/readme_images/mobile_issue_1.png)
+
+* This was being caused by the text, icons and padding being to large for the smaller screen sizes. 
+
+#### **SOLUTION** ####
+
+* This was an easy enough fix which i solved by using CSS media queries. I have adjusted the size of the text, icons and padding once the screen size goes smaller than 380px in width. The code i used to resolve this can be found in the base.css file at the bottom of the page under `@media (max-width: 380px)`
+
+The screenshot below shows the error being corrected now on smaller screens.
+
+![Image of mobile solution 1](media/readme_images/mobile_solution_1.png)
 
 </details>
 
