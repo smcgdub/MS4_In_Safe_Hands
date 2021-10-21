@@ -1,14 +1,16 @@
 import time
 import json
 from django.http import HttpResponse
+# This is for sending confirmation emails
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.conf import settings
+
 from products.models import Product
 from profiles.models import UserProfile
 from .models import Order, OrderLineItem
 
 # This is for sending confirmation emails
-from django.template.loader import render_to_string
-from django.conf import settings
-from django.core.mail import send_mail
 
 
 class StripeWH_Handler:
