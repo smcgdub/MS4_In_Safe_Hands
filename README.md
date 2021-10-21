@@ -31,6 +31,10 @@ In Safe Hands was created and built by Stephen Mc Govern as my 4th and final mil
 * 2.11 The Shopping Cart
 * 2.12 The Checkout Page
 * 2.13 Purchase Complete
+* 2.14 Stripe 
+* 2.15 Sign Up & Real Emails
+* 2.16 Login
+* 2.17 Toasts
 
 ### **3. Technologies/Languages Used** ###
 * 3.1 Gitpod
@@ -663,9 +667,61 @@ NOTE ON SHIPPING ADDRESS:
 
 <hr>
 
-#### **2.15- Toasts** ####
+#### **2.15 - Sign Up & Real Emails** ####
 
-* To provide for a better user experience on the site i have used Bootstrap Toasts to provide users with feedback when they commit a specific action, adding an item to the cart for example. I have tried out several different toasts that incorporate images, cart totals, cart summaries and free shipping points. After trying all of these out on the site i decided i would keep the toast messaging to a small summary of each user action.
+* If a uer wishes to become a registered user on the site they can do so in a matter of minutes. The step by step process is:
+1. Click on the My Account icon in the top right and side of the page on desktop or in the top row on mobile, from the drop down menu click on Register.
+2. On the sign up page the user will be asked for their email address, to create their own username, and to enter a password of their choosing.
+
+![Image of stripe events in dashboard](media/readme_images/sign_up_page.png)
+
+* This form requires validation so if the user tries to register by leaving some or all of the fields blank, then a pop up will let them know a missing field is required (Screenshot below:)
+
+![Image of stripe events in dashboard](media/readme_images/sign_up_validation.png)
+
+* Also if a user tries to sign up with a username or email that is already in use they will be notified when they try and submit the form that the email/username they are trying to submit is already in use (Screenshot below:)
+
+![Image of stripe events in dashboard](media/readme_images/sign_up_validation_2.png)
+
+3. If the user competes the form with fully validated details they will see a form letting them know that an email has been sent to the email address they specified and they need to verify this email by clicking on the link provided. Screenshot of this page and the email sent is below:
+
+![Image of stripe events in dashboard](media/readme_images/verify_email_page.png)
+![Image of stripe events in dashboard](media/readme_images/confirm_email.png)
+
+4. Once the user clicks on the link in the email the confirmation page on the site will open and the user just needs to click the confirm email address button (Screenshot below:)
+
+![Image of stripe events in dashboard](media/readme_images/confirm_email_page.png)
+
+5. Once the user clicks ont he confirm button they will be diverted to the login page which you can see below.
+
+#### **2.16 - Log In** ####
+
+* The login page on the site is a very simple one, all the user needs to do is enter their username or email address along with their password. Both fields are required for the form to be valid and the form will not submit unless the details are correct and entered. 
+
+![Image of stripe events in dashboard](media/readme_images/log_in.png)
+
+The additional features on the login page are 
+1. Remember me (So users who are logging in again don't need to reenter their details) 
+2. Forgot password
+3. Sign Up (This is incase a none registered user lands on the page they will see the notice at the top explaining they need ot register for an account first)
+
+* If the user has forgotten their password they can recover it by clicking on the Forgot Password link. If they click on this they will be asked to enter their password and reset instructions will then be emailed to them. 
+
+![Image of stripe events in dashboard](media/readme_images/password_reset_page.png)
+
+* The email the user receives can be seen in the email below: 
+
+![Image of stripe events in dashboard](media/readme_images/password_reset_email.png)
+
+* After the user clicks on the link the will be brought to the page where they can then enter a new password (Screenshot below:)
+
+![Image of stripe events in dashboard](media/readme_images/reset_password_page.png)
+
+<hr>
+
+#### **2.17- Toasts** ####
+
+* Finally to provide for a better user experience on the site i have used Bootstrap Toasts to provide users with feedback when they commit a specific action, adding an item to the cart for example. I have tried out several different toasts that incorporate images, cart totals, cart summaries and free shipping points. After trying all of these out on the site i decided i would keep the toast messaging to a small summary of each user action.
 
 * Each toast has also been colour coded for each category of success, error, warning and info so the user will know at a glance if their action has been successful or not. 
 </details>
