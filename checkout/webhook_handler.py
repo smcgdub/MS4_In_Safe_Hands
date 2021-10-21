@@ -78,8 +78,8 @@ class StripeWH_Handler:
                 order_exists = True
                 break
             except Order.DoesNotExist:
-                attempt += 2
-                time.sleep(3)
+                attempt += 1
+                time.sleep(5)
         if order_exists:
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS: \
