@@ -654,6 +654,9 @@ In the Stripe dashboard we can see the following 3 events in relation to that pa
 ![Image of stripe events in dashboard](media/readme_images/stripe_metadata.png)
 
 * The Stripe webhooks and metadata are an important feature on the site. We have this in place incase the user either intentionally, or accidentally, closes the web browser before the order confirmed page has generated letting the user know the order has been processed. This safety feature allows us to capture the shopping cart information so the order can still be processed, and we can avoid a worst case scenario of a user being charged and not receiving their order. 
+* If the user is an anonymous user (Not registered or logged in) then we will also see this reflected in the metadata
+
+![Image of stripe events in dashboard](media/readme_images/metadata_anonymous_user.png)
 
 4. The final crucial part of the information that we capture is the shipping address. 
 

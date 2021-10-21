@@ -39,6 +39,7 @@ class StripeWH_Handler:
                 shipping_details.address[field] = None
 
         order_exists = False
+        # Create delay incase of slow communicaiton
         attempt = 1
         while attempt <= 5:
             try:
