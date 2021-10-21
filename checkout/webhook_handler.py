@@ -142,6 +142,8 @@ class StripeWH_Handler:
             except Exception as e:
                 if order:
                     order.delete()
+                # This is to test if the email gets sent after the 500 error
+                self._send_confirmation_email(order)
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
