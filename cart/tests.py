@@ -1,7 +1,10 @@
 from django.test import TestCase
 from cart import apps
 
+
 # Create your tests here.
+
+
 class TestCart(TestCase):
     '''
     Testing of the cart

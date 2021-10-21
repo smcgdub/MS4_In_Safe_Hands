@@ -16,4 +16,5 @@ class ContactMessagesAdmin(admin.ModelAdmin):
     # Currently set to be organized by date
     ordering = ('date',)
 
+
 admin.site.register(ContactMessages, ContactMessagesAdmin)

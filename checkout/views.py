@@ -1,5 +1,6 @@
 import json
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import (
+    render, redirect, reverse, get_object_or_404, HttpResponse)
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -32,6 +33,7 @@ def cache_checkout_data(request):
         messages.error(request, 'Sorry, your payment is unable to be \
             processed right now. Please try again later.')
         return HttpResponse(content=e, status=400)
+
 
 def checkout(request):
     '''
@@ -75,20 +77,23 @@ def checkout(request):
                             quantity=item_data,
                         )
                         order_line_item.save()
-                # If there is an error with the users cart the below message will be generated
+                # If there is an error with the users cart the below message
+                # will be generated
                 except Product.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your cart wasn't found in \
                         our database. Please contact us for assistance."
                         )
                     )
-                    # Order is deleted and user is redirected back to the shopping cart
+                    # Order is deleted and user is redirected back to the
+                    # shopping cart
                     order.delete()
                     return redirect(reverse('view_cart'))
             # If form posted successfully redirect to checkout success page
             request.session['save_info'] = 'save-info' in request.POST
             print(form_data)
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse('checkout_success',
+                                    args=[order.order_number]))
         # Error message if form is filled out incorrect
         else:
             messages.error(request, 'There was an error with your form. \
@@ -134,7 +139,8 @@ def checkout(request):
                       saved details - checkout views.py")
             # User profile doesn't exist
             except UserProfile.DoesNotExist:
-                print("User profile doesn't exist so blank form generated - checkout views.py")
+                print("User profile doesn't exist so blank form generated \
+                      - checkout views.py")
                 order_form = OrderForm()
         # If user isn't authenticated generate a blank form
         else:

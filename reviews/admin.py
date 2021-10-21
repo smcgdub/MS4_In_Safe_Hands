@@ -17,4 +17,5 @@ class ProductReviewAdmin(admin.ModelAdmin):
     # Items in product review will be ordered via date
     ordering = ('date',)
 
+
 admin.site.register(ProductReview, ProductReviewAdmin)
