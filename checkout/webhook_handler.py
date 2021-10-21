@@ -55,7 +55,7 @@ class StripeWH_Handler:
                 profile.save()
 
         order_exists = False
-        
+
         # Create delay incase of slow communicaiton
         attempt = 1
         while attempt <= 5:
@@ -78,8 +78,8 @@ class StripeWH_Handler:
                 order_exists = True
                 break
             except Order.DoesNotExist:
-                attempt += 1
-                time.sleep(1)
+                attempt += 2
+                time.sleep(3)
         if order_exists:
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS: \
@@ -119,7 +119,8 @@ class StripeWH_Handler:
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
         return HttpResponse(
-            content=(f'Webhook received: {event["type"]} | SUCCESS:' 'Created order in webhook'),
+            content=(f'Webhook received: {event["type"]} | SUCCESS:' \
+                'Created order in webhook'),
             status=200)
 
     def handle_payment_intent_payment_failed(self, event):
