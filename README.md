@@ -876,7 +876,7 @@ However on the deployed Heroku site this animation is no longer working.
 
 #### **SOLUTION** ####
 
-This is something that i haven't gotten around to resolving yet due to a rapidly approaching project deadline however i am aware of it and will work or resolving it at at later date. 
+I resolved this as the original code was pointing at the image at the internal file `src="media/about_us/image.png"`. This needed to be adjusted to the following `src="{{ MEDIA_URL }}about_us.png"`. I also needed ot add `'django.template.context_processors.media',` to the context_processors in the settings.py file
 
 </details>
 
