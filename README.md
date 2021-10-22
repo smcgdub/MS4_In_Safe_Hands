@@ -1,6 +1,6 @@
 # **In Safe Hands** #
 
-<!-- ![Image of site on several devices]() -->
+![Image of site on many screens](/media/readme_images/site_responsive_image.png)
 
 ## **Introduction** ##
 
@@ -96,8 +96,7 @@ In Safe Hands was created and built by Stephen Mc Govern as my 4th and final mil
 
 #### **1.2 - User Stories - The Scope Plane** ####
 
-* The main aim of the site is to sell various types of PPE equipment to the consumer market. Users who search for, and come to the site are, for the majority, already in buying mode. Therefore you want to facilitate a streamline buying experience with as few barriers as possible from product view to taking payment. The site functionality will allow users to view all of the products on the site in detail, proceed straight to a guest checkout where they can to complete the order if they so wish. The site also offers features that are only available to registered users such as the profile page, the order history page, the create reviews functionality, and the the priority messages feature. While the site offers features that are only available to logged in users, it will not lose sales by forcing people to register to complete a purchase. 
-<br><br>
+* The main aim of the site is to sell various types of PPE equipment to the consumer market. Users who search for, and come to the site are, for the majority, already in buying mode. Therefore you want to facilitate a streamline buying experience with as few barriers as possible from product view to taking payment. The site functionality will allow users to view all of the products on the site in detail, proceed straight to a guest checkout where they can to complete the order if they so wish. The site also offers features that are only available to registered users such as the profile page, the order history page, the create reviews functionality, and the the priority messages feature. While the site offers features that are only available to logged in users, it will not lose sales by forcing people to register to complete a purchase.<br><br>
 * <strong>User story - Site Owner: As the owner of the e-commerce site I want:</strong><br>
 * I want to be able to offer my customers a range of various types of PPE products so i can: acquire new customers and retain regular ones who will buy their PPE products from me
 * I want to be able to manage all of the items that my store sells myself so i can: Add, edit, update and remove different items quickly and easily depending on how they are selling 
@@ -314,7 +313,6 @@ In Safe Hands was created and built by Stephen Mc Govern as my 4th and final mil
 
 ![Image of superuser options](media/readme_images/super_user_logged_in.png)
 
-
 <hr>
 
 #### **2.3 - The Navbar** ####
@@ -412,7 +410,7 @@ However on smaller mobile devices and mobile phones the product information will
 
 * However logged in users will see a different prompt. The prompt they will see is: <strong>"If you've purchased this product why not leave a review so others can see your feedback"</strong> (Screenshot below:)
 
-![Image of review prompt](media/readme_images/review_prompt.png)
+![Image of review prompt logged in users](media/readme_images/review_prompt.png)
 
 * The review page is based on the ProductReview model. That model can be found below:
 
@@ -478,11 +476,11 @@ The 2nd part of the criteria on this model is that users must be able to edit a 
 
 * One of the features of the site is the covid map that provides users with up to the minute covid-19 data and stats. Again, as part of the strategy to get as many people to register on the site as possible this data is kept behind a registered users wall. Unregistered users are informed upon landing on the page that to view the data they only need to register on the site and don't need to purchase any items. (Screenshot below) 
 
-![Image of about us page](media/readme_images/covid_numbers_1.png)
+![Image of covid numbers page none logged in users page](media/readme_images/covid_numbers_1.png)
 
 * If a user registers and comes back to the Covid Numbers page they will see the following map.
 
-![Image of about us page](media/readme_images/covid_numbers_2.png)
+![Image of covid numbers page logged in users](media/readme_images/covid_numbers_2.png)
 
 * This map offers users a huge wealth of information that is updated daily. Users can view the latest charts, maps, tables, sources and are free to download some the data. Users can use this page to see covid stats on a global, regional and country by country basis. Again by incorporating this feature into the site you are firstly making users register to see the data, and secondly you are providing them with a reason to come back and visit the site on a regular basis. The goal here would be to convert some of these regular visitors into customers. If covid numbers in their locality are increasing or at a high level, then this information can act as a motivator and encourage users to purchase PPE equipment on the site. 
 <hr>
@@ -495,11 +493,11 @@ The 2nd part of the criteria on this model is that users must be able to edit a 
 * The feature i have chosen to meet this requirement is a priority messaging service. One of the main goals of any e-commerce site is to get as many people as possible signed up and spending money. A site should always be pushing for users to sign up and register, even if they don't buy something on the first visit (They could be on the site to use the covid numbers feature listed above) because it still allows the site owner to build their user database and email market to these registered users at a later date. 
 * If an unregistered user logs onto the site and navigates to the contact us page, they will see the company contact details as you would normally expect, below that they will see a message explaining about the registered users priority messages function and also a link for customers to sign up or log in (screenshot below) 
 
-![Image of registered messages user prompt](media/readme_images/user_messages_1.png)
+![Image of priority messages user prompt](media/readme_images/user_messages_1.png)
 
 * Once a registered/logged in user comes to the site on the contact us page they will see the message box automatically displayed. To hit the message home again to logged in users there is some text above the message form explaining that any message sent to the site via this messaging center will take priority over all other incoming communication.
 
-![Image of registered messages user prompt](media/readme_images/user_messages_2.png)
+![Image of priority messages page for registered users](media/readme_images/user_messages_2.png)
 
 On the form the logged in user will see the following visible fields:
 > Message From (Required)<br>
@@ -533,7 +531,7 @@ The model for this form can be found below:
 As you can see they are displayed just like an incoming email would be displayed. When the site administrator clicks on the message they will see it in full, again with all of the information below on display. 
 <br>
 
-![Image of registered messages in Django](media/readme_images/django_user_message2.png)
+![Image of registered messages opened in Django](media/readme_images/django_user_message2.png)
 
 This allows the site owner to keep a record of any messages sent on the site from registered users. The main drive for this is to encourage registered users to message the store through the message facility on the website and not just via an email. This in tandem with the Covid Numbers data is done to encourage users of the site to return to it as regularly as possible. The more people that are visiting the site, the more the odds increase that the user may decide to spend some money while they are on the site. 
 <hr>
@@ -588,7 +586,6 @@ This allows the site owner to keep a record of any messages sent on the site fro
 
 ![Image of user checkout page](media/readme_images/checkout_page.png)
 
-
 * To encourage the user to spend a bit more money on this purchase the free delivery prompt will be located at the bottom of the page to try and encourage a user to spend some more money so they can avail of this feature. 
 * The only difference on the form for a logged in/registered user vs an anonymous user is a logged in user will have the option to save the delivery address to their profile via a checkbox.  
 
@@ -624,7 +621,7 @@ This allows the site owner to keep a record of any messages sent on the site fro
 
 * Below you can see the event created waiting for payment:
 
-![Image of user order in checkout before payment](media/readme_images/stripe_2.png)
+![Image of event created in stripe](media/readme_images/stripe_2.png)
 
 * After the user has entered all their details into the checkout form and pressed the pay now button, Stripe will process the payment and the user of the site will see an order confirmation page if the order has been processed successfully. 
 
@@ -644,23 +641,23 @@ In the Stripe dashboard we can see the following 3 events in relation to that pa
 
 2. Billing address and contact details:
 
-![Image of stripe events in dashboard](media/readme_images/stripe_billing_and_contact.png)
+![Image of stripe event billing and contact details](media/readme_images/stripe_billing_and_contact.png)
 
 3. The metadata we have set up to capture via webhooks. The information you can see captured here is:
 * Shopping cart item id and quantity of that item
 * If the user has checked the "Save Delivery Address Info" checkbox on the checkout page (Registered users only)
 * Customer Username 
 
-![Image of stripe events in dashboard](media/readme_images/stripe_metadata.png)
+![Image of stripe event meta data](media/readme_images/stripe_metadata.png)
 
 * The Stripe webhooks and metadata are an important feature on the site. We have this in place incase the user either intentionally, or accidentally, closes the web browser before the order confirmed page has generated letting the user know the order has been processed. This safety feature allows us to capture the shopping cart information so the order can still be processed, and we can avoid a worst case scenario of a user being charged and not receiving their order. 
 * If the user is an anonymous user (Not registered or logged in) then we will also see this reflected in the metadata
 
-![Image of stripe events in dashboard](media/readme_images/metadata_anonymous_user.png)
+![Image of stripe event meta data anonymous user](media/readme_images/metadata_anonymous_user.png)
 
 4. The final crucial part of the information that we capture is the shipping address. 
 
-![Image of stripe events in dashboard](media/readme_images/stripe_shipping_address.png)
+![Image of stripe shipping details](media/readme_images/stripe_shipping_address.png)
 
 * This set up allows us to capture all of the information we would need for an order in the store. 
 
@@ -676,24 +673,26 @@ NOTE ON SHIPPING ADDRESS:
 1. Click on the My Account icon in the top right and side of the page on desktop or in the top row on mobile, from the drop down menu click on Register.
 2. On the sign up page the user will be asked for their email address, to create their own username, and to enter a password of their choosing.
 
-![Image of stripe events in dashboard](media/readme_images/sign_up_page.png)
+![Image of sign up page](media/readme_images/sign_up_page.png)
 
 * This form requires validation so if the user tries to register by leaving some or all of the fields blank, then a pop up will let them know a missing field is required (Screenshot below:)
 
-![Image of stripe events in dashboard](media/readme_images/sign_up_validation.png)
+![Image of sign up page validation](media/readme_images/sign_up_validation.png)
 
 * Also if a user tries to sign up with a username or email that is already in use they will be notified when they try and submit the form that the email/username they are trying to submit is already in use (Screenshot below:)
 
-![Image of stripe events in dashboard](media/readme_images/sign_up_validation_2.png)
+![Image of of sign up page validation](media/readme_images/sign_up_validation_2.png)
 
 3. If the user competes the form with fully validated details they will see a form letting them know that an email has been sent to the email address they specified and they need to verify this email by clicking on the link provided. Screenshot of this page and the email sent is below:
 
-![Image of stripe events in dashboard](media/readme_images/verify_email_page.png)
-![Image of stripe events in dashboard](media/readme_images/confirm_email.png)
+![Image of verify email page](media/readme_images/verify_email_page.png)
+<br>
+
+![Image of verify email sent](media/readme_images/confirm_email.png)
 
 4. Once the user clicks on the link in the email the confirmation page on the site will open and the user just needs to click the confirm email address button (Screenshot below:)
 
-![Image of stripe events in dashboard](media/readme_images/confirm_email_page.png)
+![Image of confirm email page](media/readme_images/confirm_email_page.png)
 
 5. Once the user clicks ont he confirm button they will be diverted to the login page which you can see below.
 
@@ -701,7 +700,7 @@ NOTE ON SHIPPING ADDRESS:
 
 * The login page on the site is a very simple one, all the user needs to do is enter their username or email address along with their password. Both fields are required for the form to be valid and the form will not submit unless the details are correct and entered. 
 
-![Image of stripe events in dashboard](media/readme_images/log_in.png)
+![Image of login page](media/readme_images/log_in.png)
 
 The additional features on the login page are 
 1. Remember me (So users who are logging in again don't need to reenter their details) 
@@ -710,15 +709,15 @@ The additional features on the login page are
 
 * If the user has forgotten their password they can recover it by clicking on the Forgot Password link. If they click on this they will be asked to enter their password and reset instructions will then be emailed to them. 
 
-![Image of stripe events in dashboard](media/readme_images/password_reset_page.png)
+![Image of password reset page](media/readme_images/password_reset_page.png)
 
 * The email the user receives can be seen in the email below: 
 
-![Image of stripe events in dashboard](media/readme_images/password_reset_email.png)
+![Image of password reset email](media/readme_images/password_reset_email.png)
 
 * After the user clicks on the link the will be brought to the page where they can then enter a new password (Screenshot below:)
 
-![Image of stripe events in dashboard](media/readme_images/reset_password_page.png)
+![Image of password reset page](media/readme_images/reset_password_page.png)
 
 <hr>
 
@@ -848,7 +847,7 @@ Details
 
 **PROBLEM**
 
-* During mobile testing i discovered that on smaller screensizes the navbar icons were being pushed down onto a seperate line. This was happening on mobile devices with a smaller screen (Screenshot below:)
+* During mobile testing i discovered that on smaller screen sizes the navbar icons were being pushed down onto a separate line. This was happening on mobile devices with a smaller screen (Screenshot below:)
 
 ![Image of mobile issue 1](media/readme_images/mobile_issue_1.png)
 
@@ -1021,6 +1020,7 @@ If you need to reach me i can be contacted via the three methods below:<br>
 ![Image of contact us in dark mode](media/readme_images/contact_us_dark_mode.png)
 
 </details>
+
 <hr>
 
 <details>
