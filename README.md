@@ -861,6 +861,23 @@ The screenshot below shows the error being corrected now on smaller screens.
 
 ![Image of mobile solution 1](media/readme_images/mobile_solution_1.png)
 
+
+**5. Payment Processing Gif**
+
+**PROBLEM**
+
+* When placing an order on the local site after the user presses the pay now button a payment processing gif animation should load and a note to the user saying do not close the browser. 
+
+![Image of payment processing gif](media/readme_images/payment_processing_gif.png)
+
+However on the deployed Heroku site this animation is no longer working.
+
+![Image of payment processing gif](media/readme_images/payment_gif_missing.png)
+
+#### **SOLUTION** ####
+
+This is something that i haven't gotten around to resolving yet due to a rapidly approaching project deadline however i am aware of it and will work or resolving it at at later date. 
+
 </details>
 
 <hr>
