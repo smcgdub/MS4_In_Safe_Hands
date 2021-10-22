@@ -1033,8 +1033,16 @@ Search for the repository name, in my case it was In Safe Hands. Once you see th
 
 ![Image of S3 ARN](media/readme_images/S3_json_arn.png)
 
+> Click through to review policy, give it a name and description and click generate policy
 
-> 
+14. Now click on groups again from the side menu, i selected the group you had previously created, click attach policy, search for the policy we created using the search bar, and then click attach policy. 
+
+15. Finally we need ot create a user. Click users from the menu, click add user, create a user name, select programmatic access and click next. 
+
+16. Select the group to add your user too, click through to the end and then click create user. Download the CSV file containing the user keys needed to access the app
+<strong>Warning: Do not share the keys from this CSV file with anyone or make them public by pushing them to your Github</strong>
+
+Connect bucket to Django
 
 
 
