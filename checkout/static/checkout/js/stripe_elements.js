@@ -64,7 +64,7 @@ form.addEventListener('submit', function(ev) {
     'save_info': saveInfo,
   };
   // Added below to test if postData is working
-  console.log(postData); 
+  // console.log(postData); 
   var url = '/checkout/cache_checkout_data/';
 
   $.post(url, postData).done(function() {
