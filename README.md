@@ -890,7 +890,7 @@ I resolved this as the original code was pointing at the image at the internal f
 
 #### **Deployment to Heroku & Cloning Instructions** ####
 
-* Below are the following steps i undertook to deploy the site to Heroku. If you are looking to clone this project and work on it you can follow the step by step guide below as it details every step i took to deploy to Heroku.
+* Below are the following steps i undertook to deploy the site to Heroku. If you are looking to clone this project and work on it you can follow the step by step guide below as it details every step i took to deploy to Heroku. Cloning from the repository instuctions are found below the Heroku and AWS instructions below. 
 
 1. Navigate to the Heroku website [Here]( https://www.heroku.com/)
 
@@ -904,18 +904,18 @@ I resolved this as the original code was pointing at the image at the internal f
 
 ![Image of Heroku plan name](media/readme_images/hobby_dev_free.png)
 
-4. After that i navigated back to gitpod and installed the 2 following items:
+4. After that i navigated back to gitpod and installed the 2 following items:<br>
 `pip3 install dj_database_url`  
 `pip3 install psycopg2-binary`
 
-5. I then froze my requirements.txt file by using the command 
+5. I then froze my requirements.txt file by using the command<br> 
 `pip3 freeze > requirements.txt`
 
 6. Now head over to settings.py and add `import dj_database_url`
 
-7. Still in your settings.py file in your database section you will need to comment out your default configuration and insert the following code:
-`DATABASES = {`
-    `'default': dj_database_url.parse('DATABASE_URL')`
+7. Still in your settings.py file in your database section you will need to comment out your default configuration and insert the following code:<br>
+`DATABASES = {`<br>
+&nbsp; `'default': dj_database_url.parse('DATABASE_URL')`<br>
 `}`
 
 <em>You can find your DATABASE_URL in your own Heroku Config Vars<strong>Warning: DATABASE_URL is an environmental variable and as such should not be shown in version control so be sure you don't push this to github</strong></em>
@@ -924,30 +924,19 @@ I resolved this as the original code was pointing at the image at the internal f
 
 9. Then i typed `python3 manage.py migrate`
 
-10. After the migration i needed to upload all of the products for the store again. I did this by using the 2 commands
-`python3 manage.py loaddata categories` 
+10. After the migration i needed to upload all of the products for the store again. I did this by using the 2 commands:<br>
+`python3 manage.py loaddata categories`<br>
 `python3 manage.py loaddata products`
 
 * It is imperative you load categories first as all of the products fall into a category of some description so categories must be uploaded first. Note: In my project i used 2 fixtures files which are json files stored in my products app. 
 
-11. I then created a superuser to log in with. This can be done by running the command 
-`python3 manage.py createsuperuser`
+11. I then created a superuser to log in with. This can be done by running the command `python3 manage.py createsuperuser`
 
 12. Now once that is done i saved, committed and pushed my project to github. I uncomment out my original DATABASES and made sure i didn't push my DATABASE_URL to Github and into the public domain.
 
-13. I then used an `if else` statement in the settings.py to use Postgres if the DATABASE_URL variable is available, otherwise use the default database in gitpod.
+13. I then used an `if else` statement in the settings.py to use Postgres if the DATABASE_URL variable is available, otherwise use the default database in gitpod.<br>
 
-`if "DATABASE_URL" in os.environ:`
-        `DATABASES = {`
-            `"default": dj_database_url.parse(os.environ.get('DATABASE_URL'))`
-        `}`
-  `else:`
-        `DATABASES = {`
-            `'default': {`
-                `'ENGINE': 'django.db.backends.sqlite3',`
-                `'NAME': BASE_DIR / 'db.sqlite3',`
-            `}`
-        `}`
+![Image of database url](media/readme_images/database_url.png)
 
 14. Now i installed gunicorn to act as my webserver `pip3 install Gunicorn` and then freeze again (`pip3 freeze > requirements.txt`) to add it to my requirements.txt file
 
@@ -955,27 +944,27 @@ I resolved this as the original code was pointing at the image at the internal f
 
 16. Now in m terminal i entered `heroku login i` You can log in with your username and password.
 
-17. Then disable the collection of static files temporarily until AWS has been set up.
+17. Then disable the collection of static files temporarily until AWS has been set up.<br>
 `heroku config:set DISABLE_COLLECTSTATIC=1 --app Heroku Project Name`
 
-18. Back in the settings.py file in your main project app you need to enter the allowed hosts, both local and Heroku.
+18. Back in the settings.py file in your main project app you need to enter the allowed hosts, both local and Heroku.<br>
 `ALLOWED_HOSTS = ["<heroku appname>.herokuapp.com", "localhost"]` 
 
 19. Save, add and commit and push your changes to Github. You can then start pushing to Heroku to start it building the app:
 `heroku git:remote -a <heroku appname>`
 `git push heroku master`
 
-Heroku should now start building the app and your heroku url should be visible in the terminal. Note! At this point your project wont have any static files so don't worry if the site isn't looking as it did in development, this is resolved in the next section in AWS (Amazon Web Services). 
+* Heroku should now start building the app and your heroku url should be visible in the terminal. Note! At this point your project wont have any static files so don't worry if the site isn't looking as it did in development, this is resolved in the next section in AWS (Amazon Web Services). 
 
 20. To save time you will now want to set your app up to automatically deploy when you push to github. Go back to your Heroku dashboard and click on the deploy tab. Here you will see GitHub Connnect to Github
 
 ![Image of Heroku automatic deployment](media/readme_images/heroku_deploy_to_github.png)
 
-Search for the repository name, in my case it was In Safe Hands. Once you see the repository click on the connect button next to it.
+* Search for the repository name, in my case it was In Safe Hands. Once you see the repository click on the connect button next to it.
 
 21. Scroll down a little and you will see Enable Automatic Deploys. Click this button. Every time you now push to Github your app should update on Heroku
 
-![Image of Heroku automatic deployment](media/readme_images/automatic_deploys.png)
+![Image of Heroku automatic deployment](media/readme_images/automatic_deploys.png)<br><br>
 
 #### **Amazon Web Services - AWS & Cloning Instructions** ####
 
@@ -989,42 +978,33 @@ Search for the repository name, in my case it was In Safe Hands. Once you see th
 6. When you select S3 you will see a button that says "Create Bucket", click this and give your bucket a name. Tip: Name your bucket something relevant to the project its associated with. You will also need to select the region closest to you in the drop down menu also on this page. 
 7. Un-tick the box that says "Block all public access". AWS may give you a warning but you can ignore this as the static files need to be public. Now click the "Create bucket" button
 8. You now need to set the setting isn the bucket. 
-> Go to bucket properties
-> Turn on static web hosting
-> in the index and error text inputs, add index.html and error.html and then save 
+
+> Go to bucket properties<br>
+> Turn on static web hosting<br>
+> in the index and error text inputs, add index.html and error.html and then save<br>
+
 9. On the permissions tab in the CORS configuration section i used the code below.
 
-[
-  {
-      "AllowedHeaders": [
-          "Authorization"
-      ],
-      "AllowedMethods": [
-          "GET"
-      ],
-      "AllowedOrigins": [
-          "*"
-      ],
-      "ExposeHeaders": []
-  }
-]
+![Image of CORS configuration](media/readme_images/cors_code_aws.png)
 
-10. Now go to the bucket policy tab and select policy generator. I selected the following: 
-> Type Of Policy: S3 bucket policy
-> In Principal enter * to select all principals
-> From action drop down select: "get object"
-> You will be asked for your ARN, copy and paste it from the bucket policy page.
-> Click add statement
-> Then click on the generate policy button
-> Then copy and paste the new policy thats generated into your bucket policy
-> Be sure to add /* onto the end of the resources key
-> Click save.
+
+
+10. Now go to the bucket policy tab and select policy generator. I selected the following:<br>
+> Type Of Policy: S3 bucket policy<br>
+> In Principal enter * to select all principals<br>
+> From action drop down select: "get object"<br>
+> You will be asked for your ARN, copy and paste it from the bucket policy page.<br>
+> Click add statement<br>
+> Then click on the generate policy button<br>
+> Then copy and paste the new policy thats generated into your bucket policy<br>
+> Be sure to add /* onto the end of the resources key<br>
+> Click save.<br>
 
 11. Now go to Access Control List, set list objects permission to everyone (Public)
 
 12. We now ned to create a new group and user to access the bucket. Navigate back to the search page and type in the search box IAM (Identity Access Management) 
-> Click create a new group and name it, i good one is manage-`insert project name here`
-> Click through the pages and click on the create group button
+> Click create a new group and name it, a good one is manage-`insert project name here`<br>
+> Click through the pages and click on the create group button<br>
 
 13. Now we need ot create a group policy. Click on policies option in the menu and click on create policy
 > Select the JSON tab and then import managed policies.
@@ -1039,12 +1019,103 @@ Search for the repository name, in my case it was In Safe Hands. Once you see th
 
 15. Finally we need ot create a user. Click users from the menu, click add user, create a user name, select programmatic access and click next. 
 
-16. Select the group to add your user too, click through to the end and then click create user. Download the CSV file containing the user keys needed to access the app
-<strong>Warning: Do not share the keys from this CSV file with anyone or make them public by pushing them to your Github</strong>
+16. Select the group to add your user too, click through to the end and then click create user. Download the CSV file containing the user keys needed to access the app<br>
+<strong>Warning: Do not share the keys from this CSV file with anyone or make them public by pushing them to your Github</strong><br><br>
 
-Connect bucket to Django
+#### **Connect bucket to Django & Cloning Instructions** ####
+
+* Now to connect Django to the bucket i followed the following steps. 
+
+1. Install 2 new packages
+`pip3 install boto3`
+`pip3 install django-storages`
+
+2. Again we need to freeze these so they are added to the requirements.txt file and deployed ot Heroku when we deploy
+`pip3 freeze > requirements.txt`
+
+3. In settings.py we will then need to add `storages` to the installed apps section.
+
+4. An environment variable called USE_AWS needs to be set up to run the code on Heroku. The settings needed for the project in the settings.py file can be found below:
+
+![Image of USE AWS](media/readme_images/use_aws_code.png)
 
 
+5. Now back in Heroku click on settings tab and then click reveal config vars, set up the environmental variables as required. USE_AWS should have a value of True.
+
+6. At this point i also deleted the `DISABLE_COLLECTSTATIC` variable. 
+
+7. Now back in Gitpod we need to create a custom_storages.py file to tell django that in production we want to use Amazon S3 to store our static and media files. The 2 custom classes we need ot use to action this is:
+
+`class StaticStorage(S3Boto3Storage):`<br>
+&nbsp;&nbsp;`location = settings.STATICFILES_LOCATION`<br>
+
+`class MediaStorage(S3Boto3Storage):`<br>
+&nbsp;&nbsp;`location = settings.MEDIAFILES_LOCATION`<br>
+
+8. Now save, add, commit and push to Github for the above changes to take place.<br><br>
+
+#### **Add Media files to AWS & Cloning Instructions** ####
+
+* Finally we need to upload all the images to S3. To do this i followed the following steps:
+
+1. In back on AWS in your AWS bucket, create a new folder called media
+
+2. Select upload and then upload all your image folders and files. When uploading the files be sure to set the permissions to Everyone (Public access) 
+
+3. Note: You will need to adjust your HTML code for the images to be shown. In my project during development i had the images src set to `src="media/about_us/about_us.png"` but if you dont change your code the deployed site will be looking internally for these images instead of looking to AWS. You will need to go to your code and for all the images you will need to change the scr to `src={{ MEDIA_URL }}<insert image name and file type>`. Also if yoru images are stored in a subfolder like some of mine are you will need to have your code adjusted again to reflect the media structure in AWS. For example on my about us page the image src is set to `src={{ MEDIA_URL }}about_us/about_us.png` Be sure this doesnt catch you out as it did me when deploying.<br><br>
+
+#### **Stripe & Cloning Instructions** ####
+
+* The final step now is to add the stripe keys to the config variables. These values you can get from yoru stripe dashboard. All of the config variables you need for this project can be seen in the image below: 
+
+![Image of all Heroku config vars](media/readme_images/heroku_config_vars.png)
+
+* Remeber all of config vars need to match what you have in your settings.py file.<br><br>
+
+#### **Cloning From Original Repository Instructions** ####
+
+* You can clone the projects repository to your local computer by following the steps below:
+
+1. On github navigate to the project repository. The link can be found here: https://github.com/smcgdub/MS4_In_Safe_Hands
+2. Click on the tab that says < >code
+3. Above the files, click the button that says ↓code
+
+![Image of all Heroku config vars](media/readme_images/github_download.png)
+
+4. From the menu select HTTPS
+
+5. Click on the clipboard icon on the right hand side of the line of code
+
+6. Open the terminal in your IDE
+
+7. Change the current working directory to the location where you want the cloned directory.
+
+8. In terminal type git clone and then paste the URL you copied earlier: https://github.com/smcgdub/MS4_In_Safe_Hands.git
+
+9. Press Enter to create your local clone
+
+10. You will need to install all od the requirements in the requirments.txt file by running the command `pip3 install -r requirements.txt`
+
+11. You will also need to set up the below environment variables for the project to work. These are enviroment variables that will be unique to you and not the same as mine. 
+
+> DJANGO_SECRET_KEY = your secret key<br>
+> STRIPE_PUBLIC_KEY = your stripe public key<br>
+> STRIPE_SECRET_KEY = your stripe secret key<br>
+> STRIPE_WH_SECRET = your stripe webhook secret<br>
+> IN_DEVELOPMENT = True<br>
+> Your stripe variables can be found on your stripe dashboard<br>
+> If you need to generate a Django secret key you can get one by clicking [here](https://djecrety.ir/)<br>
+
+12. You will need to migrate the database models to set up your own database. You will need to check for migrations first by running the command
+`python3 manage.py makemigrations --dry-run`
+
+* Then run the command `python3 manage.py migrate --plan`
+
+* If there are no issues run the command `python3 manage.py migrate`
+
+* You will also need ot create a superuser for your project, this can be done by running the command `python3 manage.py createsuperuser`
+
+* Finally to run the project in terminal type `python3 manage.py runserver`
 
 </details>
 <hr>
@@ -1209,3 +1280,7 @@ If you need to reach me i can be contacted via the three methods below:<br>
 * This website and all of its content was completed for my final assessment project with Code Institute. The site is strictly for educational purposes only, there is no commercial revenue and being generated from the site.
 
 </details>
+
+
+
+&nbsp;
