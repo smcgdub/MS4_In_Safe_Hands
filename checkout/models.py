@@ -19,6 +19,8 @@ class Order(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     first_name = models.CharField(max_length=50, null=False, blank=False)
     last_name = models.CharField(max_length=50, null=False, blank=False)
+    # full_name added to test webhook form
+    full_name = models.CharField(max_length=100, null=True, blank=True)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
@@ -53,10 +55,13 @@ class Order(models.Model):
     def save(self, *args, **kwargs):
         '''
         Override the original save method and set an order number if one \
-        hasn't been set already
+        hasn't been set already. 
+        Also creating a user fullname by concatinating first and last name.
         '''
         if not self.order_number:
             self.order_number = self._generate_order_number()
+        # added 1 line below to test webhook form
+        self.full_name = self.first_name + " " + self.last_name
         super().save(*args, **kwargs)
 
     def update_total(self):
