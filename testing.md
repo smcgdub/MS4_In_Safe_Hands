@@ -1,6 +1,6 @@
 # **Tipsy Mac Staggers - Testing** #
 
-![Image of site on several devices](assets/images/readme_images/readme_header_image.png)
+![Image of site on many screens](/media/readme_images/site_responsive_image.png)
 
 <hr>
 
@@ -44,12 +44,27 @@
 
 #### **1.2 CSS Code Validating** ####
 * The main CSS files were tested on the [W3C CSS  Validation website](https://jigsaw.w3.org/css-validator/)<br>
-* NEED TO DETAIL TEST RESULTS HERE
+* The results came back as no erros of any kind showing
+
+![Image of css results](/media/readme_images/css_test_results.png)
+
 <hr>
 
 #### **1.3 JavaScript Code Validating** ####
 * The testing for the script.js file was carried out on [JShint.com](https://jshint.com/) The results from the test were as follows:<br>
-* NEED TO DETAIL TEST RESULTS HERE
+
+1. cart/templates/cart/cart.html
+* Results: The JavaScript at the bottom of this file is passing in JShint with no errors. 
+
+2. stripe_elements.js file
+* Results: JShint is saying that the code on line 3 `var stripe = Stripe(stripePublicKey);` Stripe (with the capital letter) is undefined. This code however is taken from the Stripe official docs so i have noted this here but the code is correct according to the stripe docs. 
+
+3. products/templates/products/includes/quantity_input_script.html
+* Results: The JavaScript in this file is passing in JShint with no errors.
+
+4. templates/base.html
+* Results: The JavaScript in this file is passing in JShint with no errors.
+
 <hr>
 
 #### **1.4 Python Code Validating** ####
