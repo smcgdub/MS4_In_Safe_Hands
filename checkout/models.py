@@ -55,8 +55,8 @@ class Order(models.Model):
     def save(self, *args, **kwargs):
         '''
         Override the original save method and set an order number if one \
-        hasn't been set already. 
-        Also creating a user fullname by concatinating first and last name.
+        hasn't been set already. Also creating a user fullname by \
+        concatinating first and last name.
         '''
         if not self.order_number:
             self.order_number = self._generate_order_number()

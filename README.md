@@ -615,15 +615,19 @@ This allows the site owner to keep a record of any messages sent on the site fro
 
 #### **2.14 - Stripe In The Background** ####
 
-* The shopping cart in this project is powered by Stripe. When a user adds items to the shopping cart and proceeds to the checkout page, a payment intent will be created in the events section of the stripe dashboard (Screenshot below:) 
+* The shopping cart in this project is powered by Stripe which was one of the pass criteria for this MS4 project. After a user has finished shoppping on the site and has added an item/items to the cart they then proceed to the checkout page. (Screenshot below:) 
 
 ![Image of user order in checkout before payment](media/readme_images/stripe_1.png)
 
-* Below you can see the event created waiting for payment:
+* When the checkout page is generated a payment intent will also be created in the events section of the stripe dashboard which you can see in the screenshot below. 
 
 ![Image of event created in stripe](media/readme_images/stripe_2.png)
 
-* After the user has entered all their details into the checkout form and pressed the pay now button, Stripe will process the payment and the user of the site will see an order confirmation page if the order has been processed successfully. 
+* After the user has entered all their details into the checkout form and the form passed validation checks the user will then click on the pay now button. The user will see an animated gif (Screenshot below) and a message asking them not to close the browser. 
+
+![Image of processing gif](media/processing/processing-1.gif)
+
+* If the users payment has been successfully processed by stripe, the user will see an order confirmation page generated with a breakdown of their order. (Screenshot below)
 
 ![Image of user order in checkout before payment](media/readme_images/stripe_order_confirmation_1.png)
 
@@ -634,7 +638,7 @@ In the Stripe dashboard we can see the following 3 events in relation to that pa
 
 ![Image of stripe events in dashboard](media/readme_images/stripe_3_events.png)
 
-* When we drill into the stripe event data we can see that the information we have set up for request has been captured by stripe. The 4 main portions of info are:
+* When we drill into the stripe event data we can see the information that has been captured by stripe. The 4 main pieces of information are:
 1. Amount To be charged 
 
 ![Image of stripe events in dashboard](media/readme_images/stripe_amount_charged.png)
@@ -643,14 +647,13 @@ In the Stripe dashboard we can see the following 3 events in relation to that pa
 
 ![Image of stripe event billing and contact details](media/readme_images/stripe_billing_and_contact.png)
 
-3. The metadata we have set up to capture via webhooks. The information you can see captured here is:
+3. The metadata we have set up to capture:
 * Shopping cart item id and quantity of that item
 * If the user has checked the "Save Delivery Address Info" checkbox on the checkout page (Registered users only)
 * Customer Username 
 
 ![Image of stripe event meta data](media/readme_images/stripe_metadata.png)
 
-* The Stripe webhooks and metadata are an important feature on the site. We have this in place incase the user either intentionally, or accidentally, closes the web browser before the order confirmed page has generated letting the user know the order has been processed. This safety feature allows us to capture the shopping cart information so the order can still be processed, and we can avoid a worst case scenario of a user being charged and not receiving their order. 
 * If the user is an anonymous user (Not registered or logged in) then we will also see this reflected in the metadata
 
 ![Image of stripe event meta data anonymous user](media/readme_images/metadata_anonymous_user.png)
@@ -663,7 +666,14 @@ In the Stripe dashboard we can see the following 3 events in relation to that pa
 
 NOTE ON SHIPPING ADDRESS:
 
-* For now in this project the shipping and billing address are the same. I future i would like to have the option for the registered users to be able to add multiple shipping & billing addresses. However due to time constraints and a rapidly approaching deadline on this project it is a feature i will have ot develop at a later date.  
+* For now in this project the shipping and billing address are the same. I future i would like to develop the option for the registered users to be able to add multiple shipping & billing addresses. However due to time constraints and a rapidly approaching deadline on this project it is a feature i will have ot develop at a later date.
+
+#### **2.14 - Stripe continued - Webhooks ** ####
+
+* In this project i also incorporated the use of Stripe Webhooks. Webhooks in ths project are used for when a user places and order and presses the pay now button, and the either intentionally or unintentionally closes the browser, or if the form fails to submit correctly. If that is the case the order will still be placed and show up in Django, and all of the payment details will still be delivered into our stripe account. 
+* Webhooks prevent a user placing an order on the site, their browser closing intentionally or unintentionally, they user being billed and not receiving their items, which is not what you want to have happen as a store owner.
+
+<strong>DEVELOPMENT ISSUE: Please see section 4 of this document testing to read up on the webhook development issue i encountered.</strong> 
 
 <hr>
 
@@ -862,7 +872,7 @@ The screenshot below shows the error being corrected now on smaller screens.
 ![Image of mobile solution 1](media/readme_images/mobile_solution_1.png)
 
 
-**5. Payment Processing Gif**
+**6. Payment Processing Gif**
 
 **PROBLEM**
 
@@ -876,7 +886,45 @@ However on the deployed Heroku site this animation is no longer working.
 
 #### **SOLUTION** ####
 
-I resolved this as the original code was pointing at the image at the internal file `src="media/about_us/image.png"`. This needed to be adjusted to the following `src="{{ MEDIA_URL }}about_us.png"`. I also needed ot add `'django.template.context_processors.media',` to the context_processors in the settings.py file
+I resolved this as the original code was pointing at the image at the internal file `src="media/about_us/image.png"`. This needed to be adjusted to the following `src="{{ MEDIA_URL }}about_us.png"`. I also needed ot add `'django.template.context_processors.media',`  to the context_processors in the settings.py file
+
+**6. Stripe Webhooks & Django Orders**
+
+**PROBLEM**
+
+* In this project on my order model first name and last name are seperate items as opposed to just full name. When i was developing the webhook this caused a development issue. In Stripe their system doesnt have fields for first name and last name, it just has a field for name (Full name). The issue that arose was when a user placed an order there was a duplicate order being created in django admin. This was being caused by the order being placed and then the webhook checking to see if that order was already in existance in the database. It was looking at the name field for the users full name however because my model uses first name and last name it wasnt recognising the first order and it was creating a duplicate order in Django.
+
+#### **SOLUTION** ####
+
+* The solution i came to for now is practical but not ideal. What i did was:
+
+1. Added another line to my order model which was `full_name = models.CharField(max_length=100, null=True, blank=True)`
+2. Then in my save method of my order model i used the following code `self.full_name = self.first_name + " " + self.last_name` to concatinate the first name and last name into full_name 
+3. In my webhook_handler.py file i then changed the code for if the order doesnt exist from:<br>
+
+`first_name__iexact=shipping_details.name` and `last_name__iexact=shipping_details.name` and changed it to `full_name__iexact=shipping_details.name`
+
+* I also changed the code in the webhook_handler file further down on line 116 and 117 to:<br>
+`first_name=shipping_details.name,`
+`last_name="",`
+
+What this does is now when the user places and order, if the form doesnt submit correctly, or the user closes the browser intentionally or unintentionally, then in Django that webhook order will come through as follows:
+
+![Image of webhook order in Django](media/readme_images/webhook_order_django.png)
+
+* As you can see in the image above the users name is now being displayed in the first name field. In Stripe when we check the dashboard we can see the payment has been created and charged successfully and the webhook is successful.  
+
+![Image of webhook order in Stripe](media/readme_images/event_and_webhook_received.png)
+
+* And the user is also receiving their confirmtation email detailing their order correctly (Screenshot below):
+
+![Image of webhook order email](media/readme_images/webhook_confirm_email.png)
+
+* All of the functionality of the order on the website, the processing in stripe of the payment and the webhook, and the confirmation email are all being generated correctly. The order is still being generated in Django and showing correctly. 
+
+![Image of webhook order in Django](media/readme_images/django_webhook_order.png)
+
+* Only the first and last names are now shoing in the first name field. This bug doesnt effect the funtionality of the site in any way what so ever and the name issue detailed here only appears on orders where the user closes the browser or the form doesnt submit correctly, which will be in the minority of orders. I will aim to address this issue at a later date for resolution but for now i will leave it as it is as the dealine for this project doesnt allow for any further exploration of solutions.  
 
 </details>
 
@@ -1232,7 +1280,7 @@ If you need to reach me i can be contacted via the three methods below:<br>
 <br>
 
 #### **8.1 - Social media login** ####
-* One of the features i will be incorporating at a later date is to enable users to be able to log in using their social media accounts such as Facebook and Google.
+* One of the features i will be incorporating at a later date is to enable users to be able to log in using their social media accounts such as Facebook and Google. Because i want to add this feature at a future date i have left the social account folder in the templates/allauth folder rather than delete the folder and files andn then reinstall them all at a later date. This note is to let the assessor know the reason that file and its associated files are there but for now may appear as being unused. 
 
 #### **8.2 - Social media share buttons** ####
 * This feature will go on the product details pages, if a user to the site sees an item they like they will have the ability to share this with other people with only a few clicks. 
