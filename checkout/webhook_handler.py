@@ -10,8 +10,6 @@ from products.models import Product
 from profiles.models import UserProfile
 from .models import Order, OrderLineItem
 
-# This is for sending confirmation emails
-
 
 class StripeWH_Handler:
     '''
@@ -46,16 +44,6 @@ class StripeWH_Handler:
         return HttpResponse(
             content=f'Unhandled webhook received: {event["type"]}',
             status=200)
-
-    # def handle_payment_intent_succeeded(self, event):
-    #     '''
-    #     Handle payment intent succeeded webhook from stripe
-    #     '''
-    #     intent = event.data.object
-    #     print(intent)
-    #     return HttpResponse(
-    #         content=f'Payment succeeded Webhook received: {event["type"]}',
-    #         status=200)
 
     def handle_payment_intent_succeeded(self, event):
         '''
@@ -125,8 +113,8 @@ class StripeWH_Handler:
             try:
                 order = Order.objects.create(
                     # first_name=shipping_details.name,
-                    first_name="",
-                    last_name=shipping_details.name,
+                    first_name=shipping_details.name,
+                    last_name="",
                     email=billing_details.email,
                     phone_number=shipping_details.phone,
                     street_address1=shipping_details.address.line1,
