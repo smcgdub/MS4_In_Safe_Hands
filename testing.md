@@ -113,7 +113,8 @@ This has resolved the line length issue and I have tested the site after this ad
 
 #### **1.5 Django Tests** ####
 
-* I have created automated Django tests in each django app in this project. The tests can be found in the tests.py file in each app. There 
+* I have created automated Django tests in each django app in this project. The tests can be found in the tests.py file in each app. You can also run the django tests in the terminal by typing in the temrminal ``
+
 </details>
 <hr>
 
