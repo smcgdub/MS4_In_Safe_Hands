@@ -51,6 +51,7 @@ In Safe Hands was created and built by Stephen Mc Govern as my 4th and final mil
 * 3.12 Balsamiq 
 * 3.13 Favicon Generator
 * 3.14 Stripe 
+* 3.15 Heroku
 
 ### **4. Testing** ###
 * 4.1 See [testing.md](testing.md) document 
@@ -169,29 +170,37 @@ In Safe Hands was created and built by Stephen Mc Govern as my 4th and final mil
 #### **1.5 - Database Design - The Skeleton Plane** ####
 <br>
 
-* Django works with SQL databases by default, I used SQLite during development. Heroku provides a PostgreSQL database for deployment. Below you can find all of the models used in this project and their structure.<br><br>
+* Django works with SQL databases by default, I used SQLite during development. Heroku provides a PostgreSQL database for deployment. Below you can find all of the models used in this project and also a visualization of the database schema and its relationships and structure.<br>
+
+* **The Database Schema**
+
+![Image of database schema](/media/readme_images/database_schema.jpeg)
+
+* **The Models**
 
 <strong>Checkout/Models/`Order`:</strong>
 
-|       Name       |   Database Key  |   Field Type  |                                     Type Validation                                    |
-|:----------------|:---------------|:-------------|:--------------------------------------------------------------------------------------|
-|   Order Number   |   order_number  |   Charfield   |                       `max_length=32, null=False, editable=False`                      |
-|     Username     |   user_profile  |   ForeignKey  | `UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='orders'` |
-|    Date & Time   |       date      | DateTimeField |                                   `auto_now_add=True`                                  |
-|    First Name    |    first_name   |   Charfield   |                        `max_length=50, null=False, blank=False`                        |
-|     Last Name    |    last_name    |   Charfield   |                        `max_length=50, null=False, blank=False`                        |
-|      Email       |      email      |   EmailField  |                        `max_length=254, null=False, blank=False`                       |
-|   Phone Number   |   phone_number  |   Charfield   |                        `max_length=20, null=False, blank=False`                        |
-| Street Address 1 | street_address1 |   Charfield   |                        `max_length=80, null=False, blank=False`                        |
-| Street Address 2 | street_address2 |   Charfield   |                        `max_length=80, null=False, blank=False`                        |
-|   Town or City   |   town_or_city  |   Charfield   |                        `max_length=40, null=False, blank=False`                        |
-|      County      |      county     |   Charfield   |                         `max_length=80, null=True, blank=True`                         |
-|      Eircode     |     eircode     |   Charfield   |                         `max_length=20, null=True, blank=True`                         |
-|      Country     |     country     |   Charfield   |                `blank_label='Select Country *', null=False, blank=False`               |
-|     Delivery     |  delivery_cost  |  DecimalField |                 `max_digits=6, decimal_places=2, null=False, default=0`                |
-|    Order Total   |   order_total   |  DecimalField |                `max_digits=10, decimal_places=2, null=False, default=0`                |
-|    Grand Total   |   grand_total   |  DecimalField |                `max_digits=10, decimal_places=2, null=False, default=0`                |
-
+| Name              | Database Key    | Field Type    | Type Validation                                                                      |
+|-------------------|-----------------|---------------|--------------------------------------------------------------------------------------|
+| Order Number      | order_number    | CharField     | `max_length=32, null=False, editable=False`                                            |
+| User              | user_profile    | ForeignKey    | `UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='orders'` |
+| Date & Time       | date            | DateTimeField | `auto_now_add=True`                                                                    |
+| First Name        | first_name      | CharField     | `max_length=50, null=False, blank=False`                                               |
+| Last Name         | last_name       | CharField     | `max_length=50, null=False, blank=False`                                               |
+| Full Name         | full_name       | CharField     | `max_length=100, null=True, blank=True`                                                |
+| Email             | email           | EmailField    | `max_length=254, null=False, blank=False`                                              |
+| Phone Number      | phone_number    | CharField     | `max_length=20, null=False, blank=False`                                               |
+| Street Address 1  | street_address1 | CharField     | `max_length=80, null=False, blank=False`                                               |
+| Street Address 2  | street_address2 | CharField     | `max_length=80, null=False, blank=False`                                               |
+| Town or City      | town_or_city    | CharField     | `max_length=40, null=False, blank=False`                                               |
+| County            | county          | CharField     | `max_length=80, null=True, blank=True`                                                 |
+| Eircode           | eircode         | CharField     | `max_length=20, null=True, blank=True`                                                 |
+| Country           | country         | CharField     | `blank_label='Select Country *', null=False, blank=False`                              |
+| Delivery          | delivery_cost   | DecimalField  | `max_digits=6, decimal_places=2, null=False, default=0`                               |
+| Order Total       | order_total     | DecimalField  | `max_digits=10, decimal_places=2, null=False, default=0`                               |
+| Grand Total       | grand_total     | DecimalField  | `max_digits=10, decimal_places=2, null=False, default=0`                               |
+| Original Cart     | original_cart   | TextField     | `null=False, blank=False, default=''`                                                  |
+| Stripe Payment ID | stripe_pid      | CharField     | `max_length=254, null=False, blank=False, default=''`                                  |
 <br>
 
 <strong>Checkout/Models/`OrderLineItem`:</strong>
@@ -615,7 +624,7 @@ This allows the site owner to keep a record of any messages sent on the site fro
 
 #### **2.14 - Stripe In The Background** ####
 
-* The shopping cart in this project is powered by Stripe which was one of the pass criteria for this MS4 project. After a user has finished shoppping on the site and has added an item/items to the cart they then proceed to the checkout page. (Screenshot below:) 
+* The shopping cart in this project is powered by Stripe which was one of the pass criteria for this MS4 project. After a user has finished shopping on the site and has added an item/items to the cart they then proceed to the checkout page. (Screenshot below:) 
 
 ![Image of user order in checkout before payment](media/readme_images/stripe_1.png)
 
@@ -736,6 +745,7 @@ The additional features on the login page are
 * Finally to provide for a better user experience on the site i have used Bootstrap Toasts to provide users with feedback when they commit a specific action, adding an item to the cart for example. I have tried out several different toasts that incorporate images, cart totals, cart summaries and free shipping points. After trying all of these out on the site i decided i would keep the toast messaging to a small summary of each user action.
 
 * Each toast has also been colour coded for each category of success, error, warning and info so the user will know at a glance if their action has been successful or not. 
+
 </details>
 <hr>
 
@@ -759,6 +769,8 @@ The additional features on the login page are
 * 3.12 - [Balsamiq](https://balsamiq.com/) - Balsamiq Wireframes is a small graphical tool to sketch out user interfaces for websites and web / desktop / mobile applications. I used Balsamiq to formulate my initial ideas for the site so i could visualize how the site would look and also be able to gage the scope of the project. 
 * 3.13 - [Favicon](https://favicon.io/favicon-generator/) - A free and simple website that allows you to create, build and customize your Favicons for your own site.
 * 3.14 - [Stripe](https://stripe.com/) - Stripe is an Irish-American financial services and software as a service company dual-headquartered in San Francisco, United States and Dublin, Ireland. The company primarily offers payment processing software and application programming interfaces for e-commerce websites and mobile applications.
+* 3.15 - [Heroku](https://www.heroku.com/) - Heroku is a container-based cloud Platform as a Service (PaaS). Developers use Heroku to deploy, manage, and scale modern apps. The platform is elegant, flexible, and easy to use, offering developers the simplest path to getting their apps to market.
+
 </details>
 <hr>
 
@@ -892,15 +904,15 @@ I resolved this as the original code was pointing at the image at the internal f
 
 **PROBLEM**
 
-* In this project on my order model first name and last name are seperate items as opposed to just full name. When i was developing the webhook this caused a development issue. In Stripe their system doesnt have fields for first name and last name, it just has a field for name (Full name). The issue that arose was when a user placed an order there was a duplicate order being created in django admin. This was being caused by the order being placed and then the webhook checking to see if that order was already in existance in the database. It was looking at the name field for the users full name however because my model uses first name and last name it wasnt recognising the first order and it was creating a duplicate order in Django.
+* In this project on my order model first name and last name are separate items as opposed to just full name. When i was developing the webhook this caused a development issue. In Stripe their system doesn't have fields for first name and last name, it just has a field for name (Full name). The issue that arose was when a user placed an order there was a duplicate order being created in django admin. This was being caused by the order being placed and then the webhook checking to see if that order was already in existence in the database. It was looking at the name field for the users full name however because my model uses first name and last name it wasn't recognizing the first order and it was creating a duplicate order in Django.
 
 #### **SOLUTION** ####
 
 * The solution i came to for now is practical but not ideal. What i did was:
 
 1. Added another line to my order model which was `full_name = models.CharField(max_length=100, null=True, blank=True)`
-2. Then in my save method of my order model i used the following code `self.full_name = self.first_name + " " + self.last_name` to concatinate the first name and last name into full_name 
-3. In my webhook_handler.py file i then changed the code for if the order doesnt exist from:<br>
+2. Then in my save method of my order model i used the following code `self.full_name = self.first_name + " " + self.last_name` to concatenate the first name and last name into full_name 
+3. In my webhook_handler.py file i then changed the code for if the order doesn't exist from:<br>
 
 `first_name__iexact=shipping_details.name` and `last_name__iexact=shipping_details.name` and changed it to `full_name__iexact=shipping_details.name`
 
@@ -908,7 +920,7 @@ I resolved this as the original code was pointing at the image at the internal f
 `first_name=shipping_details.name,`
 `last_name="",`
 
-What this does is now when the user places and order, if the form doesnt submit correctly, or the user closes the browser intentionally or unintentionally, then in Django that webhook order will come through as follows:
+What this does is now when the user places and order, if the form doesn't submit correctly, or the user closes the browser intentionally or unintentionally, then in Django that webhook order will come through as follows:
 
 ![Image of webhook order in Django](media/readme_images/webhook_order_django.png)
 
@@ -916,7 +928,7 @@ What this does is now when the user places and order, if the form doesnt submit 
 
 ![Image of webhook order in Stripe](media/readme_images/event_and_webhook_received.png)
 
-* And the user is also receiving their confirmtation email detailing their order correctly (Screenshot below):
+* And the user is also receiving their confirmation email detailing their order correctly (Screenshot below):
 
 ![Image of webhook order email](media/readme_images/webhook_confirm_email.png)
 
@@ -924,7 +936,7 @@ What this does is now when the user places and order, if the form doesnt submit 
 
 ![Image of webhook order in Django](media/readme_images/django_webhook_order.png)
 
-* Only the first and last names are now shoing in the first name field. This bug doesnt effect the funtionality of the site in any way what so ever and the name issue detailed here only appears on orders where the user closes the browser or the form doesnt submit correctly, which will be in the minority of orders. I will aim to address this issue at a later date for resolution but for now i will leave it as it is as the dealine for this project doesnt allow for any further exploration of solutions.  
+* Only the first and last names are now showing in the first name field. This bug doesn't effect the functionality of the site in any way what so ever and the name issue detailed here only appears on orders where the user closes the browser or the form doesn't submit correctly, which will be in the minority of orders. I will aim to address this issue at a later date for resolution but for now i will leave it as it is as the deadline for this project doesn't allow for any further exploration of solutions.  
 
 </details>
 
@@ -938,7 +950,7 @@ What this does is now when the user places and order, if the form doesnt submit 
 
 #### **Deployment to Heroku & Cloning Instructions** ####
 
-* Below are the following steps i undertook to deploy the site to Heroku. If you are looking to clone this project and work on it you can follow the step by step guide below as it details every step i took to deploy to Heroku. Cloning from the repository instuctions are found below the Heroku and AWS instructions below. 
+* Below are the following steps i undertook to deploy the site to Heroku. If you are looking to clone this project and work on it you can follow the step by step guide below as it details every step i took to deploy to Heroku. Cloning from the repository instructions are found below the Heroku and AWS instructions below. 
 
 1. Navigate to the Heroku website [Here]( https://www.heroku.com/)
 
@@ -1004,7 +1016,7 @@ What this does is now when the user places and order, if the form doesnt submit 
 
 * Heroku should now start building the app and your heroku url should be visible in the terminal. Note! At this point your project wont have any static files so don't worry if the site isn't looking as it did in development, this is resolved in the next section in AWS (Amazon Web Services). 
 
-20. To save time you will now want to set your app up to automatically deploy when you push to github. Go back to your Heroku dashboard and click on the deploy tab. Here you will see GitHub Connnect to Github
+20. To save time you will now want to set your app up to automatically deploy when you push to github. Go back to your Heroku dashboard and click on the deploy tab. Here you will see GitHub Connect to Github
 
 ![Image of Heroku automatic deployment](media/readme_images/heroku_deploy_to_github.png)
 
@@ -1110,15 +1122,15 @@ What this does is now when the user places and order, if the form doesnt submit 
 
 2. Select upload and then upload all your image folders and files. When uploading the files be sure to set the permissions to Everyone (Public access) 
 
-3. Note: You will need to adjust your HTML code for the images to be shown. In my project during development i had the images src set to `src="media/about_us/about_us.png"` but if you dont change your code the deployed site will be looking internally for these images instead of looking to AWS. You will need to go to your code and for all the images you will need to change the scr to `src={{ MEDIA_URL }}<insert image name and file type>`. Also if yoru images are stored in a subfolder like some of mine are you will need to have your code adjusted again to reflect the media structure in AWS. For example on my about us page the image src is set to `src={{ MEDIA_URL }}about_us/about_us.png` Be sure this doesnt catch you out as it did me when deploying.<br><br>
+3. Note: You will need to adjust your HTML code for the images to be shown. In my project during development i had the images src set to `src="media/about_us/about_us.png"` but if you don't change your code the deployed site will be looking internally for these images instead of looking to AWS. You will need to go to your code and for all the images you will need to change the scr to `src={{ MEDIA_URL }}<insert image name and file type>`. Also if your images are stored in a subfolder like some of mine are you will need to have your code adjusted again to reflect the media structure in AWS. For example on my about us page the image src is set to `src={{ MEDIA_URL }}about_us/about_us.png` Be sure this doesn't catch you out as it did me when deploying.<br><br>
 
 #### **Stripe & Cloning Instructions** ####
 
-* The final step now is to add the stripe keys to the config variables. These values you can get from yoru stripe dashboard. All of the config variables you need for this project can be seen in the image below: 
+* The final step now is to add the stripe keys to the config variables. These values you can get from your stripe dashboard. All of the config variables you need for this project can be seen in the image below: 
 
 ![Image of all Heroku config vars](media/readme_images/heroku_config_vars.png)
 
-* Remeber all of config vars need to match what you have in your settings.py file.<br><br>
+* Remember all of config vars need to match what you have in your settings.py file.<br><br>
 
 #### **Cloning From Original Repository Instructions** ####
 
@@ -1142,7 +1154,7 @@ What this does is now when the user places and order, if the form doesnt submit 
 
 9. Press Enter to create your local clone
 
-10. You will need to install all od the requirements in the requirments.txt file by running the command `pip3 install -r requirements.txt`
+10. You will need to install all od the requirements in the requirements.txt file by running the command `pip3 install -r requirements.txt`
 
 11. You will also need to set up the below environment variables for the project to work. These are enviroment variables that will be unique to you and not the same as mine. 
 

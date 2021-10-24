@@ -19,7 +19,7 @@ class Order(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     first_name = models.CharField(max_length=50, null=False, blank=False)
     last_name = models.CharField(max_length=50, null=False, blank=False)
-    # full_name added to test webhook form
+    # full_name added to make webhook function
     full_name = models.CharField(max_length=100, null=True, blank=True)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
