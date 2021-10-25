@@ -60,13 +60,6 @@
           </a>
           <span class="horiz-bar">|</span></p>
         {% endif %}
-
-
-
-
-
-
-
         <!-- Superuser edit & delete buttons -->
         {% if request.user.is_superuser %}
         <p class="text-center text-md-left mt-1">
@@ -175,7 +168,6 @@
                   <span class="horiz-bar">| </span>
                   {{ review.date }}
                   <span class="horiz-bar"> |</span>
-
                   <!-- Edit button only visible to authenticated users-->
                   {% if user|lower == review.reviewer|lower %}
                   <a href="{% url 'edit_review' review.id %}">
@@ -183,7 +175,6 @@
                     <span class="horiz-bar"> |</span>
                   </a>
                   {% endif %}
-
                 </p>
                 <hr>
                 {% endfor %}

@@ -39,12 +39,55 @@
 #### **1.1 HTML Code Validating** ####
 
 * All of the HTML files were tested on the [W3C HTML Markup Validation website](https://validator.w3.org/)<br>
-* NEED TO DETAIL TEST RESULTS HERE
+* The results from the test were as follows:<br>
+
+**On all pages warning** 
+* On all pages on th site the HTML checker highlights a warning saying an error saying there is a duplicate of the id "user-options" however this is incorrect and can be ignored. This item is showing in the My Account dropdown in the base.html file and also the mobile-top-header.html file. These are the same items however one of them is for the desktop and one is for the mobile. They both have the exact same functionality and are the same item. There is no effect on the functionality of the site and i have noted this here in the readme to note i am aware of it.   
+
+1. Homepage (home/templates/home/index.html)
+* Apart from the warning message at the top of this section all the HTML passes with no errors. 
+
+2. Products logged in and none logged in user (products/templates/products/products.html)
+* Apart from the warning message at the top of this section all the HTML passes with no errors. 
+
+3. Product details logged in and none logged in user (products/templates/products/product_details.html)
+* The warning message at the top of this section is on this page. There is also 1 other error displaying (Screenshot below) however this is incorrect.
+
+![Image of product details page error](/media/readme_images/product_details_error_p.png)
+![Image of product details page error](/media/readme_images/product_details_error_p_code.png)
+
+* When i check my code i can see there is an opening <p> tag on line 160. This error from the HTML checker has been noted here to say i am aware of it but there is a matching <p> opening tag to the </p>
+
+4. About us (about_us/templates/about_us/about_us.html)
+* Apart from the warning message at the top of this section all the HTML passes with no errors. 
+
+5. Covid Info details logged in and none logged in user (covid_numbers/templates/covid_numbers/covid_numbers.html)
+* Apart from the warning message at the top of this section all the HTML passes with no errors. 
+
+6. Contact us none logged in user (contact_us/templates/contact_us/contact_us.html)
+* Apart from the warning message at the top of this section all the HTML passes with no errors. 
+
+7. Contact us logged in user (contact_us/templates/contact_us/contact_us.html)
+* The warning message at the top of this section is on this page. 
+* At the top of the registered users priority messaging service there is an input box that is disabled. This input field is so when a registered user sends a priority message to the site the admin can tell who the message came from, the same way an email display's who an email is from. 
+
+![Image of contact us page input error](/media/readme_images/disabled_input_field.png)
+
+![Image of placeholder input error](/media/readme_images/placeholder_error.png)
+
+* The HTML checker is saying there is an error as a placeholder can only be used on certain fields. I checked with tutor support when developing this feature and they said the current way this is set is fine. This highlighted error in no way effects the functionality of the site and tutor support helped me to get this feature working. I have highlighted it here in the testing to say i am aware of it. 
+
+7. Signup (templates/allauth/account/signup.html)
+* Apart from the warning message at the top of this section all the HTML passes with no errors. 
+
+7. Login (templates/allauth/account/login.html)
+* Apart from the warning message at the top of this section all the HTML passes with no errors. 
+
 <hr>
 
 #### **1.2 CSS Code Validating** ####
 * The main CSS files were tested on the [W3C CSS  Validation website](https://jigsaw.w3.org/css-validator/)<br>
-* The results came back as no erros of any kind showing
+* The results came back as no errors of any kind showing
 
 ![Image of css results](/media/readme_images/css_test_results.png)
 
@@ -113,7 +156,7 @@ This has resolved the line length issue and I have tested the site after this ad
 
 #### **1.5 Django Tests** ####
 
-* I have created automated Django tests in each django app in this project. The tests can be found in the tests.py file in each app. You can also run the django tests in the terminal by typing in the temrminal ``
+* I have created automated Django tests in each django app in this project. The tests can be found in the tests.py file in each app. You can also run the django tests in the terminal by typing in the terminal ``
 
 </details>
 <hr>
