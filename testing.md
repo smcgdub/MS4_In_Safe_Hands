@@ -44,6 +44,8 @@
 **On all pages warning** 
 * On all pages on th site the HTML checker highlights a warning saying an error saying there is a duplicate of the id "user-options" however this is incorrect and can be ignored. This item is showing in the My Account dropdown in the base.html file and also the mobile-top-header.html file. These are the same items however one of them is for the desktop and one is for the mobile. They both have the exact same functionality and are the same item. There is no effect on the functionality of the site and i have noted this here in the readme to note i am aware of it.<br>
 
+![Image of duplicate id page error](/media/readme_images/duplicate_id.png)
+
 **1. Homepage (home/templates/home/index.html)**
 * Apart from the warning message at the top of this section all the HTML passes with no errors.
 
@@ -138,32 +140,37 @@
 
 2. Some of the app files that i didn't do any coding in, for example about_us/admin.py Flake8 is saying `'django.contrib.admin' imported but unused` Again i am aware of these notifications but i have chosen to leave the file as is rather than delete it or have a blank file. 
 
+<hr>
+
 3. Checkout > models.py > line 69<br>
 
 `self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100`
 
-I have tried to place a pair of parentheses after the = and split this line into 2 lines as you can line break after the parentheses<br>
+* I have tried to place a pair of parentheses after the = and split this line into 2 lines as you can line break after the parentheses<br>
 
 `self.delivery_cost = (`<br>
 &nbsp; &nbsp; &nbsp;`self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100)`
 
-However that still leaves the line as 80 characters once you allow for the correct indentation therefore i have left it as one single line. It is something i am aware of but leaving this line as one line doesn't effect the functionality of the site so i have noted here int he readme i am aware of it but have left it as it is on one line.<br>
+* However that still leaves the line as 80 characters once you allow for the correct indentation therefore i have left it as one single line. It is something i am aware of but leaving this line as one line doesn't effect the functionality of the site so i have noted here int he readme i am aware of it but have left it as it is on one line.<br>
+
 <hr>
 
 4. Products > views.py > line 58<br>
 
 `queries = Q(name__icontains=query) | Q(description__icontains=query)`
 
-This line of code comes in at greater than 79 characters, i have adjusted the code using a \ to go to a new line, example below:
+* This line of code comes in at greater than 79 characters, i have adjusted the code using a \ to go to a new line, example below:
 
 `queries = Q(name__icontains=query) | \`<br>
 &nbsp; &nbsp; &nbsp;`Q(description__icontains=query)`
 
-This has resolved the line length issue and I have tested the site after this adjustment and the search functionality has not changed and is working as intended. 
+* This has resolved the line length issue and I have tested the site after this adjustment and the search functionality has not changed and is working as intended. 
+
+<hr>
 
 5. Reviews > forms.py > ModelForm imported but unused
 
-This is incorrect as the ModelForm is part of my ProductReviewForm code. I have noted it here i am aware of it in Flake but have left it. 
+* This is incorrect as the ModelForm is part of my ProductReviewForm code. I have noted it here i am aware of it in Flake but have left it. 
 
 <hr>
 
@@ -171,12 +178,12 @@ This is incorrect as the ModelForm is part of my ProductReviewForm code. I have 
 
 `template_name = 'products/custom_widget_templates/custom_clearable_file_input.html'`
 
-This line of code comes in at greater than 79 characters. As with item 1 on this list i have wrapped the code after the = in parentheses and split it onto 2 lines, example below:
+* This line of code comes in at greater than 79 characters. As with item 1 on this list i have wrapped the code after the = in parentheses and split it onto 2 lines, example below:
 
 `template_name = (`<br>
 &nbsp; &nbsp; &nbsp;`'products/custom_widget_templates/custom_clearable_file_input.html')`
 
-This has resolved the line length issue and I have tested the site after this adjustment and the search functionality has not changed and is working as intended. 
+* This has resolved the line length issue and I have tested the site after this adjustment and the search functionality has not changed and is working as intended. 
 
 <hr>
 
@@ -195,7 +202,7 @@ This has resolved the line length issue and I have tested the site after this ad
 
 #### **2.1 Manual testing desktop** ####
 
-All desktop testing was carried out on Chrome, FireFox, Opera and Safari. Results listed below will apply to all browsers unless highlighted as otherwise. 
+* All desktop testing was carried out on Chrome, FireFox, Opera and Safari. Results listed below will apply to all browsers unless highlighted as otherwise. 
 
 **1. The Home Page**
 
@@ -292,7 +299,7 @@ I have resolved this with the following css:<br><br>
 #### **2.1 Manual testing mobile** ####
 <br>
 
-To reduce repetition of the desktop results, for the mobile testing i have just highlighted the different functionalities that mobile users may experience while using the site on a mobile device. I have carried out all of the exact same manual tests on mobile devices as i did on the desktop however unless highlighted below, readers of this document can know i experienced the exact same outcomes on mobile devices as i did on desktop.  
+* To reduce repetition of the desktop results, for the mobile testing i have just highlighted the different functionalities that mobile users may experience while using the site on a mobile device. I have carried out all of the exact same manual tests on mobile devices as i did on the desktop however unless highlighted below, readers of this document can know i experienced the exact same outcomes on mobile devices as i did on desktop.  
 
 Mobile testing was carried out on the following devices:<br>
 1. iPhone 6/7/8 (Via Chrome Dev Tools)
@@ -374,5 +381,47 @@ On pages where i have encountered this issue i have added a `<br>` element at th
 <details>
 <summary><strong>
 4. Console Testing
+</strong></summary>
+
+* There is one error that is appearing on every page and that is the favicon error (Screenshot below)
+
+![Image of favicon error](/media/readme_images/favicon.png)
+
+* It is pointing to line 1 and column 1 in the favicon ico file. When i click into this file to see where the error is ii can see the following code: 
+
+![Image of favicon error](/media/readme_images/favicon_code.png)
+
+1. **Covid Info Page** 
+
+* On the covid info page when a logged in user is viewing the data in the console there is an message (Not an error or warning) saying `[bugsnag] Loaded1`
+
+![Image of bugsnag message](/media/readme_images/bugsnag_message.png)
+
+* I have inspected this further and it is something to do with the internal code of the covid data that i importing into the site (Screenshot below) and nothing to do with any of my code. As i am unable to adjust any of the code in the covid data i have listed it here to notify i am aware of it.
+
+![Image of bugsnag message](/media/readme_images/bugsnag_code.png)
+
+2. **Contact Us Page**
+
+* There is a message generated on the contact us page in relation to the google map (Screenshot below): 
+
+![Image of google map violation](/media/readme_images/google_map_violation.png)
+
+* This is neither a warning message or an error and its related to the google map code. Due to an imminent deadline for this project i will not have time to resolve it before submission. This is to confirm i am aware of it and can confirm it has no effect on the functionality of the site. 
+
+2. **Sign Up Page**
+
+* There is a message in the console for this page. The message is recommending the input elements should have autocomplete added to them. Again due to an imminent deadline for this project i will not have time to work on this before submission. This is to confirm i am aware of it and can confirm it has no effect on the functionality of the site. 
+
+![Image of sign up recommendation](/media/readme_images/sign_up_console_message.png)
+
+2. **Stripe Checkout Page**
+
+* When the user goes to the checkout page to make a payment the error message below from stripe appears in the console. 
+
+![Image of stripe error](/media/readme_images/stripe_checkout_error.png)
+
+* I have drilled into these errors and they are not being caused from any errors in the code that i have written. I have noted the error here in the testing document to confirm that i am aware of this error and it has no effect on the functionality of the site or stripe payments. I will aim to investigate this issue further. 
+
 </details>
 <hr>
