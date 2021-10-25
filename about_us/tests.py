@@ -1,5 +1,7 @@
 from django.test import TestCase
+from django.urls import reverse, resolve
 from about_us import apps
+from about_us.views import about_us
 
 
 # Create your tests here.
@@ -20,3 +22,10 @@ class TestAboutUs(TestCase):
         Test to make sure the app is configured correctly
         '''
         self.assertEqual(apps.AboutUsConfig.name, 'about_us')
+
+    def test_about_us_url_is_resolved(self):
+        '''
+        Test to check about us urls.py configured correctly
+        '''
+        url = reverse('about_us')
+        self.assertEquals(resolve(url).func, about_us)

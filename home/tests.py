@@ -1,5 +1,7 @@
 from django.test import TestCase, Client
+from django.urls import reverse, resolve
 from home import apps
+from home.views import index
 
 
 # Create your tests here.
@@ -36,3 +38,10 @@ class TestHome(TestCase):
         Test to make sure the app is configured correctly
         '''
         self.assertEqual(apps.HomeConfig.name, 'home')
+
+    def test_home_url_is_resolved(self):
+        '''
+        Test to check about us urls.py configured correctly
+        '''
+        url = reverse('home')
+        self.assertEquals(resolve(url).func, index)

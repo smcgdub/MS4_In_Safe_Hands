@@ -200,39 +200,3 @@ def delete_product(request, product_id):
     messages.success(request, f'{product.name} has been successfully \
                                 deleted from the store')
     return redirect(reverse('products'))
-
-
-# This is the add review that is in reviews and needs to be deleted !!!!!!!!!!!
-# @login_required
-# def add_review(request, product_id):
-#     '''
-#     Code for adding a review
-#     '''
-#     form = ReviewForm()
-#     product = get_object_or_404(Product, pk=product_id)
-
-#     # If add review method is POST
-#     if request.method == 'POST':
-#         form = ReviewForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             messages.success(request, f'Review for {product.name} has been \
-#                                         successfully added')
-#             # Return user to the products page after they have added the item
-#             return redirect(reverse('product_details'))
-#         else:
-#         # If add form is invalid
-#             messages.warning(request, 'Review failed to post! Please \
-#                                        re-check all form details are valid')
-#     # If form isn't a POST form then load a blank form
-#     else:
-#         form = ReviewForm()
-
-#     # form = ReviewForm()
-#     template = 'products/add_product.html'
-#     context = {
-#         'form': form,
-#         'product': product,
-#     }
-
-#     return render(request, template, context)

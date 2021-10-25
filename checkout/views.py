@@ -102,8 +102,8 @@ def checkout(request):
     else:
         cart = request.session.get('cart', {})
         if not cart:
-            print("User has attempted to type /checkout into the browser \
-                  - Checkout - Views.py - Checkout")
+            # print("User has attempted to type /checkout into the browser \
+            #       - Checkout - Views.py - Checkout")
             messages.error(request, "You've nothing in your cart at the moment, \
                                      but here's are all of our products for \
                                      you to browse \U0001F642")

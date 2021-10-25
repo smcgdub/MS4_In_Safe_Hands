@@ -3,6 +3,8 @@ from django.test import TestCase
 from profiles import apps
 # from .models import UserProfile
 from .forms import UserProfileForm
+from django.urls import reverse, resolve
+from profiles.views import profile, order_history
 
 
 # Create your tests here.
@@ -18,6 +20,20 @@ class TestProfile(TestCase):
         response = self.client.get('/profile/')
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, '/accounts/login/?next=/profile/')
+
+    def test_profiles_url_is_resolved(self):
+        '''
+        Test to check profiles urls.py configured correctly
+        '''
+        url = reverse('profile')
+        self.assertEquals(resolve(url).func, profile)
+
+    def test_order_history_url_is_resolved(self):
+        '''
+        Test to check order history urls.py configured correctly
+        '''
+        url = reverse('order_history', args=[1])
+        self.assertEquals(resolve(url).func, order_history)
 
     def test_profiles_apps_configuration(self):
         '''

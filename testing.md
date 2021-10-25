@@ -53,12 +53,16 @@
 * Apart from the warning message at the top of this section all the HTML passes with no errors. 
 
 **3. Product details logged in and none logged in user (products/templates/products/product_details.html)**
-* The warning message at the top of this section is on this page. There is also 1 other error displaying (Screenshot below) however this is incorrect.
+* The warning message at the top of this section is on this page. 
+* There is also 1 other error displaying (Screenshot below) however this is incorrect.
 
 ![Image of product details page error](/media/readme_images/product_details_error_p.png)
+
+<br>
+
 ![Image of product details page error](/media/readme_images/product_details_error_p_code.png)
 
-* When i check my code i can see there is an opening `<p>` tag on line 160. This error from the HTML checker has been noted here to say i am aware of it but there is a matching `<p>` opening tag to the `</p>`
+* When i check my code i can see there is an opening `<p>` tag on line 160. This error from the HTML checker has been noted here to say i am aware of it but there is a matching `<p>` opening tag to the `</p>` closing tag highlighted here.
 
 ![Image of product details page error](/media/readme_images/product_details_error_p_code_2.png)
 

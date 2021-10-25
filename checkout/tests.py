@@ -1,5 +1,8 @@
 from django.test import TestCase
+from django.urls import reverse, resolve
 from checkout import apps
+from checkout.views import checkout, cache_checkout_data
+from checkout.webhooks import webhook
 
 
 class TestCheckout(TestCase):
@@ -20,3 +23,24 @@ class TestCheckout(TestCase):
         Test to make sure the app is configured correctly
         '''
         self.assertEqual(apps.CheckoutConfig.name, 'checkout')
+
+    def test_checkout_url_is_resolved(self):
+        '''
+        Test to check checkout urls.py configured correctly
+        '''
+        url = reverse('checkout')
+        self.assertEquals(resolve(url).func, checkout)
+
+    def test_webhook_url_is_resolved(self):
+        '''
+        Test to check webhook urls.py configured correctly
+        '''
+        url = reverse('webhook')
+        self.assertEquals(resolve(url).func, webhook)
+
+    def test_cache_checkout_data_url_is_resolved(self):
+        '''
+        Test to check cache_checkout_data urls.py configured correctly
+        '''
+        url = reverse('cache_checkout_data')
+        self.assertEquals(resolve(url).func, cache_checkout_data)

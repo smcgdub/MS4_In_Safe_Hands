@@ -2,6 +2,10 @@ from django.test import TestCase
 from reviews import apps
 from django.contrib.auth.models import User
 from .forms import ProductReviewForm
+from django.urls import reverse, resolve
+from reviews.views import add_review, edit_review, delete_review
+
+
 # from django.test import Client
 
 
@@ -20,6 +24,27 @@ class Reviews(TestCase):
         self.assertRedirects(response,
                              '/accounts/login/?next=/reviews/add_review/')
 
+    def test_add_review_url_is_resolved(self):
+        '''
+        Test to check add review urls.py configured correctly
+        '''
+        url = reverse('add_review')
+        self.assertEquals(resolve(url).func, add_review)
+
+    def test_edit_review_url_is_resolved(self):
+        '''
+        Test to check edit review urls.py configured correctly
+        '''
+        url = reverse('edit_review', args=[1])
+        self.assertEquals(resolve(url).func, edit_review)
+
+    def test_delete_review_url_is_resolved(self):
+        '''
+        Test to check delete review urls.py configured correctly
+        '''
+        url = reverse('delete_review', args=[1])
+        self.assertEquals(resolve(url).func, delete_review)
+
     def test_reviews_apps_configuration(self):
         '''
         Test to make sure the app is configured correctly
@@ -33,6 +58,7 @@ class Reviews(TestCase):
         }
         User.objects.create_user(**self.credentials)
 
+    # This test is failing and need to find out why
     def test_review_form_all_fields_completed(self):
         '''
         A test to confirm that the form is valid if all the fields are \

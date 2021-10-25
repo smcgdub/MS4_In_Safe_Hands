@@ -1,13 +1,14 @@
 from django.test import TestCase
 from .forms import ContactMessagesForm
 from contact_us import apps
+from django.urls import reverse, resolve
+from contact_us.views import contact_us
 
 
 class TestContactMessagesForm(TestCase):
     '''
     Tests to be carried out on the registered/logged in users contact form
     '''
-
     def test_contact_us_page(self):
         '''
         Test to confirm correct contact us template page is rendering
@@ -15,6 +16,13 @@ class TestContactMessagesForm(TestCase):
         response = self.client.get('/contact_us/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'contact_us/contact_us.html')
+
+    def test_contact_us_url_is_resolved(self):
+        '''
+        Test to check contact us urls.py configured correctly
+        '''
+        url = reverse('contact_us')
+        self.assertEquals(resolve(url).func, contact_us)
 
     def test_contact_us_form_sender_required(self):
         '''
