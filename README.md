@@ -76,6 +76,8 @@ In Safe Hands was created and built by Stephen Mc Govern as my 4th and final mil
 * 8.3 - Paypal Payment Option
 * 8.4 - Wishlist
 * 8.5 - Sort by price functionality
+* 8.6 - Dark Mode
+* 8.7 - Shopping Cart
 
 ### **9. Disclaimer** ###
 * 9.0 Disclaimer on project
@@ -1326,6 +1328,11 @@ If you need to reach me i can be contacted via the three methods below:<br>
 <br>
 
 ![Image of contact us in dark mode](media/readme_images/contact_us_dark_mode.png)
+
+
+#### **8.7 - The Shipping Cart** ####
+
+* On smaller screens such as small mobile devices the user will currently have to side scroll to view all the shopping cart items. Unfortunately due to the project submission deadline i didn't have the time to redesign this so its a better layout on mobile devices. It is noted here as it is something i aim to develop at a later date. The functionality of the cart is not effected and its a purely asthenic change, but one i think would make the site more user friendly. 
 
 </details>
 

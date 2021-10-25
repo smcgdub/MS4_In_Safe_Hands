@@ -42,15 +42,15 @@
 * The results from the test were as follows:<br>
 
 **On all pages warning** 
-* On all pages on th site the HTML checker highlights a warning saying an error saying there is a duplicate of the id "user-options" however this is incorrect and can be ignored. This item is showing in the My Account dropdown in the base.html file and also the mobile-top-header.html file. These are the same items however one of them is for the desktop and one is for the mobile. They both have the exact same functionality and are the same item. There is no effect on the functionality of the site and i have noted this here in the readme to note i am aware of it.   
+* On all pages on th site the HTML checker highlights a warning saying an error saying there is a duplicate of the id "user-options" however this is incorrect and can be ignored. This item is showing in the My Account dropdown in the base.html file and also the mobile-top-header.html file. These are the same items however one of them is for the desktop and one is for the mobile. They both have the exact same functionality and are the same item. There is no effect on the functionality of the site and i have noted this here in the readme to note i am aware of it.<br>
 
-1. Homepage (home/templates/home/index.html)
+**1. Homepage (home/templates/home/index.html)**
+* Apart from the warning message at the top of this section all the HTML passes with no errors.
+
+**2. Products logged in and none logged in user(products/templates/products/products.html)**
 * Apart from the warning message at the top of this section all the HTML passes with no errors. 
 
-2. Products logged in and none logged in user (products/templates/products/products.html)
-* Apart from the warning message at the top of this section all the HTML passes with no errors. 
-
-3. Product details logged in and none logged in user (products/templates/products/product_details.html)
+**3. Product details logged in and none logged in user (products/templates/products/product_details.html)**
 * The warning message at the top of this section is on this page. There is also 1 other error displaying (Screenshot below) however this is incorrect.
 
 ![Image of product details page error](/media/readme_images/product_details_error_p.png)
@@ -58,16 +58,16 @@
 
 * When i check my code i can see there is an opening <p> tag on line 160. This error from the HTML checker has been noted here to say i am aware of it but there is a matching <p> opening tag to the </p>
 
-4. About us (about_us/templates/about_us/about_us.html)
+**4. About us (about_us/templates/about_us/about_us.html)**
 * Apart from the warning message at the top of this section all the HTML passes with no errors. 
 
-5. Covid Info details logged in and none logged in user (covid_numbers/templates/covid_numbers/covid_numbers.html)
+**5. Covid Info details logged in and none logged in user (covid_numbers/templates/covid_numbers/covid_numbers.html)**
 * Apart from the warning message at the top of this section all the HTML passes with no errors. 
 
-6. Contact us none logged in user (contact_us/templates/contact_us/contact_us.html)
+**6. Contact us none logged in user (contact_us/templates/contact_us/contact_us.html)**
 * Apart from the warning message at the top of this section all the HTML passes with no errors. 
 
-7. Contact us logged in user (contact_us/templates/contact_us/contact_us.html)
+**7. Contact us logged in user (contact_us/templates/contact_us/contact_us.html)**
 * The warning message at the top of this section is on this page. 
 * At the top of the registered users priority messaging service there is an input box that is disabled. This input field is so when a registered user sends a priority message to the site the admin can tell who the message came from, the same way an email display's who an email is from. 
 
@@ -77,10 +77,25 @@
 
 * The HTML checker is saying there is an error as a placeholder can only be used on certain fields. I checked with tutor support when developing this feature and they said the current way this is set is fine. This highlighted error in no way effects the functionality of the site and tutor support helped me to get this feature working. I have highlighted it here in the testing to say i am aware of it. 
 
-7. Signup (templates/allauth/account/signup.html)
+**8. Signup (templates/allauth/account/signup.html)**
 * Apart from the warning message at the top of this section all the HTML passes with no errors. 
 
-7. Login (templates/allauth/account/login.html)
+**9. Login (templates/allauth/account/login.html)**
+* Apart from the warning message at the top of this section all the HTML passes with no errors. 
+
+**10. Cart (cart/templates/cart/cart.html)**
+* Apart from the warning message at the top of this section all the HTML passes with no errors. 
+
+**11. Checkout (checkout/templates/checkout/checkout.html)**
+* Apart from the warning message at the top of this section all the HTML passes with no errors. 
+
+**12. Checkout Success (checkout/templates/checkout/checkout_success.html)**
+* Apart from the warning message at the top of this section all the HTML passes with no errors. 
+
+**12. User Profile (profiles/templates/profiles/profiles.html)**
+* Apart from the warning message at the top of this section all the HTML passes with no errors. 
+
+**13. Password Reset (templates/aullauth/account/password_reset.html)**
 * Apart from the warning message at the top of this section all the HTML passes with no errors. 
 
 <hr>
@@ -96,16 +111,16 @@
 #### **1.3 JavaScript Code Validating** ####
 * The testing for the script.js file was carried out on [JShint.com](https://jshint.com/) The results from the test were as follows:<br>
 
-1. cart/templates/cart/cart.html
+**1. cart/templates/cart/cart.html**
 * Results: The JavaScript at the bottom of this file is passing in JShint with no errors. 
 
-2. stripe_elements.js file
+**2. stripe_elements.js file**
 * Results: JShint is saying that the code on line 3 `var stripe = Stripe(stripePublicKey);` Stripe (with the capital letter) is undefined. This code however is taken from the Stripe official docs so i have noted this here but the code is correct according to the stripe docs. 
 
-3. products/templates/products/includes/quantity_input_script.html
+**3. products/templates/products/includes/quantity_input_script.html**
 * Results: The JavaScript in this file is passing in JShint with no errors.
 
-4. templates/base.html
+**4. templates/base.html**
 * Results: The JavaScript in this file is passing in JShint with no errors.
 
 <hr>
@@ -156,7 +171,7 @@ This has resolved the line length issue and I have tested the site after this ad
 
 #### **1.5 Django Tests** ####
 
-* I have created automated Django tests in each django app in this project. The tests can be found in the tests.py file in each app. You can also run the django tests in the terminal by typing in the terminal ``
+* I have created automated Django tests in each django app in this project. The tests can be found in the tests.py file in each app. You can also run the django tests in the terminal by typing in the terminal `python3 manage.py test`
 
 </details>
 <hr>
@@ -333,8 +348,15 @@ On pages where i have encountered this issue i have added a `<br>` element at th
 </strong></summary>
 <br>
 
-* 3.1 Chrome Dev Tools
-* 3.2 Responsive Design Checker
+**3.1 Chrome Dev Tools**
+* I have checked the site on google dev tools for responsiveness on screen sizes ranging from a maximum size of 1870px X 767px down to a minimum of 320px X 480px. The site is functioning as intended. 
+
+**3.2 Responsive Design Checker**
+I have also checked the site on the website [Responsive Design Checker](https://responsivedesignchecker.com/) on all of the pages that are available and the site is functioning as intended. 
+
+**NOTE** 
+* The cart on my site isn't as mobile friendly as i would like it to be. Users on smaller screens will have to side scroll which isn't ideal, but the functionality is there. I will address the layout of this page at a later date. Check section 8 of the readme.md features to develop.
+
 </details>
 <hr>
 
