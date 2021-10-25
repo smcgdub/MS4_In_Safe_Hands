@@ -56,7 +56,10 @@
 ![Image of product details page error](/media/readme_images/product_details_error_p.png)
 ![Image of product details page error](/media/readme_images/product_details_error_p_code.png)
 
-* When i check my code i can see there is an opening <p> tag on line 160. This error from the HTML checker has been noted here to say i am aware of it but there is a matching <p> opening tag to the </p>
+* When i check my code i can see there is an opening `<p>` tag on line 160. This error from the HTML checker has been noted here to say i am aware of it but there is a matching `<p>` opening tag to the `</p>`
+
+![Image of product details page error](/media/readme_images/product_details_error_p_code_2.png)
+
 
 **4. About us (about_us/templates/about_us/about_us.html)**
 * Apart from the warning message at the top of this section all the HTML passes with no errors. 
@@ -352,7 +355,7 @@ On pages where i have encountered this issue i have added a `<br>` element at th
 * I have checked the site on google dev tools for responsiveness on screen sizes ranging from a maximum size of 1870px X 767px down to a minimum of 320px X 480px. The site is functioning as intended. 
 
 **3.2 Responsive Design Checker**
-I have also checked the site on the website [Responsive Design Checker](https://responsivedesignchecker.com/) on all of the pages that are available and the site is functioning as intended. 
+* I have also checked the site on the website [Responsive Design Checker](https://responsivedesignchecker.com/) on all of the pages that are available and the site is functioning as intended. 
 
 **NOTE** 
 * The cart on my site isn't as mobile friendly as i would like it to be. Users on smaller screens will have to side scroll which isn't ideal, but the functionality is there. I will address the layout of this page at a later date. Check section 8 of the readme.md features to develop.

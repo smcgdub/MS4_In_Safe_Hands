@@ -1309,7 +1309,15 @@ If you need to reach me i can be contacted via the three methods below:<br>
 3. If yes: remove it from the wish list 
 4. If no: add it to wishlist 
 
-* Effectively we are just creating an IF statement. Clicking the button will change display depending on wishlist ("Add to wishlist" if not in the list, "remove from wishlist" if it is in the wishlist)
+* Effectively we are just creating an IF statement. Clicking the button will change display depending on wishlist ("Add to wishlist" if not in the list, "remove from wishlist" if it is in the wishlist) I had begun this feature but didn't want to leave none functioning code in the project during assesement so i have listed below the code i had been working on so far.
+
+`{% if user.is_authenticated %}`<br><br>
+`<span class="horiz-bar">| </span>`<br>
+`<a href="{% url 'add_to_wishlist' product.id %}" class="btn px-0 py-0" role="button">`<br>
+&nbsp; `<i class="fas fa-heart"></i>`<br>
+`</a>`<br>
+`<span class="horiz-bar"> |</span>`<br><br>
+`{% endif %}`<br>
 
 #### **8.5 - Sort By Price Functionality** ####
 

@@ -11,21 +11,20 @@
 
 <!-- Page container-fluid -->
 <div class="container-fluid">
-  <!-- Signup Banner -->
+  <!-- Sign up Banner -->
   <div class="row">
     <div class="col text-center my-auto px-0">
       <h4 class="page_top_banner text-uppercase text-dark pt-2 mb-2">SIGN UP
       </h4>
     </div>
   </div>
-
   <!-- Field Inputs Container -->
   <div class="container text-left">
     <h2 class="mb-0 mt-3 text-center">{% trans "Sign Up" %}</h2>
-
+    <!-- Sign in prompt -->
     <p class="text-center">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign
         in</a>.{% endblocktrans %}</p>
-
+    <!-- Sign up form -->
     <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
       {% csrf_token %}
       {{ form|crispy }}
@@ -37,5 +36,4 @@
   </div>
 </div>
 <br>
-
 {% endblock %}
