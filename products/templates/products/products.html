@@ -74,11 +74,11 @@
               <span class="horiz-bar">|</span></li>
             {% endif %}
             {% if request.user.is_superuser %}
-            <span class="text-center mt-1">
+            <li class="list-group-item text-center mt-1">
               <a class="text-decoration-none" href="{% url 'edit_product' product.id %}">Edit |</a>
               <a onclick="return confirm('Sure you want to delete?')" class="text-decoration-none text-danger"
                 href="{% url 'delete_product' product.id %}">Delete</a>
-            </span>
+            </li>
             {% endif %}
           </ul>
         </div>
