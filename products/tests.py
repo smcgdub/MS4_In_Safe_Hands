@@ -1,9 +1,11 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
-from products import apps
-from .models import Product, Category
 from django.urls import reverse, resolve
-from products.views import all_products, delete_product, product_details, add_product, edit_product
+from products import apps
+from products.views import (
+    all_products, delete_product, product_details, add_product, edit_product)
+from .models import Product, Category
+
 
 # from django.test.client import Client
 
@@ -73,7 +75,7 @@ class TestProducts(TestCase):
         response = self.client.post('/products/add/')
         self.assertRedirects(response, '/accounts/login/?next=/products/add/')
 
-        # This test is failing and needs adjusting
+    # This test is failing and needs adjusting
     # def test_editing_a_product(self):
     #     '''
     #     Test to confirm if a none superuser attempts to access the edit \
@@ -82,7 +84,8 @@ class TestProducts(TestCase):
     #     product = Product.objects.create(price=1, name='Test product')
     #     response = self.client.get(f'/products/edit/{product.id}/')
     #     # self.assertEqual(response.status_code, 302)
-    #     self.assertRedirects(response, '/accounts/login/?next=/products/edit/{product.id}/')
+    #     self.assertRedirects(response,
+    #         '/accounts/login/?next=/products/edit/{product.id}/')
 
     def test_products_apps_configuration(self):
         '''

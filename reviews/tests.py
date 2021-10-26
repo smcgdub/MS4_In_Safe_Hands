@@ -64,8 +64,9 @@ class Reviews(TestCase):
     #     A test to confirm that the form is valid if all the fields are \
     #     completed
     #     '''
-    #     # response = self.client.post('/login/', self.credentials, follow=True)
-    #     # self.assertTrue(response.context['user'].is_authenticated)
+    #     response = self.client.post(
+    #         '/login/', self.credentials, follow=True)
+    #     self.assertTrue(response.context['user'].is_authenticated)
 
     #     form = ProductReviewForm({
     #                              'review_title': 'review_title',

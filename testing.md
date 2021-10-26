@@ -140,26 +140,51 @@
 
 * <strong>Results:</strong> All of the python code has passed the pep8 checks. There are however some lines of code that showed up during flake8 testing that have showed up as needing adjusting. Some of these items from Flake8 i have ignored, the reason for each of these can be found below:
 
-1. Main settings.py file - Some of the lines are highlighted as to long, however the code highlighted was created when i created the project and are the set up settings Django created, therefore i will be ignoring these as i did not write them and don't want to adjust them if they were automatically set up this way. 
+1. Main settings.py file - Some of the lines are highlighted as being greater than 79 characters, however the code highlighted was created when i created the project and are the set up settings Django created, therefore i will be ignoring these as i did not write them and don't want to adjust them if they were automatically set up this way. 
 
-2. Some of the app files that i didn't do any coding in, for example about_us/admin.py Flake8 is saying `'django.contrib.admin' imported but unused` Again i am aware of these notifications but i have chosen to leave the file as is rather than delete it or have a blank file. 
+2. Some of the app files that i didn't do any coding in, for example about_us/admin.py Flake8 is saying `'django.contrib.admin' imported but unused` Again i am aware of these notifications but i have chosen to leave the file in place is rather than delete it or have a blank file. 
+
+3. Finally the bulk of the Flake 8 items highlighted are from files that are automatically generated such as migrations. Again i will be leaving these and not adjusting them as they were not created by me and are run this way by Django.
+
+* The remainder of the items highlighted can be seen below:
 
 <hr>
 
-3. Checkout > models.py > line 69<br>
+4. Reviews > forms.py > line 2: `django.forms.ModelForm' imported but unused`
 
-`self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100`
+* Im unsure why this is displaying as ModelForm is used in my code on line 7: `class ProductReviewForm(forms.ModelForm):`
+
+* I am aware of this in Flake 8 and have left it as it is.
+
+5. Home > tests.py line 1: `django.test.Client imported but unused`
+* Im unsure why this is displaying as i have used client in my code `response = self.client.get('')`. I am aware of this in Flake 8 and have left that file as it is.
+
+6. Contact Us > models.py > line 2: `django.forms' imported but unused`
+
+* I have left this in place as that model is the priority messages model and that is a form people use to send priority messages to the site. I am aware of this in Flake 8 and have left that file as it is.
+
+7. Contact us > forms.py > line 2: `django.forms.ModelForm' imported but unused`
+
+* Im not sure why this is displaying as i do use ModelForm in my code on line 7: `class ContactMessagesForm(forms.ModelForm):` 
+* I am aware of this in Flake 8 and have left that file as it is.
+
+8. Checkout > webhooks.py > line 43 `'payment_intent.payment_failed': handler.handle_payment_intent_payment_failed,`
+
+* I have looked at adjusting this but was getting syntax errors when i tried. As my project deadline in a few hours i have noted here that i am aware of it and will work to resolve it at a later date.  
+
+9. Checkout > models.py > line 69: `self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100`
 
 * I have tried to place a pair of parentheses after the = and split this line into 2 lines as you can line break after the parentheses<br>
 
 `self.delivery_cost = (`<br>
 &nbsp; &nbsp; &nbsp;`self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100)`
 
-* However that still leaves the line as 80 characters once you allow for the correct indentation therefore i have left it as one single line. It is something i am aware of but leaving this line as one line doesn't effect the functionality of the site so i have noted here int he readme i am aware of it but have left it as it is on one line.<br>
+* However that still leaves the line as 80 characters once you allow for the correct indentation therefore i have left it as one single line. It is something i am aware of but leaving this line as one line doesn't effect the functionality of the site so i have noted here int he readme i am aware of it but have left it as it is on one line.
 
-<hr>
+10. Checkout > apps.py Line 9: `checkout.signals imported but unused`
+* This code i followed as part of the boutique ado tutorial as part of the checkout configuration and it is necessary for the functionality of the site. I have noted here i am aware of it but have left it as it is.  
 
-4. Products > views.py > line 58<br>
+12. Products > views.py > line 58<br>
 
 `queries = Q(name__icontains=query) | Q(description__icontains=query)`
 
@@ -172,13 +197,13 @@
 
 <hr>
 
-5. Reviews > forms.py > ModelForm imported but unused
+13. Reviews > forms.py > ModelForm imported but unused
 
 * This is incorrect as the ModelForm is part of my ProductReviewForm code. I have noted it here i am aware of it in Flake but have left it. 
 
 <hr>
 
-6. Products > widgets.py > line 9<br>
+14. Products > widgets.py > line 9<br>
 
 `template_name = 'products/custom_widget_templates/custom_clearable_file_input.html'`
 
