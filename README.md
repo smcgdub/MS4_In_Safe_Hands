@@ -940,6 +940,10 @@ What this does is now when the user places and order, if the form doesn't submit
 
 * Only the first and last names are now showing in the first name field. This bug doesn't effect the functionality of the site in any way what so ever and the name issue detailed here only appears on orders where the user closes the browser or the form doesn't submit correctly, which will be in the minority of orders. I will aim to address this issue at a later date for resolution but for now i will leave it as it is as the deadline for this project doesn't allow for any further exploration of solutions.  
 
+**UPDATE:** 
+
+* Upon further testing before submission i also became aware that the issue detailed above with the full name being created in the first name field for webhook orders, it is also happening for anonymous users who don't register or sign into their account when making a purchase. This update is to say i am aware of it but as my deadline for submission is in a few hours i will be leaving this as is and will address it after this project is graded.  
+
 </details>
 
 <hr>
