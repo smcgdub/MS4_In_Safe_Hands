@@ -448,8 +448,8 @@ However on smaller mobile devices and mobile phones the product information will
 
 ![Image of add review page](media/readme_images/add_review.png)
 
-* The field for the reviewer automatically generates the username of the current logged in user. This input field i have disabled so users are not able to adjust or alter it in any way. This was done as a defensive measure to ensure all reviews can be traced to their poster.
-* The reviewed product field is a dropdown menu that lists all of the items currently available in the store. The user can select the product from this menu when creating their review. 
+* The field for the reviewer automatically generates the username of the current logged in user. This input field i have disabled so users are not able to adjust or alter it in any way. This was done as a defensive measure because if you were to leave users to have to input their own username this would eventually lead to human error and incorrect information being entered. Because it auto populates now we can be sure all reviews will have the correct username added to it.
+* The reviewed product field is a dropdown menu that lists all of the items currently available in the store. The user can select the product they wish to review from this menu when creating their review. I may adjust this in the future so when a user clicks on the review this product button this field auto populates with the product name of the item the user has clicked through from.
 
 ![Image of product review dropdown menu](media/readme_images/select_product_for_review.png)
 
@@ -499,9 +499,9 @@ The 2nd part of the criteria on this model is that users must be able to edit a 
 
 #### **2.9 - Contact Us Page & Registered User Messages** ####
 
-* One of the pass criteria for this project was to:<br>
+* One of the other pass criteria for this project was to:<br>
 
-"Create at least 1 form with validation that will allow users to create records in the database (In addition ot the authentication mechanism").
+* "Create at least 1 form with validation that will allow users to create records in the database (In addition ot the authentication mechanism").
 * The feature i have chosen to meet this requirement is a priority messaging service. One of the main goals of any e-commerce site is to get as many people as possible signed up and spending money. A site should always be pushing for users to sign up and register, even if they don't buy something on the first visit (They could be on the site to use the covid numbers feature listed above) because it still allows the site owner to build their user database and email market to these registered users at a later date. 
 * If an unregistered user logs onto the site and navigates to the contact us page, they will see the company contact details as you would normally expect, below that they will see a message explaining about the registered users priority messages function and also a link for customers to sign up or log in (screenshot below) 
 
@@ -520,19 +520,19 @@ On the form the logged in user will see the following visible fields:
 The model for this form can be found below:
 
 `class ContactMessages(models.Model):`<br>
-    `sender = models.ForeignKey(UserProfile, on_delete=models.CASCADE, null=True, blank=True)`<br>
-    `subject = models.CharField(max_length=80, null=False, blank=False)`<br>
-    `message = models.TextField(max_length=3000, null=False, blank=False)`<br>
-    `date = models.DateTimeField(auto_now_add=True, editable=False)`<br>
-    `contact_email = models.EmailField(max_length=254, null=True, blank=True)`<br>
+&nbsp;&nbsp;`sender = models.ForeignKey(UserProfile, on_delete=models.CASCADE, null=True, blank=True)`<br>
+&nbsp;&nbsp;`subject = models.CharField(max_length=80, null=False, blank=False)`<br>
+&nbsp;&nbsp;`message = models.TextField(max_length=3000, null=False, blank=False)`<br>
+&nbsp;&nbsp;`date = models.DateTimeField(auto_now_add=True, editable=False)`<br>
+&nbsp;&nbsp;`contact_email = models.EmailField(max_length=254, null=True, blank=True)`<br>
     <br>
     # This will correct the spelling in Django admin to the correct plural spelling<br>
     `class Meta:`<br>
-        `verbose_name_plural = 'Contact Messages'`<br>
+    &nbsp;`verbose_name_plural = 'Contact Messages'`<br>
     <br>
     # Renames the instance of the ContactMessages model with the ContactMessages name
     `def __str__(self):`<br>
-        `return self.subject`<br>
+    &nbsp;`return self.subject`<br>
 
 * The `sender` (Message From:) field is automatically generated depending on which user is logged in to the site. I have also made this input field disabled so the user can not adjust or alter it, this is to ensure that every message can be attached to a specific registered site user. For a better user experience the disabled feature also stops the user clicking on the name and a highlight box appearing and creating the impression the user can adjust the field. 
 * The `subject`, `message` and `email` field are self explanatory. I also have a `date & time` field which is not displayed to the user.
@@ -540,12 +540,16 @@ The model for this form can be found below:
 
 ![Image of registered messages in Django](media/readme_images/django_user_message.png)
 
-As you can see they are displayed just like an incoming email would be displayed. When the site administrator clicks on the message they will see it in full, again with all of the information below on display. 
+* As you can see they are displayed just like an incoming email would be displayed. When the site administrator clicks on the message they will see it in full, again with all of the information below on display. 
 <br>
 
 ![Image of registered messages opened in Django](media/readme_images/django_user_message2.png)
 
-This allows the site owner to keep a record of any messages sent on the site from registered users. The main drive for this is to encourage registered users to message the store through the message facility on the website and not just via an email. This in tandem with the Covid Numbers data is done to encourage users of the site to return to it as regularly as possible. The more people that are visiting the site, the more the odds increase that the user may decide to spend some money while they are on the site. 
+* This allows the site owner to keep a record of any messages sent on the site from registered users. The main drive for this is to encourage registered users to message the store through the message facility on the website and not just via an email. This in tandem with the Covid Numbers data is done to encourage users of the site to return to it as regularly as possible. The more people that are visiting the site, the more the odds increase that the user may decide to spend some money while they are on the site. 
+
+**FUTURE DEVELOPMENT** 
+* As a future feature i would like to expand upon this and try and develop it as a 2 way messaging service as opposed to its current set up as a one way feature. This was beyond the scope of what i was able to achieve in the time frame allowed for this project but it is a feature i would like to build upon. 
+
 <hr>
 
 #### **2.10 - The Profile Page** ####
@@ -680,7 +684,7 @@ NOTE ON SHIPPING ADDRESS:
 
 * For now in this project the shipping and billing address are the same. I future i would like to develop the option for the registered users to be able to add multiple shipping & billing addresses. However due to time constraints and a rapidly approaching deadline on this project it is a feature i will have ot develop at a later date.
 
-#### **2.14 - Stripe continued - Webhooks ** ####
+#### **2.14 - Stripe continued - Webhooks** ####
 
 * In this project i also incorporated the use of Stripe Webhooks. Webhooks in ths project are used for when a user places and order and presses the pay now button, and the either intentionally or unintentionally closes the browser, or if the form fails to submit correctly. If that is the case the order will still be placed and show up in Django, and all of the payment details will still be delivered into our stripe account. 
 * Webhooks prevent a user placing an order on the site, their browser closing intentionally or unintentionally, they user being billed and not receiving their items, which is not what you want to have happen as a store owner.
@@ -691,7 +695,7 @@ NOTE ON SHIPPING ADDRESS:
 
 #### **2.15 - Sign Up & Real Emails** ####
 
-* If a uer wishes to become a registered user on the site they can do so in a matter of minutes. The step by step process is:
+* If a user wishes to become a registered user on the site they can do so in a matter of minutes. The step by step process is:
 1. Click on the My Account icon in the top right and side of the page on desktop or in the top row on mobile, from the drop down menu click on Register.
 2. On the sign up page the user will be asked for their email address, to create their own username, and to enter a password of their choosing.
 

@@ -22,7 +22,7 @@ def cache_checkout_data(request):
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
-        print("client_secret", pid)
+        # print("client_secret", pid)
         stripe.PaymentIntent.modify(pid, metadata={
             'cart': json.dumps(request.session.get('cart', {})),
             'save_info': request.POST.get('save_info'),
@@ -91,7 +91,7 @@ def checkout(request):
                     return redirect(reverse('view_cart'))
             # If form posted successfully redirect to checkout success page
             request.session['save_info'] = 'save-info' in request.POST
-            print(form_data)
+            # print(form_data)
             return redirect(reverse('checkout_success',
                                     args=[order.order_number]))
         # Error message if form is filled out incorrect
@@ -121,7 +121,7 @@ def checkout(request):
         )
 
         # Print the intent to the console
-        print(intent)
+        # print(intent)
 
         # Auto populate the delivery details if the user is authenticated
         if request.user.is_authenticated:
@@ -135,21 +135,21 @@ def checkout(request):
                     'eircode': profile.default_eircode,
                     'country': profile.default_country,
                 })
-                print("Authenticated user form pre populated with previously \
-                      saved details - checkout views.py")
+                # print("Authenticated user form pre populated with previously \
+                #       saved details - checkout views.py")
             # User profile doesn't exist
             except UserProfile.DoesNotExist:
-                print("User profile doesn't exist so blank form generated \
-                      - checkout views.py")
+                # print("User profile doesn't exist so blank form generated \
+                #       - checkout views.py")
                 order_form = OrderForm()
         # If user isn't authenticated generate a blank form
         else:
-            print("User isn't authenticated so blank form generated \
-                  - checkout views.py")
+            # print("User isn't authenticated so blank form generated \
+            #       - checkout views.py")
             order_form = OrderForm()
 
     if not stripe_public_key:
-        print("Stripe public key is missing - checkout views.py")
+        # print("Stripe public key is missing - checkout views.py")
         messages.warning(request, 'Stripe public key is missing!')
 
     template = 'checkout/checkout.html'

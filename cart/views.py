@@ -27,12 +27,12 @@ def add_to_cart(request, item_id):
         cart[item_id] += quantity
         messages.success(request, f'Quantity of {product.name} in cart is \
                                     now {cart[item_id]} \U0001F44D')
-        print("Product quantity updated from product details page")
+        # print("Product quantity updated from product details page")
     else:
         # Add to cart
         cart[item_id] = quantity
         messages.success(request, f'{product.name} added to cart \U0001F44D ')
-        print("Product added to cart for first time from product details page")
+        # print("Product added to cart for first time from product details page")
 
     request.session['cart'] = cart
     return redirect(redirect_url)
@@ -49,7 +49,7 @@ def update_cart(request, item_id):
     # If there is more than 1 item in the cart adjust the order
     if quantity > 0:
         cart[item_id] = quantity
-        print("Product quantity update from shopping cart")
+        # print("Product quantity update from shopping cart")
         messages.success(request, f'Quantity of {product.name} in cart is \
                                     now {cart[item_id]} \U0001F44D')
     else:
@@ -71,11 +71,11 @@ def remove_from_cart(request, item_id):
         messages.success(request, f'{product.name} removed from cart \
                                     \U0001F44D')
         request.session['cart'] = cart
-        print("Product removed from shopping cart from the cart page")
+        # print("Product removed from shopping cart from the cart page")
         return redirect(reverse('view_cart'))
 
     except Exception as e:
         messages.error(request, f'Oops! There was an error removing {e} \
                                   from the cart \U0001F62C ')
-        print("Error removing item from cart page")
+        # print("Error removing item from cart page")
         return redirect(reverse('view_cart'))

@@ -21,26 +21,26 @@ def contact_us(request):
     if request.method == 'POST':
         messages_form = ContactMessagesForm(request.POST)
         sender = UserProfile.objects.get(user=request.user)
-        print(sender)
+        # print(sender)
 
         if messages_form.is_valid():
             try:
-                print("ENTERING TRY BLOCK")
+                # print("ENTERING TRY BLOCK")
                 messages_form.save()
-                print("SAVING TO DB")
+                # print("SAVING TO DB")
                 messages.success(request, "Your message to us has been \
                                            successfully sent. We will be in \
                                            contact as soon as possible")
                 return redirect(reverse('home'))
             except Exception as e:
                 # Edited by Jo
-                print("Error in try except block: ", e)
+                # print("Error in try except block: ", e)
                 messages.error(request, "There was an error sending your \
                                          message, please try to send it \
                                          again")
                 return redirect(reverse('contact_us'))
         else:
-            print("Error from is form valid else block")
+            # print("Error from is form valid else block")
             messages.error(request, "There was an error sending your \
                                      message, please try to send it again")
             return redirect(reverse('contact_us'))
