@@ -1347,7 +1347,7 @@ If you need to reach me i can be contacted via the three methods below:<br>
 ![Image of contact us in dark mode](media/readme_images/contact_us_dark_mode.png)
 
 
-#### **8.7 - The Shipping Cart** ####
+#### **8.7 - The Shopping Cart** ####
 
 * On smaller screens such as small mobile devices the user will currently have to side scroll to view all the shopping cart items. Unfortunately due to the project submission deadline i didn't have the time to redesign this so its a better layout on mobile devices. It is noted here as it is something i aim to develop at a later date. The functionality of the cart is not effected and its a purely asthenic change, but one i think would make the site more user friendly. 
 
