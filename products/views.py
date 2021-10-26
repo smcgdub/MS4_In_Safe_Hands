@@ -184,7 +184,6 @@ def delete_product(request, product_id):
     '''
     Function for deleting a product from the store
     '''
-
     # If the user is not a superuser, display error message and redirect them
     # to the homepage
     if not request.user.is_superuser:

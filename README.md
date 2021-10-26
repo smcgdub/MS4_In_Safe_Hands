@@ -254,16 +254,17 @@ In Safe Hands was created and built by Stephen Mc Govern as my 4th and final mil
 
 <strong>Products/Models/`UserProfile`:</strong>
 
-| Name              | Database Key | Field Type   | Type Validation                                                |
-|-------------------|--------------|--------------|----------------------------------------------------------------|
-| Category          | category     | ForeignKey   | `'Category', null=True, blank=True, on_delete=models.SET_NULL` |
-| Product Id        | p_id         | CharField    | `max_length=200, null=True, blank=True`                        |
-| Name              | name         | CharField    | `max_length=200`                                               |
-| Description       | description  | TextField    |                                                                |
-| Price             | price        | DecimalField | `max_digits=6, decimal_places=2`                               |
-| Protection Rating | rating       | DecimalField | `max_digits=6, decimal_places=2, null=True, blank=True`        |
-| Image URL         | image_url    | URLField     | `max_length=1024, null=True, blank=True`                       |
-| Image             | image        | ImageField   | `null=True, blank=True`                                        |
+| Name                     | Database Key            | Field Type    | Type Validation                                       |
+|--------------------------|-------------------------|---------------|-------------------------------------------------------|
+| User                     | user                    | OneToOneField | `User, on_delete=models.CASCADE`                      |
+| Default Email            | default_email           | EmailField    | `max_length=254, null=True, blank=True`               |
+| Default Phone number     | default_phone_number    | CharField     | `max_length=20, null=True, blank=True`                |
+| Default Street Address 1 | default_street_address1 | CharField     | `max_length=80, null=True, blank=True`                |
+| Default Street Address 2 | default_street_address2 | CharField     | `max_length=80, null=True, blank=True`                |
+| Default Town Or City     | default_town_or_city    | CharField     | `max_length=40, null=True, blank=True`                |
+| Default County           | default_county          | CharField     | `max_length=80, null=True, blank=True`                |
+| Default Eircode          | default_eircode         | CharField     | `max_length=20, null=True, blank=True`                |
+| Default Country          | default_country         | CountryField  | `blank_label='Select Country', null=True, blank=True` |                                       |
 
 <br>
 
@@ -1162,7 +1163,7 @@ What this does is now when the user places and order, if the form doesn't submit
 
 10. You will need to install all od the requirements in the requirements.txt file by running the command `pip3 install -r requirements.txt`
 
-11. You will also need to set up the below environment variables for the project to work. These are enviroment variables that will be unique to you and not the same as mine. 
+11. You will also need to set up the below environment variables for the project to work. These are environment variables that will be unique to you and not the same as mine. 
 
 > DJANGO_SECRET_KEY = your secret key<br>
 > STRIPE_PUBLIC_KEY = your stripe public key<br>
@@ -1298,7 +1299,7 @@ If you need to reach me i can be contacted via the three methods below:<br>
 <br>
 
 #### **8.1 - Social media login** ####
-* One of the features i will be incorporating at a later date is to enable users to be able to log in using their social media accounts such as Facebook and Google. Because i want to add this feature at a future date i have left the social account folder in the templates/allauth folder rather than delete the folder and files andn then reinstall them all at a later date. This note is to let the assessor know the reason that file and its associated files are there but for now may appear as being unused. 
+* One of the features i will be incorporating at a later date is to enable users to be able to log in using their social media accounts such as Facebook and Google. Because i want to add this feature at a future date i have left the social account folder in the templates/allauth folder rather than delete the folder and files and then reinstall them all at a later date. This note is to let the assessor know the reason that file and its associated files are there but for now may appear as being unused. 
 
 #### **8.2 - Social media share buttons** ####
 * This feature will go on the product details pages, if a user to the site sees an item they like they will have the ability to share this with other people with only a few clicks. 
@@ -1313,7 +1314,7 @@ If you need to reach me i can be contacted via the three methods below:<br>
 3. If yes: remove it from the wish list 
 4. If no: add it to wishlist 
 
-* Effectively we are just creating an IF statement. Clicking the button will change display depending on wishlist ("Add to wishlist" if not in the list, "remove from wishlist" if it is in the wishlist) I had begun this feature but didn't want to leave none functioning code in the project during assesement so i have listed below the code i had been working on so far.
+* Effectively we are just creating an IF statement. Clicking the button will change display depending on wishlist ("Add to wishlist" if not in the list, "remove from wishlist" if it is in the wishlist) I had begun this feature but didn't want to leave none functioning code in the project during assessment so i have listed below the code i had been working on so far.
 
 `{% if user.is_authenticated %}`<br><br>
 `<span class="horiz-bar">| </span>`<br>
@@ -1359,7 +1360,3 @@ If you need to reach me i can be contacted via the three methods below:<br>
 * This website and all of its content was completed for my final assessment project with Code Institute. The site is strictly for educational purposes only, there is no commercial revenue and being generated from the site.
 
 </details>
-
-
-
-&nbsp;
