@@ -8,6 +8,12 @@ In Safe Hands was created and built by Stephen Mc Govern as my 4th and final mil
 
 <hr>
 
+**IMPORTANT NOTE:**
+
+In this project upon submission, in the main settings.py file, Debug is currently set to False, which is a requirement as part of the assessment for this project. If the assessor attempts to run this project in the local environment by running the command `python3 manage.py runserver` and then opening the project in the browser on port 8000 the page will load with no images or css applied. If you wish to see the site in the local environment with all the imagery and css applied then Debug must be set to Debug = True. Open the project and do a hard reset of the browser for the css and images to now render. I have checked with tutor support at Code Institute and they told me that this is normal. I have noted this here just to make sure the assessor is aware of the Debug setting. 
+
+<hr>
+
 ## **Table of contents** ## 
 
 ### **1. User Experience & The 5 Planes Of UX** ###
