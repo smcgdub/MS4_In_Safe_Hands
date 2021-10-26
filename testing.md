@@ -193,7 +193,29 @@
 
 #### **1.5 Django Tests** ####
 
-* I have created automated Django tests in each django app in this project. The tests can be found in the tests.py file in each app. You can also run the django tests in the terminal by typing in the terminal `python3 manage.py test`
+* I have created automated Django tests in each django app in this project. The tests can be found in the tests.py file in each app. You can run all of the django tests in the terminal all at once by running the command `python3 manage.py test` or you can run the tests app by app. To run a specific app test, about us for example,  you would run the command `python3 manage.py test about_us`
+
+**NOTE:** 
+
+* If you are going to run the Django tests you will need to make an adjustment in the main settings.py file. The current setting for the DATABASE in the settings .py file is currently (Screenshot below)
+
+![Image of databases in settings.py file](/media/readme_images/database_settings.png)
+
+* However if i try and run the tests with that current configuration i get a message in terminal saying `Got an error creating the test database: permission denied to create database`
+
+* I have spoken to tutor support at Code Institute and they said that this may be caused by `DATABASE_URL` being stored as an Environment Variables in my Gitpod. They said i could delete it and it may resolve the testing issue, however that variable is needed for the updating of the postgress database as i am using fixtures files and i use the command `loaddata` to update the postgress database. Tutor support said if the `DATABASE_URL` variable is deleted from my Gitpod Environment Variables then that functionality would cease working. 
+
+* To get the tests running its a simple case of commenting out the if else: block of code like in the screenshot below:
+
+![Image of databases in settings.py file](/media/readme_images/database_settings_2.png)
+
+* and copying and pasting the else part of the code and ensuring correct indentation. The code should look like the code in the screenshot above:
+
+* You can now save the settings.py file, run the tests, and you will see all of them running and the results in terminal, i have around 50 tests written so far. (Screenshot below)
+
+![Image of django test results](/media/readme_images/django_test_results.png)
+
+* My submission deadline for this project is in the next few hours. I would ideally like to spend more time resolving this issue for a better solution however the tutor who was helping me on this said they were unable to think of a solution other than the one listed here and it would be best to just list this in the testing.md document to let the assessor know i am aware of the issue however due to time constraints this is the best solution we could devise with the deadline we have.  
 
 </details>
 <hr>
