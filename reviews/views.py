@@ -26,25 +26,20 @@ def add_review(request):
     if request.method == 'POST':
         review_form = ProductReviewForm(request.POST)
         sender = UserProfile.objects.get(user=request.user)
-        # print(sender)
 
         if review_form.is_valid():
             try:
-                # print("ENTERING TRY BLOCK")
                 review_form.save()
-                # print("SAVING TO DB")
                 messages.success(request, "Success! Your review has been \
                                            added to our website")
                 return redirect(reverse('home'))
             except Exception as e:
-                # print("Error in try except block: ", e)
                 messages.error(request, "There was an error adding your \
                                          review to the site. Please check all \
                                          fields in the form and try again")
                 return redirect(reverse('add_review'))
         else:
             pass
-            # print("Error from is form valid else block in ADD_REVIEW")
 
     template = 'reviews/add_review.html'
     context = {
@@ -72,13 +67,11 @@ def edit_review(request, review_id):
         review_form = ProductReviewForm(request.POST, instance=review)
         if review_form.is_valid():
             review_form.save()
-            # print("EDIT REVIEW POST HAS GONE THROUGH IF FORM IS VALID BLOCK")
             messages.success(request, 'Success! The edit you made to your \
                                        review updated')
             return redirect(reverse('home'))
         else:
             pass
-            # print("Error from is form valid else block in EDIT_REVIEW")
 
     template = 'reviews/edit_review.html'
     context = {
