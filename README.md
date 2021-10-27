@@ -955,6 +955,16 @@ What this does is now when the user places and order, if the form doesn't submit
 
 * Upon further testing before submission i also became aware that the issue detailed above with the full name being created in the first name field for webhook orders, it is also happening for anonymous users who don't register or sign into their account when making a purchase. This update is to say i am aware of it but as my deadline for submission is in a few hours i will be leaving this as is and will address it after this project is graded.  
 
+**7. Shopping Cart Possible Glitch**
+
+**PROBLEM**
+
+* While running last minute tests before project submission i noticed a bit of a glitch. In the shopping cart a user has a chance to update or remove items from the cart. This morning in testing i found i had to press the remove button twice to remove some orders. 
+
+#### **SOLUTION** ####
+
+The issue has now disappeared with further testing. I am not sure why this occurred as i haven't adjusted any of the code. It may be down to an internet issue at my end or maybe a lag with the site? I have noted it here as my project is due for submission in 1 hour but wanted to not the glitch incase it appears during project assessment.
+
 </details>
 
 <hr>
