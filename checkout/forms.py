@@ -29,7 +29,6 @@ class OrderForm(forms.ModelForm):
             'town_or_city': 'Town or City',
             'county': 'County/Locality',
             'eircode': 'Eircode/Postcode',
-            # 'country': 'Country',
         }
 
         # Form will auto start on first name
@@ -43,6 +42,5 @@ class OrderForm(forms.ModelForm):
                     placeholder = placeholders[field]
                 # Set placeholders
                 self.fields[field].widget.attrs['placeholder'] = placeholder
-            # self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             # Labels set to false as they are not being used
             self.fields[field].label = False

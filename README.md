@@ -4,7 +4,7 @@
 
 ## **Introduction** ##
 
-In Safe Hands was created and built by Stephen Mc Govern as my 4th and final milestone project for my fullstack diploma in software development with Code Institute. The website is a Django e-commerce website for a company that provides different types of PPE products and equipment to the general public as well as several COVID-19 specific items. Users of the site are able to purchase products whether they are registered users or if they wish to checkout as a guest. Registered users however benefit from more access to certain features on the site than none registered users. 
+In Safe Hands was created and built by Stephen Mc Govern as my 4th and final milestone project for my fullstack diploma in software development with Code Institute. The website is a Django e-commerce website for a company that provides different types of PPE products and equipment to the general public as well as several COVID-19 specific items. Users of the site are able to purchase products whether they are registered users or if they wish to checkout as a guest. Registered users however benefit from more access to certain features on the site than none registered users.
 
 <hr>
 
@@ -1273,6 +1273,7 @@ All credit belongs to the owner of the image (Air), whose profile can be found [
 
 #### **6.2 Code** ####
 
+* The 2 Django modules supplied by code institute (Hello Django & Boutique Ado) were used as a resource to learn from while producing this project. Credit given to Chris Zielinski at Code Institute for putting together all of the material and tutorial videos.
 * All of the data on the Covid numbers page is provided by Our World In Data. All credit for the charts, map, table and daily statistics goes to Our World Data who allow for the reproduction of this data free of charge once it is credited and the source is listed. The original link to the source of the data can be found by clicking here: https://ourworldindata.org/grapher/daily-covid-cases-deaths?tab=map&country=~OWID_WRL 
 * The payment processing spinner that i used on the checkout page was generated from the website [Loading.io](https://loading.io/) 
 * Loading.io offers both a free and paid service for creating simple animations for users to use on their sites and projects. The icon i used was a free one and is allowed to be used for projects as long as the credit for them is given which i am giving here in this section.  

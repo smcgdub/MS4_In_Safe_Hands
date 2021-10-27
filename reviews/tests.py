@@ -58,25 +58,6 @@ class Reviews(TestCase):
         }
         User.objects.create_user(**self.credentials)
 
-    # This test is failing and need to find out why
-    # def test_review_form_all_fields_completed(self):
-    #     '''
-    #     A test to confirm that the form is valid if all the fields are \
-    #     completed
-    #     '''
-    #     response = self.client.post(
-    #         '/login/', self.credentials, follow=True)
-    #     self.assertTrue(response.context['user'].is_authenticated)
-
-    #     form = ProductReviewForm({
-    #                              'review_title': 'review_title',
-    #                              'reviewed_product': 'reviewed_product',
-    #                              'reviewer': 'reviewer',
-    #                              'review': 'review',
-    #                              'date': 'date',
-    #                              })
-    #     self.assertTrue(form.is_valid())
-
     def test_review_form_required_field_date(self):
         '''
         A test to confirm that date field is required on the product \

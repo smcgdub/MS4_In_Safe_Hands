@@ -116,7 +116,6 @@ class StripeWH_Handler:
             order = None
             try:
                 order = Order.objects.create(
-                    # first_name=shipping_details.name,
                     first_name=shipping_details.name,
                     last_name="",
                     email=billing_details.email,
@@ -139,8 +138,6 @@ class StripeWH_Handler:
                             quantity=item_data,
                         )
                         order_line_item.save()
-                    # else:
-                    #     pass
             except Exception as e:
                 if order:
                     order.delete()

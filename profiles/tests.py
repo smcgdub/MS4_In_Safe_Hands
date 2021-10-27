@@ -1,7 +1,5 @@
 from django.test import TestCase
-# from django.contrib.auth.models import User
 from profiles import apps
-# from .models import UserProfile
 from .forms import UserProfileForm
 from django.urls import reverse, resolve
 from profiles.views import profile, order_history
@@ -59,13 +57,3 @@ class TestProfile(TestCase):
                                })
         self.assertTrue(form.is_valid())
 
-    # def test_login(self):
-    #     self.credentials = {
-    #                 'username': 'testuser',
-    #                 'password': 'secret'}
-    #     User.objects.create_user(**self.credentials)
-
-    # def test_login(self):
-    #     response = self.client.post(
-    #     '/accounts/login/', self.credentials, follow=True)
-    #     self.assertTrue(response.content['user'].is_active)
