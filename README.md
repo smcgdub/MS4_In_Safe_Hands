@@ -969,11 +969,11 @@ The issue has now disappeared with further testing. I am not sure why this occur
 
 **PROBLEM**
 
-* While running last minute tests i became aware of an issue i will need ot resolve at a later date. If a none logged in user tries to access a restricted part of the site they will be diverted back to the login page. However hat i discovered this morning is if i were to go to a users previous order page and copy and paste the url in a browser in incognito mode the order details will show. 
+* While running last minute tests i became aware of an issue i will need to resolve at a later date. If a none logged in user tries to access a restricted part of the site they will be diverted back to the login page. However i discovered this morning is if i were to go to a users previous order page and copy and paste the url into another browser in incognito mode the order details page will load. 
 
 #### **SOLUTION** ####
 
-As my project is due for submission in a few minutes i don't have the time available to resolve this issue however i am noting i am aware of it. However in the real world situation a none registered user would need to get access to a users account and also get their specific order number and then configure the url with that specific order number to view the page. As each order number is a random 32 character string so unless a none registered user can access a users account or email they would not be able to access this order number.
+As my project is due for submission in a few minutes i don't have the time available to resolve this issue however i am noting i am aware of it. However in the real world situation a none registered user would need to get access to a users account, get their specific order number, then configure the url with that specific order number to view the order history page. As each order number is a randomly generated 32 character string it would be impossible to create this unless a none registered user was able to access a users account or their emails.
 
 </details>
 
