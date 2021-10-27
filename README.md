@@ -913,7 +913,7 @@ However on the deployed Heroku site this animation is no longer working.
 
 I resolved this as the original code was pointing at the image at the internal file `src="media/about_us/image.png"`. This needed to be adjusted to the following `src="{{ MEDIA_URL }}about_us.png"`. I also needed ot add `'django.template.context_processors.media',`  to the context_processors in the settings.py file
 
-**6. Stripe Webhooks & Django Orders**
+**7. Stripe Webhooks & Django Orders**
 
 **PROBLEM**
 
@@ -955,7 +955,7 @@ What this does is now when the user places and order, if the form doesn't submit
 
 * Upon further testing before submission i also became aware that the issue detailed above with the full name being created in the first name field for webhook orders, it is also happening for anonymous users who don't register or sign into their account when making a purchase. This update is to say i am aware of it but as my deadline for submission is in a few hours i will be leaving this as is and will address it after this project is graded.  
 
-**7. Shopping Cart Possible Glitch**
+**8. Shopping Cart Possible Glitch**
 
 **PROBLEM**
 
@@ -964,6 +964,16 @@ What this does is now when the user places and order, if the form doesn't submit
 #### **SOLUTION** ####
 
 The issue has now disappeared with further testing. I am not sure why this occurred as i haven't adjusted any of the code. It may be down to an internet issue at my end or maybe a lag with the site? I have noted it here as my project is due for submission in 1 hour but wanted to not the glitch incase it appears during project assessment.
+
+**9. Order History None Logged In Users**
+
+**PROBLEM**
+
+* While running last minute tests i became aware of an issue i will need ot resolve at a later date. If a none logged in user tries to access a restricted part of the site they will be diverted back to the login page. However hat i discovered this morning is if i were to go to a users previous order page and copy and paste the url in a browser in incognito mode the order details will show. 
+
+#### **SOLUTION** ####
+
+As my project is due for submission in a few minutes i don't have the time available to resolve this issue however i am noting i am aware of it. However in the real world situation a none registered user would need to get access to a users account and also get their specific order number and then configure the url with that specific order number to view the page. As each order number is a random 32 character string so unless a none registered user can access a users account or email they would not be able to access this order number.
 
 </details>
 
