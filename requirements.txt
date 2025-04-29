@@ -1,6 +1,6 @@
+setuptools>=65.0.0
 pip>=25.0.1
 wheel>=0.45.1
-setuptools>=65.0.0
 asgiref==3.4.1
 boto3==1.18.65
 botocore==1.21.65
@@ -12,7 +12,7 @@ django-countries==7.2.1
 django-crispy-forms==1.12.0
 django-storages==1.12.2
 gunicorn==20.1.0
-heroku==0.1.4
+# heroku==0.1.4
 jmespath==0.10.0
 oauthlib==3.1.1
 Pillow==8.3.2
